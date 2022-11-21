@@ -1,4 +1,4 @@
-@extends('layout/nav')
+@extends('layout/app')
 
 @section('css')
   <link rel="stylesheet" href="{{ asset('assets/css/fav.css')}}">
@@ -136,8 +136,5 @@
     <a href="" class="next">></a>
   </div>
 </div>
-
-
-@include('layout/footer')
 
 @endsection

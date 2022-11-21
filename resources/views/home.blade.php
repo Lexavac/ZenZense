@@ -1,4 +1,4 @@
-@extends('layout/nav')
+@extends('layout/app')
 
 @section('css')
   <link rel="stylesheet" href="{{ asset('assets/css/home.css')}}">
@@ -526,6 +526,5 @@
   </div>
 </div>
 <script src="{{ asset('assets/js/home.js')}}"></script>
-@include('layout/footer')
 
 @endsection

@@ -1,4 +1,4 @@
-@extends('layout/nav')
+@extends('layout/app')
 
 @section('css')
   <link rel="stylesheet" href="{{ asset('assets/css/shop.css')}}">

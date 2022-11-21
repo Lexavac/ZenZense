@@ -1,4 +1,4 @@
-@extends('layout/nav')
+@extends('layout/app')
 
 @section('css')
   <link rel="stylesheet" href="{{ asset('assets/css/product.css')}}">
@@ -984,7 +984,5 @@
 </div>
 
 <script src="{{ asset('assets/js/cartmodal.js')}}"></script>
-
-@include('layout/footer')
 
 @endsection

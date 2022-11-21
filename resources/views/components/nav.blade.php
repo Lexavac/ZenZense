@@ -113,10 +113,6 @@
             </nav>
         </div>
         <!-- end navbar -->
-
-        @yield('content')
-
-
     </section>
 </body>
 
