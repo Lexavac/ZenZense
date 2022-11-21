@@ -36,3 +36,11 @@ Route::get('/fav', function () {
 Route::get('/shop', function () {
     return view('shop');
 })->name('shop');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::get('/seller', function () {
+    return view('seller.loginseller');
+})->name('loginseller');
