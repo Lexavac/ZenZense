@@ -44,3 +44,11 @@ Route::get('/login', function () {
 Route::get('/seller', function () {
     return view('seller.loginseller');
 })->name('loginseller');
+
+Route::get('/sellerreg', function () {
+    return view('seller.regisseller');
+})->name('regisseller');
+
+Route::get('/setting', function () {
+    return view('dashboard');
+})->name('dashboard');

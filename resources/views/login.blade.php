@@ -1,5 +1,9 @@
 @extends('layout/main')
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('assets/css/login-regist.css')}}">
+@endsection
+
 @section('content')
 <div class="container">
   <div class="forms-container">
