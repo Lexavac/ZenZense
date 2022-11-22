@@ -50,5 +50,5 @@ Route::get('/sellerreg', function () {
 })->name('regisseller');
 
 Route::get('/setting', function () {
-    return view('dashboard');
-})->name('dashboard');
+    return view('setting');
+})->name('setting');

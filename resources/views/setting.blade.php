@@ -6,5 +6,6 @@
 
 @section('content')
 @include('components.sidebar')
-    
+  
+@include('components.simple-footer')
 @endsection
