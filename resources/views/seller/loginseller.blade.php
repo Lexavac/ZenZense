@@ -1,5 +1,9 @@
 @extends('layout/main')
 
+@section('css')
+  <link rel="stylesheet" href="{{ asset('assets/css/loginseller.css')}}">
+@endsection
+
 @section('content')
 <div class="container">
   <div class="content">
@@ -7,11 +11,9 @@
       <div class="carousell">
         <div class="slider-wrapper">
           <div class="overflow-wrapper">
-            <img src="assets/slider1.png" alt="">
-            <img src="assets/slider2.png" alt="">
-            <img src="assets/slider3.png" alt="">
-          </div>
-        </div>
+            <img src="{{ asset('assets/img/slider1.png')}}" alt="">
+            <img src="{{ asset('assets/img/slider2.png')}}" alt="">
+            <img src="{{ asset('assets/img/slider3.png')}}" alt="">        </div>
       </div>
     </div>
     <div class="right-content">
