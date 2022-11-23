@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/product', function () {
     return view('product');
@@ -49,6 +49,22 @@ Route::get('/sellerreg', function () {
     return view('seller.regisseller');
 })->name('regisseller');
 
-Route::get('/setting', function () {
-    return view('setting');
-})->name('setting');
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
+
+Route::get('/profileedit', function () {
+    return view('profile-edit');
+})->name('profile-edit');
+
+Route::get('/checkoutdetail', function () {
+    return view('checkout-detail');
+})->name('checkout-detail');
+
+Route::get('/checkoutpayment', function () {
+    return view('checkout-payment');
+})->name('checkout-payment');
+
+Route::get('/checkoutcomplete', function () {
+    return view('checkout-complete');
+})->name('checkout-complete');

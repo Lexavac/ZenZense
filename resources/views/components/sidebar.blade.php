@@ -39,13 +39,13 @@
                 <p>></p>
             </a>
         </div>
-        <div class="sidebar-footer">
+        {{-- <div class="sidebar-footer">
             <img src="assets/ALM00016.JPG" alt="">
             <div class="text">
                 <p>Kiagus Ganteng</p>
                 <p>Kgs.farhan@gmail.com</p>
             </div>
             <iconify-icon class="icon" icon="tabler:logout"></iconify-icon>
-        </div>
+        </div> --}}
     </div>
     

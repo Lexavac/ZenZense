@@ -137,8 +137,4 @@
   </div>
 </div>
 
-
-  {{-- Footer Content --}}
-  @include('components.footer')
-
 @endsection

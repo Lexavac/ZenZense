@@ -1,0 +1,26 @@
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+footer{
+  margin-top: auto;
+}
+
+.footer-simple {
+  display: flex;
+  justify-content: end;
+  padding-right: 50px;
+  align-items: center;
+  background-color: #1C3879;
+  height: 50px;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.508);
+  z-index: 9999;
+  position: relative;
+  margin-top: 100px;
+}
+
+#footer {
+  background-color: #0d1a34;
+}
