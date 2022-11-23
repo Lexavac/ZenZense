@@ -2,6 +2,10 @@
 
 
 use App\Http\Controllers\HControllerr;
+use App\Http\Controllers\PController;
+use App\Http\Controllers\UserProfileController;
+use Illuminate\Contracts\Auth\UserProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HControllerr::class, 'index'])->name('HomePage');
+
+Route::get('/product/detail/{product:slug?}', [PController::class, 'show'])->name('product.show');
 
 Route::get('/product', function () {
     return view('product');
@@ -39,7 +45,7 @@ Route::get('/shop', function () {
 
 Route::get('/login', function () {
     return view('login');
-})->name('login');
+})->name('login.page');
 
 Route::get('/seller', function () {
     return view('seller.loginseller');
@@ -52,3 +58,9 @@ Route::get('/sellerreg', function () {
 Route::get('/setting', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Auth::routes();
+
+Route::resource('profile', UserProfileController::class);
+
+Route::post('profile/image',[UserProfileController::class, 'storeImage']);

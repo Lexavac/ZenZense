@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\Tb_customer;
-use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -31,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::Profile;
 
     /**
      * Create a new controller instance.
@@ -52,14 +50,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phoneNumber' => ['required', 'string', 'max:255'],
-            'adress' => ['required', 'string', 'max:255'],
-            'remember_token' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -67,19 +60,14 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\Models\Tb_customer
+     * @return \App\Models\User
      */
     protected function create(array $data)
     {
-        return Tb_customer::create([
-            'username' => $data['username'],
-            'password' => Hash::make($data['password']),
-            'firstname' => $data['firstname'],
-            'lastname' => $data['lastname'],
+        return User::create([
+            'name' => $data['name'],
             'email' => $data['email'],
-            'phoneNumber' => $data['phoneNumber'],
-            'adress' => $data['adress'],
-            'remember_token' => Str::random(10),
+            'password' => Hash::make($data['password']),
         ]);
     }
 }

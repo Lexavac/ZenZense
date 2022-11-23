@@ -88,6 +88,13 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('fav') }}"><i class="fa fa-heart" aria-hidden="true"></i></a>
                                 </li>
+
+
+                                <form action="/logout" method="POST">
+                                @csrf
+                                    <button class="btn btn-danger">Log Out</button>
+                                </form>
+
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">

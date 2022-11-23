@@ -46,4 +46,9 @@ class Product extends Model implements HasMedia
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    public function seller()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

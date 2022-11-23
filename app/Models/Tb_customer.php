@@ -4,7 +4,6 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Laravel\Sanctum\HasApiTokens;
-use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,7 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Tb_customer extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable ;
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +19,7 @@ class Tb_customer extends Authenticatable
      * @var array<int, string>
      */
 
-     protected $table = 'user';
+    protected $table = 'user';
 
     protected $fillable = [
         'username',

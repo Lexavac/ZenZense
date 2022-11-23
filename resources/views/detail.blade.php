@@ -9,26 +9,19 @@
   <div class="content">
     <div class="product">
       <div class="main-product">
-        <img src="assets/web1.jpg" alt="" id="main-product" onclick="prev(this)">
+        <img src="{{ $product->gallery->first()->getUrl() }}" alt="" id="main-product" onclick="prev(this)">
       </div>
       <div class="other-product">
+        @foreach($product->gallery as $img)
         <div class="prev">
-          <img src="assets/web1.jpg" alt="">
+          <img src="{{ $img->getUrl() }}" alt="">
         </div>
-        <div class="prev">
-          <img src="assets/web2.jpg" alt="">
-        </div>
-        <div class="prev">
-          <img src="assets/web3.jpg" alt="">
-        </div>
-        <div class="prev">
-          <img src="assets/web4.jpg" alt="">
-        </div>
+        @endforeach
       </div>
     </div>
     <div class="description">
       <div class="name-product-main">
-        <p>Name Product</p>
+        <p>{{ $product->name }}</p>
       </div>
       <div id="rate">
         <div class="d-flex align-items-center">
@@ -43,12 +36,10 @@
         </div>
       </div>
       <div class="main-price">
-        <p>Rp. 150.000</p>
+        <p>Rp. {{ $product->price }}</p>
       </div>
       <div class="info-product">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio minima similique iusto voluptates dolore
-          libero aut tenetur architecto maxime vitae eos blanditiis debitis quam placeat minus fuga, atque eligendi
-          quas?</p>
+        <p>{{ $product->desc }}</p>
       </div>
       <div class="btn-product">
         <a href="checkout-delivery.html"><button class="btn-buy"><i class="fa-solid fa-bag-shopping"></i>Buy

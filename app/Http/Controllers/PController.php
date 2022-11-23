@@ -17,6 +17,6 @@ class PController extends Controller
             ->take(4)
             ->get(['id', 'slug', 'name', 'price']);
 
-        return view('frontend.product.show', compact('product',  'related_products'));
+        return view('detail', compact('product',  'related_products'));
     }
 }
