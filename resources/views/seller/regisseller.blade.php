@@ -21,7 +21,7 @@
     <div class="right-content">
       <div class="data">
         <div class="logo">
-          <img src="assets/trolley.png" alt="">
+          <img src="{{ asset('assets/trolley.png')}}" alt="">
           <p>ZenIT</p>
         </div>
         <div class="form-data">

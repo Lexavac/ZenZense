@@ -307,15 +307,11 @@
         <div class="modal-product">
           <img src="" alt="" id="main-modal">
         </div>
-        <!-- <div class="modal-next">
+        <!-- <div class="modal-next"> 
           <button><i class="fa-solid fa-caret-right"></i></button>
         </div> -->
       </div>
       <div class="other-modal">
-        <img src="" alt="" class="coba">
-        <img src="" alt="" class="coba">
-        <img src="" alt="" class="coba">
-        <img src="" alt="" class="coba">
       </div>
     </div>
   </div>

@@ -49,7 +49,8 @@ class SController extends Controller
         }
 
         $products = $products->paginate(8);
-        return view('frontend.shop.index',compact('products'));
+
+        return view('product',compact('products'));
 
 
     }
@@ -65,6 +66,6 @@ class SController extends Controller
         })
         ->paginate(6);
 
-        return view('frontend.shop.index', compact('products','slug'));
+        return view('product', compact('products','slug'));
     }
 }

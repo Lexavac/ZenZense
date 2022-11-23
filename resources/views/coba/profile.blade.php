@@ -42,11 +42,11 @@
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 </body>
 <script>
-                        var uploadedGalleryMap = {}
-                     Dropzone.options.galleryDropzone = {
-                         url: "{{ url('profile/image') }}",
+        var uploadedGalleryMap = {}
+            Dropzone.options.galleryDropzone = {
+                    url: "{{ url('profile/image') }}",
                          maxFilesize: 5, // MB
-                         maxFiles: 4,
+                         maxFiles: 1,
                          acceptedFiles: '.jpeg,.jpg,.png,.gif',
                          addRemoveLinks: true,
                          headers: {
@@ -67,7 +67,7 @@
                            $('form').find('input[name="gallery[]"][value="' + name + '"]').remove()
                          },
                          init: function () {
-                     @if(isset($product) && $product->gallery)
+                     @if(isset($profile) && $profile->gallery)
                            var files =
                              {!! json_encode($product->gallery) !!}
                                for (var i in files) {

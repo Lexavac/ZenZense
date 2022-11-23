@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Profile extends Model
+class Profile extends Model implements HasMedia
 {
     use HasFactory,InteractsWithMedia;
 
@@ -27,7 +28,7 @@ class Profile extends Model
         return $this->getMedia('gallery');
     }
 
-    public function user(){
+    public function users(){
         return $this->belongsTo(User::class);
     }
 }

@@ -27,9 +27,6 @@ function prev(element) {
   var mainImg = document.querySelectorAll(".other-product .prev img");
   var modalImg = document.querySelectorAll(".other-modal img");
   modalImg[0].src = mainImg[0].src;
-  modalImg[1].src = mainImg[1].src;
-  modalImg[2].src = mainImg[2].src;
-  modalImg[3].src = mainImg[3].src;
 }
 
 // When the user clicks on <span> (x), close the modal
