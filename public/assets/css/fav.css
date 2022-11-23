@@ -1,12 +1,18 @@
 .container{
   margin-top: 120px;
 }
+
+.container {
+  min-height: 65vh;
+}
+
 .your-fav{
 display: flex;
 gap: 10px;
 align-items: center;
 margin-bottom: 20px;
 }
+
 .heart{
 font-size: 30px;
 color: red;
@@ -24,7 +30,8 @@ gap: 30px;
 }
 .card-row{
 display: flex;
-flex-direction: column;
+flex-wrap: wrap;
+justify-content: center;
 gap: 20px;
 }
 .right-card{

@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::get('/setup', function () {
+    return view('setup-profile');
+})->name('setup');
+
 Route::get('/product', function () {
     return view('product');
 })->name('product');
@@ -68,3 +72,7 @@ Route::get('/checkoutpayment', function () {
 Route::get('/checkoutcomplete', function () {
     return view('checkout-complete');
 })->name('checkout-complete');
+
+Route::get('/productseller', function () {
+    return view('product-seller');
+})->name('product-seller');

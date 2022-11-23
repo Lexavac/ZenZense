@@ -1,8 +1,15 @@
-.main{
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main {
     margin-top: 105px;
     display: flex;
-  }
-  .sidebar{
+}
+
+.sidebar {
     width: 300px;
     height: 90vh;
     padding: 30px 30px 75px;
@@ -12,64 +19,75 @@
     flex-direction: column;
     justify-content: space-between;
     position: fixed;
-  }
-  .sidebar-content{
+}
+
+.sidebar-content {
     display: flex;
     flex-direction: column;
     gap: 40px;
-  }
+}
 
-  .sidebar-content a {
+.sidebar-content a {
     display: flex;
     align-items: center;
-  }
+}
 
-  .sidebar-content a p{
+.sidebar-content a p {
     margin: 0;
     display: flex;
     align-items: center;
-  }
+}
 
-  .account, .product,.transaction,.report,.setting{
+.account,
+.product,
+.transaction,
+.report,
+.setting {
     display: flex;
     justify-content: space-between;
     height: 30px;
     width: 100%;
     color: #000;
-  }
+}
 
-  .left{
+.left {
     display: flex;
     gap: 10px;
-  }
-  .sidebar p{
-    font-size: 18px;
-  }
-  .sidebar .icon{
-    font-size: 40px;
-  }
+}
 
-  .sidebar-footer{
+.sidebar p {
+    font-size: 18px;
+}
+
+.sidebar .icon {
+    font-size: 40px;
+}
+
+.sidebar-footer {
     display: flex;
     align-items: center;
     gap: 30px;
     border-top: 1.5px solid rgba(0, 0, 0, 0.567);
     padding-top: 10px;
     margin-top: 140px;
-  }
-  .sidebar-footer img{
+}
+
+.sidebar-footer img {
     border-radius: 50%;
     width: 60px;
     height: 60px;
     object-fit: cover;
-  }
-  .sidebar-footer .text{
+}
+
+.sidebar-footer .text {
     line-height: 10px;
-  }
-  .sidebar-footer p{
+}
+
+.sidebar-footer p {
     font-size: 18px;
-  }
-  .sidebar-footer p:first-child{
+}
+
+.sidebar-footer p:first-child {
     font-size: 18px;
     font-weight: 700;
-  }
+}

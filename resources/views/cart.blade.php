@@ -17,21 +17,28 @@
       <div class="cart-content">
         <div class="check-all">
           <div class="check">
-            <input type="checkbox" name="check" id="check">
-            <label for="check">All</label>
+            <label for="check">Cart</label>
           </div>
           <div class="delete">
             <button>Delete</button>
           </div>
         </div>
       </div>
+
+      {{-- card cart --}}
       <div class="cart-product">
         <div class="header-cart">
-          <input type="checkbox" name="check" id="check-item">
-          <a href="">
-            <iconify-icon class="store" icon="clarity:store-solid"></iconify-icon>
-            <p>Nama toko</p>
-          </a>
+          <div class="profile-shop">
+            <a href="">
+              <iconify-icon class="store" icon="clarity:store-solid"></iconify-icon>
+              <p>Nama toko</p>
+            </a>
+          </div>
+          <div class="btn-delete">
+            <div class="delete">
+              <button>Delete</button>
+            </div>  
+          </div>
         </div>
         <div class="content-product">
           <img src="assets/web1.jpg" alt="">
@@ -69,7 +76,7 @@
     <!-- card summary -->
     <div class="card-summary">
       <p class="summary">Summary</p>
-      <div class="product" id="product" style="display: none;">
+      <div class="product" id="product">
         <button>-</button>
         <div class="row1">
           <p id="name-summary">product name</p>
@@ -87,13 +94,14 @@
           </div>
         </div>
       </div>
-      <div class="total" id="total" style="display: none;">
+      <div class="total" id="total">
         <p>Total</p>
         <p id="total-summary">Rp. 1.380.000</p>
       </div>
 
       <div class="btn">
-        <button style="background-color: #3333; color: black; cursor: no-drop;" id="btn-con" disabled>Continue</button>
+        {{-- <button style="background-color: #3333; color: black; cursor: no-drop;" id="btn-con" disabled>Continue</button> --}}
+        <button>Continue</button>
       </div>
     </div>
 
