@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="main-content" id="main-content">
   <div class="forms-container">
       <div class="signin-signup">
           <!-- sign in -->

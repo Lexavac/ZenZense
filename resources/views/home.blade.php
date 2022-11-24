@@ -579,22 +579,22 @@
       <ul>
         <li>
           <a href="https://www.instagram.com/smktarunabhakti.depok/">
-            <img src="assets/instagram.png" alt="">
+            <img src="{{ asset('assets/img/instagram.png')}}" alt="">
           </a>
         </li>
         <li>
           <a href="https://www.youtube.com/c/SMKTarunaBhaktiDepok">
-            <img src="assets/youtube.png" alt="">
+            <img src="{{ asset('assets/img/youtube.png')}}" alt="">
           </a>
         </li>
         <li>
           <a href="https://www.facebook.com/smktarunabhaktidepok">
-            <img src="assets/facebook.png" alt="">
+            <img src="{{ asset('assets/img/facebook.png')}}" alt="">
           </a></li>
 
         <li>
           <a href="https://mail.google.com/mail/u/0/?hl=en#inbox">
-            <img src="assets/email.png" alt="">
+            <img src="{{ asset('assets/img/email.png')}}" alt="">
           </a>
         </li>
       </ul>

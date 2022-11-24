@@ -1,13 +1,17 @@
+.menu-product {
+  background-color: #ECF3FE;
+}
+
 .contents {
   margin-left: 300px;
 }
 
 .row-1 {
-  width: 95%;
+  width: 92%;
   align-items: center;
   display: flex;
-  justify-content: right;
-  margin: 0px 10px;
+  justify-content: space-between;
+  margin: 0px auto;
   gap: 20px;
 }
 

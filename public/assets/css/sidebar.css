@@ -10,9 +10,9 @@ body {
 }
 
 .sidebar {
-    width: 300px;
+    width: 290px;
     height: 90vh;
-    padding: 30px 30px 75px;
+    padding: 30px 0px 75px;
     background-color: #fff;
     border-right: 1.5px solid rgba(0, 0, 0, 0.463);
     display: flex;
@@ -24,8 +24,24 @@ body {
 .sidebar-content {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 10px;
 }
+
+.menu-account,
+.menu-product,
+.menu-transaction,
+.menu-report,
+.menu-setting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 240px;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    border-radius: 10px;
+    margin: 0px auto;
+  }
 
 .sidebar-content a {
     display: flex;

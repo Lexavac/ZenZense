@@ -46,6 +46,8 @@
       <!-- script iconify -->
   <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
 
+  <!-- swal -->
+  <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 
     @yield('css')
 
@@ -63,7 +65,7 @@
 
 </section>
 @include('components.simple-footer')
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 </body>
 
 </html>
