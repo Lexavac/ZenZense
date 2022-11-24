@@ -10,7 +10,7 @@ class HControllerr extends Controller
 {
     public function index(){
 
-        $products = Product::with('category')->get(['id','name','price','slug']);
+        $products = Product::with('category')->get(['id','name','price','slug','desc']);
 
         return view('home', compact('products'));
     }

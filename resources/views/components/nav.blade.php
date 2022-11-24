@@ -9,7 +9,9 @@
                         fill="#1C3879" />
                 </svg>
                 <div class="title">
-                    <img src="{{ asset('assets/img/logo.png')}}" alt="">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('assets/img/logo.png')}}" alt="">
+                    </a>
                 </div>
             </div>
             <nav class="navbar navbar-expand-lg bg-light">

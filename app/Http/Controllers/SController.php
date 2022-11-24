@@ -13,6 +13,26 @@ class SController extends Controller
 
         $products = Product::with('category');
 
+        if($request->BRF != null){
+            $products->orWhere('major','=', 'BRF');
+        }
+
+        if($request->PPLG != null){
+            $products->orWhere('major','=', 'PPLG');
+        }
+
+        if($request->ANIMASI != null){
+            $products->orWhere('major','=', 'ANIMASI');
+        }
+
+        if($request->TJKT != null){
+            $products->orWhere('major','=', 'TJKT');
+        }
+
+        if($request->TE != null){
+            $products->orWhere('major','=', 'TE');
+        }
+
         if($request->min != null){
             $products->where('price', '>=', $request->min);
         }

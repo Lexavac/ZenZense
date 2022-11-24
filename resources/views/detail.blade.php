@@ -48,11 +48,11 @@
       </div>
       <div class="profile">
         <div class="profile-img">
-          <img src="assets/user.png" alt="">
+          <img src="{{ $seller->gallery->first()->getUrl() }}" alt="">
         </div>
         <div class="profile-name">
           <div class="name">
-            <p>Seller's Name</p>
+            <p>{{ $seller->name }}</p>
           </div>
           <div class="other">
             <button id="btn-review open-modal" onClick="Open_click(this.id)">Visit Shop <i class="fa-solid fa-shop"></i></button>
@@ -255,24 +255,25 @@
         <p>Related Product</p>
       </div>
       <div class="see-more">
-        <a href="">See More...</a>
+        <a href="#">See More...</a>
       </div>
     </div>
     <div class="related-product">
+      @foreach($related_products as $related_product)
       <div class="card-product">
         <div class="img-card">
-          <img src="assets/web1.jpg" alt="">
+          <img src="{{ $related_product->gallery->first()->getUrl() }}" alt="">
         </div>
         <div class="desc-product">
           <div class="category-product">
-            <p>Design Web</p>
+            <p>{{ $related_product->slug }}</p>
           </div>
           <div class="name-product">
-            <p>Landing page for Art Gallery</p>
+            <a href="{{ route('product.show', $related_product->slug) }}">{{ $related_product->name }}</a>
           </div>
           <div class="row-price">
             <div class="price">
-              <p>Rp. 100.000</p>
+              <p>Rp. {{ $related_product->price }}</p>
             </div>
             <div class="other-btn">
               <div class="btn-detail">
@@ -285,6 +286,7 @@
           </div>
         </div>
       </div>
+      @endforeach
     </div>
   </div>
 </div>
@@ -297,7 +299,7 @@
   <div class="modal-content">
     <div class="header">
       <span class="close">&times;</span>
-      <p>Product Name</p>
+      <p>{{ $product->name }}</p>
     </div>
     <div class="product">
       <div class="main-modal">

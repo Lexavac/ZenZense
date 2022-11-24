@@ -108,23 +108,22 @@
     <h2>This Week</h2>
     <div class="product">
       <div class="img-product">
-        <img src="assets/web2.jpg" alt="">
+        <img src="{{ $products->last()->gallery->first()->getUrl() }}" alt="">
       </div>
       <div class="desc-product">
         <div class="name-product">
-          <h3>Template Website</h3>
+          <h3>{{ $products->last()->name }}</h3>
         </div>
         <div class="price-featured">
-          <p>Rp. 150.000</p>
+          <p>{{ 'Rp.'.$products->last()->price }}</p>
         </div>
         <div class="description">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod, repellendus molestias. Accusamus
-            doloremque ad minima harum explicabo voluptates iste vitae magni. Itaque dolorum reprehenderit odit
-            voluptatum provident magnam modi tempore.</p>
+          <p>{{ $products->last()->desc }}</p>
         </div>
         <div class="btn-featured">
-          <a href="checkout-delivery.html"><button class="btn-buy"><i class="fa-solid fa-bag-shopping"></i>Buy
-              Now</button></a>
+          <a href="checkout-delivery.html"><button class="btn-buy"><i class="fa-solid fa-bag-shopping">
+
+          </i>Buy Now</button></a>
           <button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i>Add to cart</button>
         </div>
       </div>
@@ -192,7 +191,7 @@
         </button>
       </div>
     <div class="our-btn">
-      <a href="search-page.html">
+      <a href="{{ url('product') }}">
         <button>All Category</button>
       </a>
     </div>

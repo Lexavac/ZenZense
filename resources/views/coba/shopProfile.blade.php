@@ -18,16 +18,20 @@
         </ul>
     </div>
 @endif
-    <form action="{{ url('profile') }}" method="POST">
+    <form action="{{ url('seller/shop-profile') }}" method="POST">
         @csrf
-        <label for="firstname">Firstname</label>
-        <input type="text" name="firstname" id="firstname">
-        <label for="lastname">Lastname</label>
-        <input type="text" name="lastname" id="lastname">
-        <label for="phone">phoneNumber</label>
-        <input type="text" name="phoneNumber" id="phoneNumber">
-        <label for="Address">Address</label>
-        <textarea name="Address" id="Address" cols="30" rows="10"></textarea>
+        <label for="Name">Name</label>
+        <input type="text" name="name" id="Name">
+        <label for="major">Major</label>
+        <select name="major" id="major">
+            <option value="PPLG">PPLG</option>
+            <option value="TJKT">TJKT</option>
+            <option value="BRF">BRF</option>
+            <option value="ANIMASI">ANIMASI</option>
+            <option value="TE">TE</option>
+        </select>
+        <label for="desc">deskripsi</label>
+        <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
 
         <div class="form-group">
             <label for="gallery">Gallery</label>
@@ -44,7 +48,7 @@
 <script>
         var uploadedGalleryMap = {}
             Dropzone.options.galleryDropzone = {
-                    url: "{{ url('profile/image') }}",
+                    url: "{{ url('shop-profile/image') }}",
                          maxFilesize: 5, // MB
                          maxFiles: 1,
                          acceptedFiles: '.jpeg,.jpg,.png,.gif',

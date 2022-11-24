@@ -4,9 +4,9 @@
 use App\Http\Controllers\HControllerr;
 use App\Http\Controllers\PController;
 use App\Http\Controllers\SController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Contracts\Auth\UserProvider;
-use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
     //     return view('product');
     // })->name('product');
 
-    Route::get('/product',[SController::class,'index'])->name('product');
+    Route::get('/product/{slug?}',[SController::class,'index'])->name('product');
     
     Route::get('/detail', function () {
         return view('detail');
@@ -55,7 +55,6 @@ Auth::routes();
 
 Route::resource('profile', UserProfileController::class);
 
-Route::post('profile/image',[UserProfileController::class, 'storeImage']);
 
 Route::get('/seller', function () {
     return view('seller.loginseller');
@@ -64,3 +63,11 @@ Route::get('/seller', function () {
 Route::get('/sellerreg', function () {
     return view('seller.regisseller');
 })->name('regisseller');
+
+Route::group(['middleware' => ['auth','CheckLevel:admin,seller'],  'prefix' => 'seller',  'as' => 'seller.'],function(){
+    Route::resource('shop-profile', ShopController::class);
+});
+
+//Store-IMG
+Route::post('profile/image',[UserProfileController::class, 'storeImage']);
+Route::post('shop-profile/image',[ShopController::class, 'storeImage']);
