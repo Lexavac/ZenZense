@@ -1,43 +1,55 @@
 <div class="main">
     <div class="sidebar">
         <div class="sidebar-content">
-                <a href="" class="account">
-                    <div class="left">
-                        <iconify-icon class="icon" icon="ic:baseline-account-circle"></iconify-icon>
-                        <p>Account</p>
-                    </div>
-                    <p>></p>
-                </a>
-            
-                <a href="" class="product">
-                    <div class="left">
-                        <iconify-icon class="icon" icon="ph:package-light"></iconify-icon>
-                        <p>Product</p>
-                    </div>
-                    <p>></p>
-                </a>
-    
-                <a href="" class="transaction">
-                         <div class="left">
-                             <iconify-icon class="icon" icon="mdi:checkbox-marked-outline"></iconify-icon>
-                             <p>Transaction</p>
-                         </div>
-                         <p>></p>
-                </a>
-           <a href="" class="report">
-               <div class="left">
-                   <iconify-icon class="icon" icon="ph:flag"></iconify-icon>
-                   <p>Report</p>
-               </div>
-               <p>></p>
-           </a>
-            <a href="" class="setting">
-                <div class="left">
-                    <iconify-icon class="icon" icon="ant-design:setting-outlined"></iconify-icon>
-                    <p>Setting</p>
+                <div class="menu-account">
+                    <a href="{{ route('profile') }}" class="account">
+                        <div class="left">
+                            <iconify-icon class="icon" icon="ic:baseline-account-circle"></iconify-icon>
+                            <p>Account</p>
+                        </div>
+                        <p>></p>
+                    </a>
                 </div>
-                <p>></p>
-            </a>
+            
+                <div class="menu-product">
+                    <a href="{{ route('product-seller') }}" class="product">
+                        <div class="left">
+                            <iconify-icon class="icon" icon="ph:package-light"></iconify-icon>
+                            <p>Product</p>
+                        </div>
+                        <p>></p>
+                    </a>
+                </div>
+    
+                <div class="menu-transaction">
+                    <a href="" class="transaction">
+                        <div class="left">
+                            <iconify-icon class="icon" icon="mdi:checkbox-marked-outline"></iconify-icon>
+                            <p>Transaction</p>
+                        </div>
+                        <p>></p>
+               </a>
+                </div>
+                
+                <div class="menu-report">
+                    <a href="" class="report">
+                        <div class="left">
+                            <iconify-icon class="icon" icon="ph:flag"></iconify-icon>
+                            <p>Report</p>
+                        </div>
+                        <p>></p>
+                    </a>
+                </div>
+
+                <div class="menu-setting">
+                    <a href="" class="setting">
+                        <div class="left">
+                            <iconify-icon class="icon" icon="ant-design:setting-outlined"></iconify-icon>
+                            <p>Setting</p>
+                        </div>
+                        <p>></p>
+                    </a>
+                </div>
         </div>
         {{-- <div class="sidebar-footer">
             <img src="assets/ALM00016.JPG" alt="">

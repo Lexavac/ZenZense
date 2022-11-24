@@ -71,3 +71,28 @@ Route::group(['middleware' => ['auth','CheckLevel:admin,seller'],  'prefix' => '
 //Store-IMG
 Route::post('profile/image',[UserProfileController::class, 'storeImage']);
 Route::post('shop-profile/image',[ShopController::class, 'storeImage']);
+
+Route::get('/profileedit', function () {
+    return view('profile-edit');
+})->name('profile-edit');
+
+Route::get('/checkoutdetail', function () {
+    return view('checkout-detail');
+})->name('checkout-detail');
+
+Route::get('/checkoutpayment', function () {
+    return view('checkout-payment');
+})->name('checkout-payment');
+
+Route::get('/checkoutcomplete', function () {
+    return view('checkout-complete');
+})->name('checkout-complete');
+
+Route::get('/productseller', function () {
+    return view('product-seller');
+})->name('product-seller');
+
+Route::get('/upcoming   ', function () {
+    return view('upcoming');
+})->name('upcoming');
+

@@ -18,7 +18,7 @@
   <div class="row-1">
       <div class="left">
           <img src="assets/ALM00016.JPG" alt="">
-          <button>Edit Profile</button>
+          <button id="btn-prof">Edit Profile</button>
       </div>
       <div class="right">
           <p>user 24124341</p>
@@ -52,4 +52,23 @@
       </table>
   </div>
 </div>
+<div id="myProfile" class="modalProfile">
+    <div class="modalprofile-content">
+        <div class="header">
+            <span class="close close-prof">&times;</span>
+        </div>
+        <div class="profile-content">
+            <div class="Profile-pict">
+                <p class="cust-prof">Profile Picture</p>
+            <label id="largeFile" for="file">
+                <input type="file" id="file" />
+            </label>
+            </div>
+            <div class="btn-Profile">
+                <button>submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ asset('assets/js/uploadimg.js')}}"></script>
 @endsection
