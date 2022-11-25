@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Traits\ImageUploadingTrait;
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserProfileController extends Controller
@@ -71,7 +72,9 @@ class UserProfileController extends Controller
      */
     public function show($id)
     {
-        //
+        $profile = User::find(auth()->id())->profile;
+
+        return dd($profile);
     }
 
     /**

@@ -5,41 +5,43 @@
 @endsection
 
 @section('content')
-<div class="main-content" id="main-content">
+<div class="container">
     <div class="forms-container">
         <div class="signin-signup">
             <!-- sign in -->
             <form action="{{ route('login') }}" method="POST" class="sign-in-form">
-                @csrf
+            @csrf
                 <h2 class="title">Sign in</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email"/>
+                    <input type="text" placeholder="Email" name="email" required/>
                 </div>
+                <p>
                 @error('email')
-                <p role="alert" style="color:red; font-size: 16px;">
-                    <span>{{ $message }}</span>
-                </p>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
+                </p>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
                     <input type="password" placeholder="Password" name="password" />
                 </div>
                 @error('password')
-                <p role="alert" style="color:red; font-size: 16px;">
+                <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
-                </p>
+                </span>
                 @enderror
                 <div class="checkbox-remember">
-                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} >
+                    <input type="checkbox" name="remember" id="remember">
                     <label for="remember">Remember Me</label>
                 </div>
                 <input type="submit" value="Login" class="btn solid" />
                 <p class="social-text">Or Sign in with social platforms</p>
                 <div class="social-media">
-                    <!-- <a href="#" class="social-icon">
-                        <i class="fab fa-facebook-f"></i>
-                    </a> -->
+                <!-- <a href="#" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a> -->
                     <a href="#" class="social-icon">
                         <i class="fab fa-google"></i>
                     </a>
@@ -47,45 +49,34 @@
             </form>
 
             <!-- sign up -->
-            <form action="{{ route('register') }}" method="POST" class="sign-up-form">
+            <form action="{{ route('register') }}" method='POST' class="sign-up-form">
                 @csrf
                 <h2 class="title">Sign up</h2>
-                <!-- <div class="name">
+                <div class="name">
                     <div class="input-field">
-                        <input type="text" placeholder="First Name" />
+                        <input type="text" placeholder="First Name" name="firstname"/>
                     </div>
                     <div class="input-field">
-                        <input type="text" placeholder="Last Name" />
+                        <input type="text" placeholder="Last Name" name="lastname"/>
                     </div>
-                </div> -->
+                </div>
 
                 <div class="input-field">
-                    <input type="text" placeholder="Username" name="name" value="{{ old('name') }}" require/>
-                </div>
-                @error('name')
-                <p role="alert" style="color:red; font-size: 16px;">
-                    <span>{{ $message }}</span>
-                </p>
-                @enderror
-                <div class="input-field">
-                    <input type="email" placeholder="Email" name="email" value="{{ old('email') }}" require/>
-                </div>
-                @error('email')
-                <p role="alert" style="color:red; font-size: 16px;">
-                    <span>{{ $message }}</span>
-                </p>
-                @enderror
-                <div class="input-field">
-                    <input type="password" placeholder="Password" name="password" require/>
+
+                    <input type="text" placeholder="Username" name="name"/>
                 </div>
                 <div class="input-field">
-                    <input type="password" placeholder="Password Confirmation" name="password_confirmation" require/>
+
+                    <input type="email" placeholder="Email" name="email"/>
                 </div>
-                @error('password')
-                <p role="alert" style="color:red; font-size: 16px;">
-                    <strong>{{ $message }}</strong>
-                </p>
-                @enderror
+                <div class="input-field">
+
+                    <input type="password" placeholder="Password" name="password"/>
+                </div>
+                <div class="input-field">
+
+                    <input type="password" placeholder="Password Confirm" name="password_confirmation"/>
+                </div>
                 <input type="submit" class="btn" value="Sign up" />
                 <p class="social-text">Or Sign up with social platforms</p>
                 <div class="social-media">
@@ -104,7 +95,7 @@
         <div class="panel left-panel">
             <div class="content">
                 <!-- <img src="https://o.remove.bg/downloads/edd74264-5df1-44d3-874d-a1d8768667be/user-rating-feedback-customer-reviews-cartoon-web-icon-e-commerce-online-shopping-internet-buying-trust-metrics-top-rated-product-vector-isolated-concept-metaphor-illustration_335657-2753-removebg-pre.png" alt=""> -->
-                <img src="{{ asset('assets/img/tigan_and_bianca.png') }}" alt="">
+                <img src="assets/tigan & bianka pose 2.png" alt="">
                 <h3>Didn't Have an account yet ?</h3> <br>
 
                 <button class="btn transparent" id="sign-up-btn">
@@ -116,7 +107,7 @@
         <div class="panel right-panel">
             <div class="content">
                 <!-- <img src="https://o.remove.bg/downloads/20a99977-b693-4b3b-bfb7-f95080934435/Group_of_customers_shopping_in_online_store_and_huge_tablet-removebg-preview.png" alt=""> -->
-                <img src="{{ asset('assets/img/tigan_and_bianca.png') }}" alt="">
+                <img src="assets/tigan & bianka pose 2.png" alt="">
                 <h3>Have an account already?</h3> <br>
 
                 <button class="btn transparent" id="sign-in-btn">

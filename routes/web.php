@@ -49,7 +49,7 @@ use Illuminate\Support\Facades\Route;
     
     Route::get('/setting', function () {
         return view('dashboard');
-    })->name('dashboard');
+    })->name('profile');
 
 Auth::routes();
 
@@ -73,7 +73,7 @@ Route::post('profile/image',[UserProfileController::class, 'storeImage']);
 Route::post('shop-profile/image',[ShopController::class, 'storeImage']);
 
 Route::get('/profileedit', function () {
-    return view('profile-edit');
+    return view('profile.profile-edit');
 })->name('profile-edit');
 
 Route::get('/checkoutdetail', function () {

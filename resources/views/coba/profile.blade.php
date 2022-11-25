@@ -95,6 +95,6 @@
                               return _results
                           }
                      }
-                     </script>
+</script>
 
 </html>
