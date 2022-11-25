@@ -7,9 +7,6 @@
 @section('content')
 
 <div class="content">
-  <div class="header-bg">
-    <img src="assets/.JPG" alt="" id="img-bg">
-  </div>
   <div class="card-profile">
     <div class="img-profile">
       <img src="assets/ALM00016.JPG" alt="" id="img-profile">

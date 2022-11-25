@@ -1,3 +1,7 @@
+.menu-transaction {
+  background-color: #ECF3FE;
+}
+
 .contents {
   margin-left: 300px;
 }
@@ -13,7 +17,13 @@
 
 .sub-content a {
   text-decoration: none;
+  font-weight: 600;
   color: #000;
+}
+
+.sub-content a:first-child {
+  color: #5874af;
+  font-weight: 600;
 }
 
 .content-tabs {
@@ -25,7 +35,7 @@ table th {
   padding: 10px 0px;
 }
 table tr{
-  border-bottom: #000 solid 1px;
+  border: #000 solid 0.5px;
 }
 table td {
   width: 230px;
@@ -37,6 +47,22 @@ table td img {
   width: 80px;
   height: 80px;
   object-fit: cover;
+}
+
+.prod-details p:first-child,
+.prod-details p:last-child{
+    font-weight: 600;
+}
+
+.prod-details p:first-child,
+.prod-details p:nth-child(2){
+    margin-bottom: 12px;
+}
+
+.prod-details p:nth-child(2){
+    font-weight: 600;
+    opacity: .7;
+    font-size: 15px;
 }
 
 #label-order {

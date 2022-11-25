@@ -38,14 +38,6 @@
           <!-- sign up -->
           <form action="#" class="sign-up-form">
               <h2 class="title">Sign up</h2>
-              <div class="name">
-                  <div class="input-field">
-                  <input type="text" placeholder="First Name" />
-              </div>
-              <div class="input-field">
-                  <input type="text" placeholder="Last Name" />
-              </div>
-              </div>
               
               <div class="input-field">
                  

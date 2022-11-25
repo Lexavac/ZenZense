@@ -49,12 +49,24 @@ Route::get('/sellerreg', function () {
     return view('seller.regisseller');
 })->name('regisseller');
 
+Route::get('/profileseller', function () {
+    return view('seller.profile');
+})->name('profileseller');
+
 Route::get('/profile', function () {
-    return view('profile');
+    return view('profilecust');
 })->name('profile');
 
+Route::get('/editprofile', function () {
+    return view('profileedit-cust');
+})->name('editprofile');
+
+Route::get('/createprofile', function () {
+    return view('create-profile');
+})->name('create-profile');
+
 Route::get('/profileedit', function () {
-    return view('profile-edit');
+    return view('seller.profile-edit');
 })->name('profile-edit');
 
 Route::get('/checkoutdetail', function () {
@@ -70,9 +82,13 @@ Route::get('/checkoutcomplete', function () {
 })->name('checkout-complete');
 
 Route::get('/productseller', function () {
-    return view('product-seller');
+    return view('seller.product-seller');
 })->name('product-seller');
 
-Route::get('/upcoming   ', function () {
-    return view('upcoming');
+Route::get('/upcoming', function () {
+    return view('seller.upcoming');
 })->name('upcoming');
+
+Route::get('/processed', function () {
+    return view('seller.processed');
+})->name('processed');

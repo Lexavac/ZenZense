@@ -9,7 +9,7 @@
   <header>
     <div class="left-header">
       <div class="img-header">
-        <img src="assets/logo.png" alt="">
+        <img src="{{ asset('assets/img/logo.png')}}" alt="">
       </div>
       <div class="title-header">
         <p>Order Overview</p>

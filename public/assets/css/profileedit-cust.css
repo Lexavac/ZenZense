@@ -1,0 +1,104 @@
+body {
+  overflow-x: hidden;
+}
+
+.content{
+  margin-top: 120px;
+
+}
+.pict{
+  width: 250px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.pict img{
+  width: 350px;
+}
+.pict label{
+  padding: 7px;
+  width: 200px; 
+  border-radius: 10px;
+  background-color: #5874AF;
+  color: white;
+  border-color: transparent ;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* details */
+.details{
+  width: 80%;
+  position: relative;
+  left: 230px;
+  top: 50px;
+  margin: auto;
+
+}
+.details table {
+  width: 90%;
+}
+.details td{
+  font-size: 18px;
+}
+.details input {
+  padding: 10px;
+  display: flex;
+  margin-top: 15px;
+}
+.details .id{
+  background-color: transparent;
+  border: none;
+}
+.details textarea{
+  margin-top: 15px;
+  padding: 10px;
+}
+.details .alamat{
+  position: relative;
+  top: -60px;
+}
+.details button{
+  border-radius: 10px;
+  background-color: transparent;
+  color: #5874AF;
+  border-color: transparent ;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 20px;
+  margin-left: 680px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 5px 10px;
+}
+.details button:hover{
+  background-color: white;
+  border: 1px solid black;
+  transition-duration: 0.2s;
+}
+.details .pass{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+.pass input {
+  background-color: transparent;
+  border: none;
+  width: fit-content;
+  margin-top: -15px;
+  margin-left: 180px;
+  margin-right: -110px;
+}
+.change-pass{
+  font-size: 14px;
+  color: #76a1ff;
+  font-weight: 700;
+}
+
+#photo {
+  display: none;
+}

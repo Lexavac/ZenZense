@@ -1,0 +1,212 @@
+.menu-transaction {
+    background-color: #ECF3FE;
+  }
+
+.contents {
+    margin-left: 300px;
+}
+
+.sub-content {
+    display: flex;
+    gap: 25px;
+    width: 97%;
+    border-bottom: 1px solid black;
+    margin: 20px 35px;
+    padding: 10px;
+  }
+
+.sub-content a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #000;
+}
+
+.sub-content a:nth-child(2){
+    color: #5874af;
+}
+
+.content-tabs {
+    margin-left: 40px;
+}
+
+table th {
+    text-align: center;
+    padding: 10px 0px;
+}
+table tr{
+    border-bottom: #000 solid 0.5px;
+}
+table td {
+    width: 250px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+table td img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.prod-details p:first-child,
+.prod-details p:last-child{
+    font-weight: 600;
+}
+
+.prod-details p:first-child,
+.prod-details p:nth-child(2){
+    margin-bottom: 12px;
+}
+
+.prod-details p:nth-child(2){
+    font-weight: 600;
+    opacity: .7;
+    font-size: 15px;
+}
+
+#label-order {
+    background-color: #5874af;
+    width: 75px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    color: white;
+}
+
+footer {
+    display: flex;
+    justify-content: end;
+    padding-right: 50px;
+    align-items: center;
+    background-color: #1C3879;
+    height: 50px;
+    color: rgba(255, 255, 255, 0.508);
+    position: relative;
+    bottom: 0;
+}
+
+/* modal */
+.modalreceipt,
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 2vh;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalreceipt-content,
+.modal-content {
+  background-color: #fefefe;
+  margin: 180px auto;
+  padding: 10px;
+  border: 1px solid #888;
+  width: 600px;
+  border-radius: 7px;
+}
+
+.modalreceipt-content
+.modal-content  {
+  margin: auto 0px;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.receipt-pict {
+  margin: 30px 18px 10px;
+
+}
+
+.cust-rec {
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 20px;
+  color: #000000;
+  width: fit-content;
+}
+
+
+label#largeFile:after {
+  position:absolute;
+  width: 550px;
+  content:"Upload your file";
+  left:0;
+  right:0;
+  margin: 0px auto;
+  padding: 50px 0px;
+  text-align:center;
+  border-radius:10px;
+  border:2px dashed rgb(161, 161, 161);
+  color:#ccc;
+  font-family:"quicksand";
+  font-size:20px; 
+}
+
+label#largeFile:hover:after {
+  border:2px dashed rgb(43, 43, 43);
+  cursor:pointer;
+}
+
+
+label#largeFile input#file {
+    width: 0px;
+    height: 0px;
+}
+
+.reciep-content input:last-child{
+    width: 545px;
+    height: 50px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+
+.receipt-number {
+    margin: 130px 20px 20px;
+}
+
+.receipt-number p{
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 20px;
+    color: #000000;
+    width: fit-content;
+    margin: 0;
+}
+
+.btn-receipt {
+    width: 98%;
+    text-align: end;
+    margin-bottom: 10px;
+}
+
+.btn-receipt button {
+    width: 80px;
+    height: 35px;
+    background-color: #5874af;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Quicksand';
+    border: none;
+    border-radius: 7px;
+}

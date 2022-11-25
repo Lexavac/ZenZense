@@ -2,7 +2,7 @@
     <div class="sidebar">
         <div class="sidebar-content">
                 <div class="menu-account">
-                    <a href="{{ route('profile') }}" class="account">
+                    <a href="{{ route('profileseller') }}" class="account">
                         <div class="left">
                             <iconify-icon class="icon" icon="ic:baseline-account-circle"></iconify-icon>
                             <p>Account</p>
@@ -22,7 +22,7 @@
                 </div>
     
                 <div class="menu-transaction">
-                    <a href="" class="transaction">
+                    <a href="{{ route('upcoming') }}" class="transaction">
                         <div class="left">
                             <iconify-icon class="icon" icon="mdi:checkbox-marked-outline"></iconify-icon>
                             <p>Transaction</p>
