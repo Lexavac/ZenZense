@@ -12,13 +12,13 @@
       <div class="header-filter">
         <p>Filter</p>
       </div>
+      <form action="" method="GET">
       <div class="major">
         <div class="header-major">
           <p>Major</p>
         </div>
         <div class="list-major">
           <ul class="menu-major">
-           
             <li>
               <label for="check1">
                 <div class="list-item">
@@ -31,7 +31,7 @@
                 </div>
               </label>
               <div class="checklist-major">
-                <input type="checkbox" name="" id="check1">
+                <input type="checkbox" name="BRF" id="check1">
               </div>
             </li>
             <li>
@@ -46,7 +46,7 @@
                 </div>
               </label>
               <div class="checklist-major">
-                <input type="checkbox" name="" id="check2">
+                <input type="checkbox" name="ANIMASI" id="check2">
               </div>
             </li>
             <li>
@@ -61,7 +61,7 @@
                 </div>
               </label>
               <div class="checklist-major">
-                <input type="checkbox" name="" id="check3">
+                <input type="checkbox" name="PPLG" id="check3">
               </div>
             </li>
             <li>
@@ -76,7 +76,7 @@
                 </div>
               </label>
               <div class="checklist-major">
-                <input type="checkbox" name="" id="check4">
+                <input type="checkbox" name="TJKT" id="check4">
               </div>
             </li>
             <li>
@@ -86,12 +86,12 @@
                     <img src="{{ asset('assets/img/te.png')}}" alt="">
                   </div>
                   <div class="title-major">
-                    <p>TEI</p>
+                    <p>TE</p>
                   </div>
                 </div>
               </label>
               <div class="checklist-major">
-                <input type="checkbox" name="" id="check5">
+                <input type="checkbox" name="TE" id="check5">
               </div>
             </li>
           </ul>
@@ -110,8 +110,10 @@
             <label for="max">Max</label>
             <input type="number" name="max" id="max" placeholder="Rp.">
           </div>
+          <button type="submit"></button>
         </div>
       </div>
+      </form>
       <div class="category-filter">
         <div class="header-category">
           <p>Category</p>
@@ -160,22 +162,23 @@
         </div>
         <div class="product">
           <div class="row-top-product">
+            @foreach($products as $product)
             <div class="card-product">
               <div class="img-card">
-                <img src="assets/web1.jpg" alt="" id="img-prod">
+                <img src="{{ $product->gallery->first()->getUrl() }}" alt="" id="img-prod">
               </div>
               <div class="desc-product">
                 <div class="category-product">
                   <p id="ctgry">Design Web</p>
                 </div>
                 <div class="name-product">
-                  <a href="{{ route('detail') }}">
-                    <p id="name-prod">Landing page for Art Gallery</p>
+                  <a href="{{ route('product.show', $product->slug) }}">
+                    <p id="name-prod">{{ $product->name }}</p>
                   </a>
                 </div>
                 <div class="row-price">
                   <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
+                    <p id="prc-prod">Rp. {{ $product->price }}</p>
                   </div>
                   <div class="other-btn">
                     <div class="btn-detail">
@@ -186,775 +189,7 @@
                 </div>
               </div>
             </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web2.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web3.jpg" alt="" id="img-prod" class="y">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Landing Page</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Kelazzz</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web1.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web2.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web3.jpg" alt="" id="img-prod" class="y">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Landing Page</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Kelazzz</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web1.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web2.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web3.jpg" alt="" id="img-prod" class="y">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Landing Page</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Kelazzz</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web1.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web2.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web3.jpg" alt="" id="img-prod" class="y">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Landing Page</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Kelazzz</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web1.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web2.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web3.jpg" alt="" id="img-prod" class="y">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Landing Page</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Kelazzz</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web1.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web2.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web3.jpg" alt="" id="img-prod" class="y">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Landing Page</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Kelazzz</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web1.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web2.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web3.jpg" alt="" id="img-prod" class="y">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Landing Page</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Kelazzz</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web1.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web2.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web3.jpg" alt="" id="img-prod" class="y">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Landing Page</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Kelazzz</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web1.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web2.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web3.jpg" alt="" id="img-prod" class="y">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Landing Page</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Kelazzz</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web1.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web2.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web3.jpg" alt="" id="img-prod" class="y">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Landing Page</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Kelazzz</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web1.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web2.jpg" alt="" id="img-prod">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Web</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Landing page for Art Gallery</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-product">
-              <div class="img-card">
-                <img src="assets/web3.jpg" alt="" id="img-prod" class="y">
-              </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">Design Landing Page</p>
-                </div>
-                <div class="name-product">
-                  <p id="name-prod">Kelazzz</p>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp. 100.000</p>
-                  </div>
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
+            @endforeach
           </div>
         </div>
       </div>

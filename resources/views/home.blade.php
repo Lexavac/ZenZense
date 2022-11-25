@@ -108,23 +108,22 @@
     <h2>This Week</h2>
     <div class="product">
       <div class="img-product">
-        <img src="assets/web2.jpg" alt="">
+        <img src="{{ $products->last()->gallery->first()->getUrl() }}" alt="">
       </div>
       <div class="desc-product">
         <div class="name-product">
-          <h3>Template Website</h3>
+          <h3>{{ $products->last()->name }}</h3>
         </div>
         <div class="price-featured">
-          <p>Rp. 150.000</p>
+          <p>{{ 'Rp.'.$products->last()->price }}</p>
         </div>
         <div class="description">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod, repellendus molestias. Accusamus
-            doloremque ad minima harum explicabo voluptates iste vitae magni. Itaque dolorum reprehenderit odit
-            voluptatum provident magnam modi tempore.</p>
+          <p>{{ $products->last()->desc }}</p>
         </div>
         <div class="btn-featured">
-          <a href="checkout-delivery.html"><button class="btn-buy"><i class="fa-solid fa-bag-shopping"></i>Buy
-              Now</button></a>
+          <a href="checkout-delivery.html"><button class="btn-buy"><i class="fa-solid fa-bag-shopping">
+
+          </i>Buy Now</button></a>
           <button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i>Add to cart</button>
         </div>
       </div>
@@ -145,20 +144,22 @@
           <div id="content">
             <div class="product-carousel">
               <div class="row-product">
+
+              @foreach($products as $product)
                 <div class="card-product">
                   <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
+                    <img src="{{ $product->gallery->first()->getUrl() }}" alt="">
                   </div>
                   <div class="desc-product">
                     <div class="category-product">
-                      <p>Design Web</p>
+                      <p>{{ $product->slug }}</p>
                     </div>
                     <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
+                      <a style="width: 150px; display:inline-block;" href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
                     </div>
                     <div class="row-price">
                       <div class="price">
-                        <p>Rp. 100.000</p>
+                        <p>Rp.{{ $product->price }}</p>
                       </div>
                       <div class="button-detail">
                         <button><i class="fa-solid fa-cart-shopping"></i></button>
@@ -169,336 +170,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-product">
-                  <div class="img-card">
-                    <img src="assets/web1.jpg" alt="">
-                  </div>
-                  <div class="desc-product">
-                    <div class="category-product">
-                      <p>Design Web</p>
-                    </div>
-                    <div class="name-product">
-                      <p style="width: 200px;">Landing page for Art Gallery</p>
-                    </div>
-                    <div class="row-price">
-                      <div class="price">
-                        <p>Rp. 100.000</p>
-                      </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              @endforeach
 
 
               </div>
@@ -519,7 +191,7 @@
         </button>
       </div>
     <div class="our-btn">
-      <a href="search-page.html">
+      <a href="{{ url('product') }}">
         <button>All Category</button>
       </a>
     </div>

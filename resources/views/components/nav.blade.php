@@ -9,7 +9,9 @@
                         fill="#1C3879" />
                 </svg>
                 <div class="title">
-                    <img src="{{ asset('assets/img/logo.png')}}" alt="">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('assets/img/logo.png')}}" alt="">
+                    </a>
                 </div>
             </div>
             <nav class="navbar navbar-expand-lg bg-light">
@@ -31,21 +33,34 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('cart') }}"><i class="fa-solid fa-cart-shopping"></i></a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item"> 
                                     <a class="nav-link" href="{{ route('fav') }}"><i class="fa fa-heart" aria-hidden="true"></i></a>
                                 </li>
+
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                        <img src="{{ asset('assets/img/user.png')}}" alt="" class="user">
+                                        <img src="{{ asset('assets/img/user.png') }}" alt="" class="user">
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item user-setting" href="#">Profile user <i
-                                                    class="fa-solid fa-user"></i></a>
-                                        </li>
-                                        <li><a class="dropdown-item logout" href="loginseller.html">Log In<i
+                                        @if( !Auth::check() )
+                                        <li><a class="dropdown-item logout" href="{{ url('/login') }}">Log In<i
                                                     class="fa-solid fa-right-from-bracket"></i></a></li>
                                         <li>
+                                        @else
+                                        <li><a class="dropdown-item user-setting" href="#">{{ Auth()->user()->name }}<i
+                                                    class="fa-solid fa-user"></i></a>
+                                        </li>
+                                        <li>
+                                            <form action="/logout" method="POST">
+                                            @csrf
+                                                <button class="dropdown-item logout">Log Out
+                                                <i class="fa-solid fa-right-from-bracket"></i>
+                                                </button>
+                                            </form>
+                                        </li>
+                                        <li>
+                                        @endif
                                             <hr class="dropdown-divider">
                                         </li>
                                         <li><a class="dropdown-item setting" href="#">setting <i

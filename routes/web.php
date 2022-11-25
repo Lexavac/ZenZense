@@ -1,5 +1,13 @@
 <?php
 
+
+use App\Http\Controllers\HControllerr;
+use App\Http\Controllers\PController;
+use App\Http\Controllers\SController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\UserProfileController;
+use Illuminate\Contracts\Auth\UserProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,33 +21,40 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+    Route::get('/', [HControllerr::class, 'index'])->name('HomePage');
+    
+    Route::get('/product/detail/{product:slug?}', [PController::class, 'show'])->name('product.show');
+    
+    // Route::get('/product', function () {
+    //     return view('product');
+    // })->name('product');
 
-Route::get('/product', function () {
-    return view('product');
-})->name('product');
+    Route::get('/product/{slug?}',[SController::class,'index'])->name('product');
+    
+    Route::get('/detail', function () {
+        return view('detail');
+    })->name('detail');
+    
+    Route::get('/cart', function () {
+        return view('cart');
+    })->name('cart');
+    
+    Route::get('/fav', function () {
+        return view('fav');
+    })->name('fav');
+    
+    Route::get('/shop', function () {
+        return view('shop');
+    })->name('shop');
+    
+    Route::get('/setting', function () {
+        return view('dashboard');
+    })->name('profile');
 
-Route::get('/detail', function () {
-    return view('detail');
-})->name('detail');
+Auth::routes();
 
-Route::get('/cart', function () {
-    return view('cart');
-})->name('cart');
+Route::resource('profile', UserProfileController::class);
 
-Route::get('/fav', function () {
-    return view('fav');
-})->name('fav');
-
-Route::get('/shop', function () {
-    return view('shop');
-})->name('shop');
-
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
 
 Route::get('/seller', function () {
     return view('seller.loginseller');
@@ -49,6 +64,15 @@ Route::get('/sellerreg', function () {
     return view('seller.regisseller');
 })->name('regisseller');
 
+Route::group(['middleware' => ['auth','CheckLevel:admin,seller'],  'prefix' => 'seller',  'as' => 'seller.'],function(){
+    Route::resource('shop-profile', ShopController::class);
+});
+
+//Store-IMG
+Route::post('profile/image',[UserProfileController::class, 'storeImage']);
+Route::post('shop-profile/image',[ShopController::class, 'storeImage']);
+
+
 Route::get('/profileseller', function () {
     return view('seller.profile');
 })->name('profileseller');
@@ -56,6 +80,7 @@ Route::get('/profileseller', function () {
 Route::get('/profile', function () {
     return view('profilecust');
 })->name('profile');
+
 
 Route::get('/editprofile', function () {
     return view('profileedit-cust');
@@ -66,7 +91,7 @@ Route::get('/createprofile', function () {
 })->name('create-profile');
 
 Route::get('/profileedit', function () {
-    return view('seller.profile-edit');
+    return view('profile.profile-edit');
 })->name('profile-edit');
 
 Route::get('/checkoutdetail', function () {
@@ -85,7 +110,12 @@ Route::get('/productseller', function () {
     return view('seller.product-seller');
 })->name('product-seller');
 
+
 Route::get('/upcoming', function () {
+    return view('upcoming');
+})->name('upcoming');
+
+Route::get('/upcomingS', function () {
     return view('seller.upcoming');
 })->name('upcoming');
 
