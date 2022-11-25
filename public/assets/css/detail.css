@@ -580,3 +580,17 @@
   margin: 20px;
 }
 
+.btn-see-more{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  transform: translateY(20px);
+}
+
+.btn-see-more button {
+  color: #4261aa;
+  background-color: transparent;
+  border: none;
+  font-family: 'Quicksand';
+  font-weight: 700;
+}

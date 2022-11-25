@@ -72,6 +72,24 @@ Route::group(['middleware' => ['auth','CheckLevel:admin,seller'],  'prefix' => '
 Route::post('profile/image',[UserProfileController::class, 'storeImage']);
 Route::post('shop-profile/image',[ShopController::class, 'storeImage']);
 
+
+Route::get('/profileseller', function () {
+    return view('seller.profile');
+})->name('profileseller');
+
+Route::get('/profile', function () {
+    return view('profilecust');
+})->name('profile');
+
+
+Route::get('/editprofile', function () {
+    return view('profileedit-cust');
+})->name('editprofile');
+
+Route::get('/createprofile', function () {
+    return view('create-profile');
+})->name('create-profile');
+
 Route::get('/profileedit', function () {
     return view('profile.profile-edit');
 })->name('profile-edit');
@@ -89,10 +107,18 @@ Route::get('/checkoutcomplete', function () {
 })->name('checkout-complete');
 
 Route::get('/productseller', function () {
-    return view('product-seller');
+    return view('seller.product-seller');
 })->name('product-seller');
 
-Route::get('/upcoming   ', function () {
+
+Route::get('/upcoming', function () {
     return view('upcoming');
 })->name('upcoming');
 
+Route::get('/upcomingS', function () {
+    return view('seller.upcoming');
+})->name('upcoming');
+
+Route::get('/processed', function () {
+    return view('seller.processed');
+})->name('processed');

@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+body {
+    background-color: #233874;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    margin-top: 30px;
+}
+
+.card-content {
+    width: 550px;
+    height: 700px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.logo img {
+    width: 120px;
+    border-radius: 7px;
+}
+
+.main-img {
+    width: 100%;
+    height: 350px;
+    margin-top: 15px;
+}
+
+.main-img img {
+    width: 520px;
+}
+
+.title h1 {
+    font-family: 'lobster', sans-serif;
+    font-size: 55px;
+    font-weight: 500;
+    margin: 10px 17px 5px;
+}
+
+.sub-title p {
+    font-size: 20px;
+    font-family: 'nunito';
+    font-weight: 600;
+    opacity: .8;
+}
+
+.warning-alert {
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    background: rgba(119, 164, 255, 0.42);
+    border-radius: 5px;
+}
+
+iconify-icon {
+    font-size: 20px;
+    color: #233874;
+}
+
+.warning-alert p {
+    margin: 0;
+    font-family: 'nunito';
+    font-weight: 500;
+    color: #233874;
+}
+
+.form-content {
+    color: #fff;
+    font-family: 'nunito';
+    width: 700px;
+}
+
+.title-form p {
+    font-size: 50px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.subtitle-form p {
+    font-family: 'Nunito';
+    width: 550px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 34px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.input-name {
+  display: flex;
+  gap: 10px;
+}
+
+.title-name p,
+.title-number p,
+.title-address p,
+.title-profile p{
+  margin: 15px 0px 0px 0px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.input-profile {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input{
+  font-size: 14px;
+  font-family: 'nunito';
+  padding: 2px 10px;
+  border-radius: 3px;
+  border: none;
+  width: 300px;
+  height: 40px;
+  font-weight: 600;
+}
+
+textarea{
+  font-size: 14px;
+  font-family: 'nunito';
+  padding: 7px 10px;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+input:focus,
+textarea:focus{
+  outline: 0;
+}
+
+.btn-submit {
+  width: 100%;
+  text-align: end;
+  box-sizing: border-box;
+  padding: 7px 88px 0px 0px;
+}
+
+.btn-submit input{
+  width: 100px;
+  height: 30px;
+  border-radius: 7px;
+  font-weight: 700;
+  font-size: 15px;
+}

@@ -55,7 +55,7 @@
             <p>{{ $seller->name }}</p>
           </div>
           <div class="other">
-            <button id="btn-review open-modal" onClick="Open_click(this.id)">Visit Shop <i class="fa-solid fa-shop"></i></button>
+            <button>Visit Shop <i class="fa-solid fa-shop"></i></button>
           </div>
         </div>
       </div>
@@ -145,6 +145,10 @@
       </div>
     </div>
     <div class="other-comment">
+      <div class="btn-see-more">
+        <button id="btn-review" onClick="Open_click(this.id)">See More...</button>
+      </div>
+      <div class="btn-more"></div>
       <div class="comment">
         <div class="comment-user">
           <div class="profile-comment">
