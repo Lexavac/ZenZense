@@ -22,7 +22,7 @@ class PController extends Controller
             ->where('id', '<>', $product->id)
             ->inRandomOrder()
             ->take(4)
-            ->get(['id', 'slug', 'name', 'price']);
+            ->get();
 
         return view('detail', compact('product',  'related_products', 'seller'));
     }

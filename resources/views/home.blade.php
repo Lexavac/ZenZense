@@ -47,7 +47,7 @@
       <div class="box-top-right"></div>
       <div class="box-bottom-right"></div>
       <div class="btn-explore">
-        <a href="{{ route('product') }}">
+        <a href="{{ route('product.cate.filter') }}">
           <button>Explore Now!</button>
         </a>
       </div>
@@ -86,21 +86,31 @@
   <div class="sorted">
     <h3>We Sorted Our Product By</h3>
     <div class="jurusan">
+      <a href="{{ url('/product?BRF=on') }}">
       <div class="bc">
         <img src="{{ asset('assets/img/bc.png')}}" alt="">
       </div>
-      <div class="mm">
-        <img src="{{ asset('assets/img/mm.png')}}" alt="">
-      </div>
-      <div class="rpl">
-        <img src="{{ asset('assets/img/rpl.png')}}" alt="">
-      </div>
-      <div class="tjkt">
-        <img src="{{ asset('assets/img/tjkt.png')}}" alt="">
-      </div>
-      <div class="te">
-        <img src="{{ asset('assets/img/te.png')}}" alt="">
-      </div>
+      </a>
+      <a href="{{ url('/product?ANIMASI=on') }}">
+        <div class="mm">
+          <img src="{{ asset('assets/img/mm.png')}}" alt="">
+        </div>
+      </a>
+      <a href="{{ url('/product?PPLG=on') }}">
+        <div class="rpl">
+          <img src="{{ asset('assets/img/rpl.png')}}" alt="">
+        </div>
+      </a>
+      <a href="{{ url('/product?TJKT=on') }}">
+        <div class="tjkt">
+          <img src="{{ asset('assets/img/tjkt.png')}}" alt="">
+        </div>
+      </a>
+      <a href="{{ url('/product?TE') }}">
+        <div class="te">
+          <img src="{{ asset('assets/img/te.png')}}" alt="">
+        </div>
+      </a>
     </div>
   </div>
   <div class="featured-product">
@@ -152,7 +162,7 @@
                   </div>
                   <div class="desc-product">
                     <div class="category-product">
-                      <p>{{ $product->slug }}</p>
+                      <p>{{ $product->major }}</p>
                     </div>
                     <div class="name-product">
                       <a style="width: 150px; display:inline-block;" href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>

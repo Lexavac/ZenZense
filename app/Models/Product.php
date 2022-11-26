@@ -34,7 +34,7 @@ class Product extends Model implements HasMedia
 
     public function category()
     {
-        return $this->belongsTo(Tb_productcate::class);
+        return $this->belongsTo(Tb_productcate::class, 'category_id');
     }
 
     public function getGalleryAttribute()

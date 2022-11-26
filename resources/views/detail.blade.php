@@ -270,7 +270,7 @@
         </div>
         <div class="desc-product">
           <div class="category-product">
-            <p>{{ $related_product->slug }}</p>
+            <p>{{ $related_product->major }}</p>
           </div>
           <div class="name-product">
             <a href="{{ route('product.show', $related_product->slug) }}">{{ $related_product->name }}</a>
