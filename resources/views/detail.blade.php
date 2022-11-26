@@ -55,7 +55,7 @@
             <p>{{ $seller->name }}</p>
           </div>
           <div class="other">
-            <button>Visit Shop <i class="fa-solid fa-shop"></i></button>
+            <a href="{{ route('shop.show.profile', $seller->slug) }}">Visit Shop <i class="fa-solid fa-shop"></i></a>
           </div>
         </div>
       </div>

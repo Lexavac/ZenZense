@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="content">
-  <div class="filter-content">
+  <div class="filter-content" style="height: 90%; overflow-y:scroll; padding-bottom: 80px;">
     <div class="filter">
       <div class="header-filter">
         <p>Filter</p>
@@ -41,7 +41,7 @@
                     <img src="{{ asset('assets/img/mm.pn')}}g" alt="">
                   </div>
                   <div class="title-major">
-                    <p>Multimedia</p>
+                    <p>Animasi</p>
                   </div>
                 </div>
               </label>
@@ -119,18 +119,25 @@
           <p>Category</p>
         </div>
         <ul class="menu-category">
-          <li>
-            <label for="soft">Software</label>
-            <input type="checkbox" name="soft" id="soft">
-          </li>
-          <li>
-            <label for="hard">Hardware</label>
-            <input type="checkbox" name="hard" id="hard">
-          </li>
+        @foreach($menu_categories as $menu_category)
+          <li><a class="dropdown-item" href="{{ route('product.cate.filter', $menu_category->slug) }}">{{ $menu_category->name }}</a></li>
+        @endforeach
+        </ul>
+      </div>
+    </div>
+    <div class="category-filter">
+        <div class="header-category">
+          <p>Tags</p>
+        </div>
+        <ul class="menu-category">
+        @foreach($menu_tags as $menu_tag)
+          <li><a class="dropdown-item" href="{{ route('product.tag.filter', $menu_tag->slug) }}">{{ $menu_tag->name }}</a></li>
+        @endforeach
         </ul>
       </div>
     </div>
   </div>
+
   <div class="main-content">
     <div class="product-content">
       <div class="header-product-content">
@@ -143,15 +150,11 @@
         </div>
         <div class="filter-product">
           <div class="filter-label">
+            @foreach($tags as $maj)
             <div class="label-menu">
-              <p>Broadcast</p>
+              <p>{{ $maj }}</p>
             </div>
-            <div class="label-menu">
-              <p>Broadcast</p>
-            </div>
-            <div class="label-menu">
-              <p>Broadcast</p>
-            </div>
+            @endforeach
           </div>
           <div class="filter-dropdown">
             <label for="filter"><i class="fa fa-bars" aria-hidden="true"></i></label>
@@ -169,7 +172,7 @@
               </div>
               <div class="desc-product">
                 <div class="category-product">
-                  <p id="ctgry">Design Web</p>
+                  <p id="ctgry">{{ $product->major }}</p>
                 </div>
                 <div class="name-product">
                   <a href="{{ route('product.show', $product->slug) }}">
@@ -180,12 +183,14 @@
                   <div class="price">
                     <p id="prc-prod">Rp. {{ $product->price }}</p>
                   </div>
+                  @if(Auth::check())
                   <div class="other-btn">
                     <div class="btn-detail">
-                       <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
+                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
                       <button><i class="fa fa-heart" aria-hidden="true"></i></button>
                     </div>
                   </div>
+                  @endif
                 </div>
               </div>
             </div>
