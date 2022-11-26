@@ -10,13 +10,13 @@ class HControllerr extends Controller
 {
     public function index(){
 
-        $products = Product::with('category')->get(['id','name','price','slug','desc']);
+        $products = Product::with('category')->get();
 
         return view('home', compact('products'));
     }
 
     public function getProducts(){
-        $products = Product::with('category')->get(['id','name', 'price','slug']);
+        $products = Product::with('category')->get();
 
         return response()->json([
             'status' => 200,

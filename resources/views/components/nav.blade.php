@@ -17,10 +17,11 @@
             <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container-fluid">
                     <div class="search-web">
-                        <form class="d-flex" role="search">
+                        <form class="d-flex" action="{{ route('product.search') }}" method="GET" role="search">
+                            @csrf
                             <div class="layout-search">
-                                <input type="text" name="search-web" id="search-web" placeholder="Search">
-                                <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <input type="text" id="search-web" placeholder="Search Products..." name="search">
+                                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </div>
                         </form>
                     </div>
@@ -60,11 +61,11 @@
                                             </form>
                                         </li>
                                         <li>
-                                        @endif
                                             <hr class="dropdown-divider">
                                         </li>
                                         <li><a class="dropdown-item setting" href="#">setting <i
                                                     class="fa-solid fa-gear"></i></a></li>
+                                        @endif
                                     </ul>
                                 </li>
                         </div>

@@ -31,7 +31,9 @@ use Illuminate\Support\Facades\Route;
     // })->name('product');
 
     Route::get('/product/{slug?}',[SController::class,'index'])->name('product.cate.filter');
-    Route::get('/product/tag/{slug?}', [\App\Http\Controllers\SController::class, 'tag'])->name('product.tag.filter');
+    Route::get('/product/tag/{slug?}', [SController::class, 'tag'])->name('product.tag.filter');
+
+    Route::get('/search/{slug?}', [SController::class, 'search'])->name('product.search');
     
     Route::get('/detail', function () {
         return view('detail');
