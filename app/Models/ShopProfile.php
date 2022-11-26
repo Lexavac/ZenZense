@@ -14,6 +14,7 @@ class ShopProfile extends Model implements HasMedia
 
     protected $table = 'shop_profiles';
 
+
     protected $fillable = [
         'name',
         'major',

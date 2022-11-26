@@ -9,21 +9,21 @@
 <div class="content">
   <div class="card-profile">
     <div class="img-profile">
-      <img src="assets/ALM00016.JPG" alt="" id="img-profile">
+      <img src="{{ $shop->gallery->first()->getUrl() }}" alt="" id="img-profile">
     </div>
     <div class="desc-shop">
       <div class="name-shop">
-        <p>Nurul Mart</p>
+        <p>{{ $shop->name }}</p>
       </div>
       <div class="name-seller">
-        <p>seller Name : Homisah</p>
+        <p>seller Name : {{ $sellerdata->name }}</p>
       </div>
-      <div class="description">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque adipisci fuga, error illum doloremque harum exercitationem ratione. Ipsam quisquam quam cumque! Pariatur laudantium fugit odit? Architecto minima adipisci temporibus incidunt!</p>
+      <div class="description" style="overflow-x: hidden;">
+        <p>{{ $shop->desc }}</p>
       </div>
       <div class="total-product">
         <p>Total Product</p>
-        <p>8</p>
+        <p>{{ $products->count() }}</p>
       </div>
       <div class="rate-shop">
         <i class="fa fa-star" aria-hidden="true"></i>
@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="seller-since">
-      <p>Seller since 20 desember 2020</p>
+      <p>Seller since {{ $shop->created_at }}</p>
     </div>
   </div>
   <div class="content-product">
@@ -44,178 +44,33 @@
       </div>
     </div>
     <div class="product-product">
+      @foreach($products as $product)
       <div class="card-product">
         <div class="img-card">
-          <img src="assets/web1.jpg" alt="" id="img-prod">
+          <img src="{{ $product->gallery->first()->getUrl() }}" alt="" id="img-prod">
         </div>
         <div class="desc-product">
           <div class="category-product">
-            <p id="ctgry">Design Web</p>
+            <p id="ctgry">{{ $product->major }}</p>
           </div>
           <div class="name-product">
-            <p id="name-prod">Landing page for Art Gallery</p>
+            <p id="name-prod">{{ $product->name }}</p>
           </div>
           <div class="row-price">
             <div class="price">
-              <p id="prc-prod">Rp. 100.000</p>
+              <p id="prc-prod">Rp. {{ $product->price }}</p>
             </div>
             <div class="other-btn">
               <div class="btn-detail">
-                 <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
+                <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
                 <button><i class="fa fa-heart" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
         </div>
       </div>
+      @endforeach
 
-      <div class="card-product">
-        <div class="img-card">
-          <img src="assets/web1.jpg" alt="" id="img-prod">
-        </div>
-        <div class="desc-product">
-          <div class="category-product">
-            <p id="ctgry">Design Web</p>
-          </div>
-          <div class="name-product">
-            <p id="name-prod">Landing page for Art Gallery</p>
-          </div>
-          <div class="row-price">
-            <div class="price">
-              <p id="prc-prod">Rp. 100.000</p>
-            </div>
-            <div class="other-btn">
-              <div class="btn-detail">
-                 <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-product">
-        <div class="img-card">
-          <img src="assets/web1.jpg" alt="" id="img-prod">
-        </div>
-        <div class="desc-product">
-          <div class="category-product">
-            <p id="ctgry">Design Web</p>
-          </div>
-          <div class="name-product">
-            <p id="name-prod">Landing page for Art Gallery</p>
-          </div>
-          <div class="row-price">
-            <div class="price">
-              <p id="prc-prod">Rp. 100.000</p>
-            </div>
-            <div class="other-btn">
-              <div class="btn-detail">
-                 <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-product">
-        <div class="img-card">
-          <img src="assets/web1.jpg" alt="" id="img-prod">
-        </div>
-        <div class="desc-product">
-          <div class="category-product">
-            <p id="ctgry">Design Web</p>
-          </div>
-          <div class="name-product">
-            <p id="name-prod">Landing page for Art Gallery</p>
-          </div>
-          <div class="row-price">
-            <div class="price">
-              <p id="prc-prod">Rp. 100.000</p>
-            </div>
-            <div class="other-btn">
-              <div class="btn-detail">
-                 <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-product">
-        <div class="img-card">
-          <img src="assets/web1.jpg" alt="" id="img-prod">
-        </div>
-        <div class="desc-product">
-          <div class="category-product">
-            <p id="ctgry">Design Web</p>
-          </div>
-          <div class="name-product">
-            <p id="name-prod">Landing page for Art Gallery</p>
-          </div>
-          <div class="row-price">
-            <div class="price">
-              <p id="prc-prod">Rp. 100.000</p>
-            </div>
-            <div class="other-btn">
-              <div class="btn-detail">
-                 <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-product">
-        <div class="img-card">
-          <img src="assets/web1.jpg" alt="" id="img-prod">
-        </div>
-        <div class="desc-product">
-          <div class="category-product">
-            <p id="ctgry">Design Web</p>
-          </div>
-          <div class="name-product">
-            <p id="name-prod">Landing page for Art Gallery</p>
-          </div>
-          <div class="row-price">
-            <div class="price">
-              <p id="prc-prod">Rp. 100.000</p>
-            </div>
-            <div class="other-btn">
-              <div class="btn-detail">
-                 <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-product">
-        <div class="img-card">
-          <img src="assets/web1.jpg" alt="" id="img-prod">
-        </div>
-        <div class="desc-product">
-          <div class="category-product">
-            <p id="ctgry">Design Web</p>
-          </div>
-          <div class="name-product">
-            <p id="name-prod">Landing page for Art Gallery</p>
-          </div>
-          <div class="row-price">
-            <div class="price">
-              <p id="prc-prod">Rp. 100.000</p>
-            </div>
-            <div class="other-btn">
-              <div class="btn-detail">
-                 <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                <button><i class="fa fa-heart" aria-hidden="true"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
     </div>
   </div>

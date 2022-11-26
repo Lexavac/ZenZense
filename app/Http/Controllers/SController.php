@@ -13,36 +13,47 @@ class SController extends Controller
 
         $products = Product::with('category');
 
+        $tags = [];
+
         if($request->BRF != null){
             $products->orWhere('major','=', 'BRF');
+            array_push($tags, 'BRC');
         }
 
         if($request->PPLG != null){
             $products->orWhere('major','=', 'PPLG');
+            array_push($tags, 'PPLG');
         }
 
         if($request->ANIMASI != null){
             $products->orWhere('major','=', 'ANIMASI');
+            array_push($tags, 'ANIMASI');
         }
 
         if($request->TJKT != null){
             $products->orWhere('major','=', 'TJKT');
+            array_push($tags, 'TJKT');
         }
 
         if($request->TE != null){
             $products->orWhere('major','=', 'TE');
+            array_push($tags, 'TE');
         }
 
         if($request->min != null){
             $products->where('price', '>=', $request->min);
+            array_push($tags, 'MIN : '.$request->min);
         }
 
         if($request->max != null){
             $products->where('price', '<=', $request->max);
+            array_push($tags, 'MAX : '.$request->max);
         }
 
         if(!is_null($slug)){
             $category = Tb_productcate::whereSlug($slug)->firstOrFail();
+
+            array_push($tags, $slug);
 
 
             if (is_null($category->category_id)) {
@@ -70,7 +81,7 @@ class SController extends Controller
 
         $products = $products->paginate(8);
 
-        return view('product',compact('products'));
+        return view('product',compact('products', 'tags'));
 
 
     }
@@ -79,6 +90,45 @@ class SController extends Controller
     {
         $products = Product::with('tags');
 
+        $tags = [];
+
+        if($request->BRF != null){
+            $products->orWhere('major','=', 'BRF');
+            array_push($tags, 'BRC');
+        }
+
+        if($request->PPLG != null){
+            $products->orWhere('major','=', 'PPLG');
+            array_push($tags, 'PPLG');
+        }
+
+        if($request->ANIMASI != null){
+            $products->orWhere('major','=', 'ANIMASI');
+            array_push($tags, 'ANIMASI');
+        }
+
+        if($request->TJKT != null){
+            $products->orWhere('major','=', 'TJKT');
+            array_push($tags, 'TJKT');
+        }
+
+        if($request->TE != null){
+            $products->orWhere('major','=', 'TE');
+            array_push($tags, 'TE');
+        }
+
+        if($request->min != null){
+            $products->where('price', '>=', $request->min);
+            array_push($tags, 'MIN : '.$request->min);
+        }
+
+        if($request->max != null){
+            $products->where('price', '<=', $request->max);
+            array_push($tags, 'MAX : '.$request->max);
+        }
+
+        array_push($tags, $slug);
+
         $products = $products->whereHas('tags', function ($query) use($slug) {
             $query->where([
                 'slug' => $slug,
@@ -86,6 +136,6 @@ class SController extends Controller
         })
         ->paginate(6);
 
-        return view('product', compact('products','slug'));
+        return view('product', compact('products','slug', 'tags'));
     }
 }

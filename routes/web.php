@@ -5,6 +5,7 @@ use App\Http\Controllers\HControllerr;
 use App\Http\Controllers\PController;
 use App\Http\Controllers\SController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ShopProfile;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +30,8 @@ use Illuminate\Support\Facades\Route;
     //     return view('product');
     // })->name('product');
 
-    Route::get('/product/{slug?}',[SController::class,'index'])->name('product');
+    Route::get('/product/{slug?}',[SController::class,'index'])->name('product.cate.filter');
+    Route::get('/product/tag/{slug?}', [\App\Http\Controllers\SController::class, 'tag'])->name('product.tag.filter');
     
     Route::get('/detail', function () {
         return view('detail');
@@ -42,10 +44,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('/fav', function () {
         return view('fav');
     })->name('fav');
-    
-    Route::get('/shop', function () {
-        return view('shop');
-    })->name('shop');
+
+    route::get('/shop/profile/{slug?}', [ShopProfile::class, 'show'])->name('shop.show.profile');
     
     Route::get('/setting', function () {
         return view('dashboard');
@@ -55,14 +55,13 @@ Auth::routes();
 
 Route::resource('profile', UserProfileController::class);
 
+// Route::get('/seller', function () {
+//     return view('seller.loginseller');
+// })->name('loginseller');
 
-Route::get('/seller', function () {
-    return view('seller.loginseller');
-})->name('loginseller');
-
-Route::get('/sellerreg', function () {
-    return view('seller.regisseller');
-})->name('regisseller');
+// Route::get('/sellerreg', function () {
+//     return view('seller.regisseller');
+// })->name('regisseller');
 
 Route::group(['middleware' => ['auth','CheckLevel:admin,seller'],  'prefix' => 'seller',  'as' => 'seller.'],function(){
     Route::resource('shop-profile', ShopController::class);
@@ -79,7 +78,7 @@ Route::get('/profileseller', function () {
 
 Route::get('/profile', function () {
     return view('profilecust');
-})->name('profile');
+})->name('profile.cust');
 
 
 Route::get('/editprofile', function () {
@@ -117,7 +116,7 @@ Route::get('/upcoming', function () {
 
 Route::get('/upcomingS', function () {
     return view('seller.upcoming');
-})->name('upcoming');
+})->name('upcomingS');
 
 Route::get('/processed', function () {
     return view('seller.processed');
