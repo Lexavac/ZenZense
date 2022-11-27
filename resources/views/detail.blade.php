@@ -48,11 +48,15 @@
       </div>
       <div class="profile">
         <div class="profile-img">
-          <img src="{{ $seller->gallery->first()->getUrl() }}" alt="">
+          <a href="{{ route('shop.show.profile', $seller->slug) }}">
+            <img src="{{ $seller->gallery->first()->getUrl() }}" alt="">
+          </a>
         </div>
         <div class="profile-name">
           <div class="name">
-            <p>{{ $seller->name }}</p>
+            <a href="{{ route('shop.show.profile', $seller->slug) }}">
+              <p>{{ $seller->name }}</p>
+            </a>
           </div>
           <div class="other">
             <a href="{{ route('shop.show.profile', $seller->slug) }}">Visit Shop <i class="fa-solid fa-shop"></i></a>

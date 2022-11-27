@@ -154,34 +154,38 @@
           <div id="content">
             <div class="product-carousel">
               <div class="row-product">
-
-              @foreach($products as $product)
+                @foreach($products as $product)
                 <div class="card-product">
                   <div class="img-card">
-                    <img src="{{ $product->gallery->first()->getUrl() }}" alt="">
+                    <img src="{{ $product->gallery->first()->getUrl() }}" alt="" id="img-prod">
                   </div>
                   <div class="desc-product">
                     <div class="category-product">
-                      <p>{{ $product->major }}</p>
+                      <p id="ctgry">{{ $product->major }}</p>
                     </div>
                     <div class="name-product">
-                      <a style="width: 150px; display:inline-block;" href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
+                      <a href="{{ route('product.show', $product->slug) }}">
+                        <p id="name-prod">{{ $product->name }}</p>
+                      </a>
                     </div>
                     <div class="row-price">
                       <div class="price">
-                        <p>Rp.{{ $product->price }}</p>
+                        <p id="prc-prod">Rp. {{ $product->price }}</p>
                       </div>
-                      <div class="button-detail">
-                        <button><i class="fa-solid fa-cart-shopping"></i></button>
-                        <button>
-                          <iconify-icon class="heart" icon="akar-icons:heart"></iconify-icon>
-                        </button>
+                      @if(Auth::check())
+                      <div class="other-btn">
+                        <div class="btn-detail">
+                          <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
+                          <button><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        </div>
                       </div>
+                      @endif
                     </div>
                   </div>
                 </div>
-              @endforeach
+                @endforeach
 
+              
 
               </div>
             </div>

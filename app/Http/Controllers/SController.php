@@ -164,6 +164,11 @@ class SController extends Controller
 
         $products = $products->paginate();
 
+        if($request->sortby != null){
+            $products->where('price', '>=', $request->min);
+            array_push($tags, 'MIN : '.$request->min);
+
+        }
         return view('product',compact('products', 'tags'));
 
     }
