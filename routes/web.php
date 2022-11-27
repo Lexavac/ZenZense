@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HControllerr;
 use App\Http\Controllers\PController;
 use App\Http\Controllers\SController;
@@ -23,13 +23,9 @@ use Illuminate\Support\Facades\Route;
 */
 
     Route::get('/', [HControllerr::class, 'index'])->name('HomePage');
-    
-    Route::get('/product/detail/{product:slug?}', [PController::class, 'show'])->name('product.show');
-    
-    // Route::get('/product', function () {
-    //     return view('product');
-    // })->name('product');
 
+
+    Route::get('/product/detail/{product:slug?}', [PController::class, 'show'])->name('product.show');
     Route::get('/product/{slug?}',[SController::class,'index'])->name('product.cate.filter');
     Route::get('/product/tag/{slug?}', [SController::class, 'tag'])->name('product.tag.filter');
 
@@ -39,10 +35,15 @@ use Illuminate\Support\Facades\Route;
         return view('detail');
     })->name('detail');
     
-    Route::get('/cart', function () {
-        return view('cart');
-    })->name('cart');
+    Route::group(['middleware' => 'auth',  'prefix' => 'cart',  'as' => 'cart.'],function(){
+        Route::get('/', [CartController::class, 'CartPage'])->name('cart');
+        Route::get('/{product:id?}', [CartController::class, 'store'])->name('cart.store');
+        Route::get('/dec/{cart:id?}', [CartController::class, 'dec'])->name('cart.dec');
+        Route::get('/inc/{cart:id?}', [CartController::class, 'inc'])->name('cart.inc');
+        Route::get('/dest/{cart:id?}', [CartController::class, 'destroy'])->name('cart.dest');
+    });
     
+
     Route::get('/fav', function () {
         return view('fav');
     })->name('fav');
@@ -78,7 +79,7 @@ Route::get('/profileseller', function () {
     return view('seller.profile');
 })->name('profileseller');
 
-Route::get('/profile', function () {
+Route::get('/profileC', function () {
     return view('profilecust');
 })->name('profile.cust');
 

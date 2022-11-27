@@ -16,11 +16,9 @@ class Cart extends Model implements HasMedia
 
 
     protected $fillable = [
-        'product_name',
+        'products_id',
         'quantity',
-        'price',
-        'user_ip',
-
+        'users_id',
     ];
 
     protected $append = ['gallery'];
@@ -42,21 +40,12 @@ class Cart extends Model implements HasMedia
 
     public function product()
     {
-        return $this->belongsTo(Product::class,'product_name');
+        return $this->belongsTo(Product::class,'products_id');
     }
 
-    public function category()
+    public function users()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(User::class,'users_id');
     }
 
-    public function getGalleryAttribute(Product $product)
-    {
-        return $product->getMedia('gallery');
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class);
-    }
 }
