@@ -1,5 +1,7 @@
+
 body{
   min-height: 100vh;
+  justify-content: space-between;
   display: flex;
   flex-direction: column;
 }
@@ -16,7 +18,7 @@ footer{
   height: 50px;
   width: 100%;
   color: rgba(255, 255, 255, 0.508);
-  z-index: 9999;
+  z-index: 99;
   position: relative;
   margin-top: 100px;
 }

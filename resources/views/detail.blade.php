@@ -9,26 +9,19 @@
   <div class="content">
     <div class="product">
       <div class="main-product">
-        <img src="assets/web1.jpg" alt="" id="main-product" onclick="prev(this)">
+        <img src="{{ $product->gallery->first()->getUrl() }}" alt="" id="main-product" onclick="prev(this)">
       </div>
       <div class="other-product">
+        @foreach($product->gallery as $img)
         <div class="prev">
-          <img src="assets/web1.jpg" alt="">
+          <img src="{{ $img->getUrl() }}" alt="">
         </div>
-        <div class="prev">
-          <img src="assets/web2.jpg" alt="">
-        </div>
-        <div class="prev">
-          <img src="assets/web3.jpg" alt="">
-        </div>
-        <div class="prev">
-          <img src="assets/web4.jpg" alt="">
-        </div>
+        @endforeach
       </div>
     </div>
     <div class="description">
       <div class="name-product-main">
-        <p>Name Product</p>
+        <p>{{ $product->name }}</p>
       </div>
       <div id="rate">
         <div class="d-flex align-items-center">
@@ -43,12 +36,10 @@
         </div>
       </div>
       <div class="main-price">
-        <p>Rp. 150.000</p>
+        <p>Rp. {{ $product->price }}</p>
       </div>
       <div class="info-product">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio minima similique iusto voluptates dolore
-          libero aut tenetur architecto maxime vitae eos blanditiis debitis quam placeat minus fuga, atque eligendi
-          quas?</p>
+        <p>{{ $product->desc }}</p>
       </div>
       <div class="btn-product">
         <a href="checkout-delivery.html"><button class="btn-buy"><i class="fa-solid fa-bag-shopping"></i>Buy
@@ -57,14 +48,14 @@
       </div>
       <div class="profile">
         <div class="profile-img">
-          <img src="assets/user.png" alt="">
+          <img src="{{ $seller->gallery->first()->getUrl() }}" alt="">
         </div>
         <div class="profile-name">
           <div class="name">
-            <p>Seller's Name</p>
+            <p>{{ $seller->name }}</p>
           </div>
           <div class="other">
-            <button>Visit Shop <i class="fa-solid fa-shop"></i></button>
+            <a href="{{ route('shop.show.profile', $seller->slug) }}">Visit Shop <i class="fa-solid fa-shop"></i></a>
           </div>
         </div>
       </div>
@@ -268,24 +259,25 @@
         <p>Related Product</p>
       </div>
       <div class="see-more">
-        <a href="">See More...</a>
+        <a href="#">See More...</a>
       </div>
     </div>
     <div class="related-product">
+      @foreach($related_products as $related_product)
       <div class="card-product">
         <div class="img-card">
-          <img src="assets/web1.jpg" alt="">
+          <img src="{{ $related_product->gallery->first()->getUrl() }}" alt="">
         </div>
         <div class="desc-product">
           <div class="category-product">
-            <p>Design Web</p>
+            <p>{{ $related_product->major }}</p>
           </div>
           <div class="name-product">
-            <p>Landing page for Art Gallery</p>
+            <a href="{{ route('product.show', $related_product->slug) }}">{{ $related_product->name }}</a>
           </div>
           <div class="row-price">
             <div class="price">
-              <p>Rp. 100.000</p>
+              <p>Rp. {{ $related_product->price }}</p>
             </div>
             <div class="other-btn">
               <div class="btn-detail">
@@ -298,6 +290,7 @@
           </div>
         </div>
       </div>
+      @endforeach
     </div>
   </div>
 </div>
@@ -310,7 +303,7 @@
   <div class="modal-content">
     <div class="header">
       <span class="close">&times;</span>
-      <p>Product Name</p>
+      <p>{{ $product->name }}</p>
     </div>
     <div class="product">
       <div class="main-modal">
@@ -320,15 +313,11 @@
         <div class="modal-product">
           <img src="" alt="" id="main-modal">
         </div>
-        <!-- <div class="modal-next">
+        <!-- <div class="modal-next"> 
           <button><i class="fa-solid fa-caret-right"></i></button>
         </div> -->
       </div>
       <div class="other-modal">
-        <img src="" alt="" class="coba">
-        <img src="" alt="" class="coba">
-        <img src="" alt="" class="coba">
-        <img src="" alt="" class="coba">
       </div>
     </div>
   </div>

@@ -41,7 +41,7 @@
                 <td style="width: 120px;">2</td>
                 <td style="width: 100px;"><p id="label-order"  style="margin-top: 10px;">Software</p></td>
                 <td style="width: 180px;">
-                    <a href="" style="font-weight:600;">Refund</a>
+                    <button  onclick="On_klik(this.id)" id="refund" style="font-weight:600;" >Refund</button>
                 </td>
             </tr>
              <tr>
@@ -59,7 +59,7 @@
                 <td style="width: 100px;">2</td>
                 <td style="width: 70px;"><p id="label-order" style="margin-top: 10px;">Software</p></td>
                 <td style="width: 150px;">
-                  <a href="" style="font-weight:600;"></a>
+                  <button  onclick="On_klik(this.id)" id="refund" style="font-weight:600;">Refund</button>
                 </td>
             </tr>
             <tr>
@@ -77,7 +77,7 @@
                 <td style="width: 100px;">2</td>
                 <td style="width: 70px;"><p id="label-order" style="margin-top: 10px;">Software</p></td>
                 <td style="width: 150px;">
-                  <a href="" style="font-weight:600;">Refunded</a>
+                  <button  onclick="On_klik(this.id)" id="refund" style="font-weight:600;">Refund</button>
                 </td>
             </tr>
             <tr>
@@ -95,7 +95,7 @@
                 <td style="width: 100px;">2</td>
                 <td style="width: 70px;"><p id="label-order" style="margin-top: 10px;">Software</p></td>
                 <td style="width: 150px;">
-                    <a href="" style="font-weight:600;">Refund</a>
+                    <button  onclick="On_klik(this.id)" id="refund" style="font-weight:600;">Refund</button>
                 </td>
             </tr>
         </table>
@@ -106,32 +106,60 @@
         <div class="header">
             <span class="close close-form">&times;</span>
         </div>
-        <div class="reciep-content">
-            <div class="form-profile">
-                <img src="assets/ALM00016.JPG" alt="">
-                <p>Username kiagus ahmad farhan azis</p>
+        <div class="refund-content">
+            <div class="warning-alert">
+                <iconify-icon icon="material-symbols:info-rounded" style="font-size: 20px; color: #233874;"></iconify-icon>
+                <p>Your money will not necessarily return with this refund, it needs approval in accordance with the applicable rules and conditions.</p>
             </div>
-            <div class="form-ratings">
-                <p>Rating</p>
-                <div class="star-widget">
-                    <input type="radio" name="rate" id="rate-5">
-                    <label for="rate-5" class="fas fa-star"></label>
-                    <input type="radio" name="rate" id="rate-4">
-                    <label for="rate-4" class="fas fa-star"></label>
-                    <input type="radio" name="rate" id="rate-3">
-                    <label for="rate-3" class="fas fa-star"></label>
-                    <input type="radio" name="rate" id="rate-2">
-                    <label for="rate-2" class="fas fa-star"></label>
-                    <input type="radio" name="rate" id="rate-1">
-                    <label for="rate-1" class="fas fa-star"></label>
-                </div>
-            </div>
-            <div class="form-review">
-                <p>Review</p>
-                <textarea name="" id="" cols="83" rows="7"></textarea>
-            </div>
-            <div class="btn-form">
-                <button>submit</button>
+            <div class="form-refund">
+                <form action="">
+                    <div class="name">
+                        <p>1. Full Name</p>
+                        <div class="full-name">
+                            <div class="first-name">
+                                <label for="firstname">First Name</label>
+                                <input type="text" placeholder="First Name">
+                            </div>
+                            <div class="last-name">
+                                <label for="lastname">Last Name</label>
+                                <input type="text" placeholder="Last Name">
+                            </div>    
+                        </div>
+                    </div>
+                    <div class="email">
+                        <p>2. Email</p>
+                        <input type="text" placeholder="Email">
+                        <p>This email will recieve refund status</p>
+                    </div>
+                    <div class="product-name">
+                        <p>3. Product Name</p>
+                        <input type="text" placeholder="Product Name">
+                    </div>
+                    <div class="product-id">
+                        <p>4. Product Id</p>
+                        <input type="text" placeholder="Product Id">
+                    </div>
+                    <div class="invoice-number">
+                        <p>5. Invoice Number</p>
+                        <input type="text" placeholder="Invoice Number">
+                    </div>
+                    <div class="product-pict">
+                        <p>6. Product Image</p>
+                        <input type="file" name="" id="">
+                        <p>*if Your product is an hardware type</p>
+                    </div>
+                    <div class="massage">
+                        <p>Additional Notes</p>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="checked">
+                        <input type="checkbox" name="check" id="check">
+                        <label for="check">I agree the refunded money to be sent back to the account that I previously paid</label>
+                    </div>
+                    <div class="btn-form">
+                        <button>submit</button>
+                    </div>
+                </form>    
             </div>
         </div>
     </div>
