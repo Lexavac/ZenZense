@@ -57,6 +57,10 @@ Route::get('/profile', function () {
     return view('profilecust');
 })->name('profile');
 
+Route::get('/setting', function () {
+    return view('setting');
+})->name('setting');
+
 Route::get('/editprofile', function () {
     return view('profileedit-cust');
 })->name('editprofile');
@@ -92,3 +96,19 @@ Route::get('/upcoming', function () {
 Route::get('/processed', function () {
     return view('seller.processed');
 })->name('processed');
+
+Route::get('/completed', function () {
+    return view('seller.complete-order');
+})->name('completed');
+
+Route::get('/canceled', function () {
+    return view('seller.canceled-order');
+})->name('canceled');
+
+Route::get('/report', function () {
+    return view('seller.report');
+})->name('report');
+
+Route::get('/monthlyreport', function () {
+    return view('seller.monthly-report');
+})->name('monthly-report');

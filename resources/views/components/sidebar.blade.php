@@ -32,7 +32,7 @@
                 </div>
                 
                 <div class="menu-report">
-                    <a href="" class="report">
+                    <a href="{{ route('report') }}" class="report">
                         <div class="left">
                             <iconify-icon class="icon" icon="ph:flag"></iconify-icon>
                             <p>Report</p>

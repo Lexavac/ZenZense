@@ -65,8 +65,10 @@
                 <p>4. Set Your profile photo</p>
               </div>
               <div class="input-profile">
-                <label for="photo">Selec Profile :</label>
-                <input type="file" name="photo" id="photo">
+                <div class="title-photo">
+                    <p>Select Profile :</p>
+                </div>
+                <div class="input-photo"></div>
               </div>
             </div>
             <div class="btn-submit">

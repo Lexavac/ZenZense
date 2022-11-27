@@ -2,7 +2,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('assets/css/sidebar.css')}}">
-<link rel="stylesheet" href="{{ asset('assets/css/processed.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/canceled-order.css')}}">
 @endsection
 
 @section('content')
@@ -20,14 +20,14 @@
             <tr>
                 <th style="width: 70px;">No</th>
                 <th style="text-align: start;">Product</th>
-                <th>Order ID</th>
+                <th >Order ID</th>
                 <th>Customer Name</th>
-                <th>Quantity</th>
+                <th style="width: 100px;">Quantity</th>
                 <th>Type</th>
                 <th></th>
             </tr>
             <tr>
-                <td style="width: 100px;">1</td>
+                <td  style="width: 100px;">1</td>
                 <td style="display: flex; gap:20px; text-align: start; width: 250px;">
                     <img src="assets/web3.jpg" alt="">
                     <div class="prod-details" style="line-height: 14px;">
@@ -39,15 +39,13 @@
                 <td style="width: 110px;">001</td>
                 <td style="width: 250px;">User Agus</td>
                 <td style="width: 120px;">2</td>
-                <td style="width: 100px;">
-                    <p id="label-order" style="margin-top: 10px;">Software</p>
-                </td>
+                <td style="width: 100px;"><p id="label-order"  style="margin-top: 10px;">Software</p></td>
                 <td style="width: 180px;">
-                    <a href="#" style="font-weight:600;" id="btn-receipt" onclick="On_click(this.id)">Send</a>
+                    <a href="" style="font-weight:600;">Refund</a>
                 </td>
             </tr>
-            <tr>
-                <td style="width: 100px;">1</td>
+             <tr>
+                <td  style="width: 90px;">1</td>
                 <td style="display: flex; gap:20px; text-align: start; width: 250px;">
                     <img src="assets/web3.jpg" alt="">
                     <div class="prod-details" style="line-height: 14px;">
@@ -59,15 +57,13 @@
                 <td style="width: 70px;">001</td>
                 <td style="width: 180px;">User Agus</td>
                 <td style="width: 100px;">2</td>
-                <td style="width: 70px;">
-                    <p id="label-order" style="margin-top: 10px;">Software</p>
-                </td>
+                <td style="width: 70px;"><p id="label-order" style="margin-top: 10px;">Software</p></td>
                 <td style="width: 150px;">
-                    <a href="#" style="font-weight:600;" id="btn-receipt" onclick="On_click(this.id)">Send</a>
+                  <a href="" style="font-weight:600;"></a>
                 </td>
             </tr>
             <tr>
-                <td style="width: 90px;">1</td>
+                <td  style="width: 90px;">1</td>
                 <td style="display: flex; gap:20px; text-align: start; width: 250px;">
                     <img src="assets/web3.jpg" alt="">
                     <div class="prod-details" style="line-height: 14px;">
@@ -79,15 +75,13 @@
                 <td style="width: 70px;">001</td>
                 <td style="width: 180px;">User Agus</td>
                 <td style="width: 100px;">2</td>
-                <td style="width: 70px;">
-                    <p id="label-order" style="margin-top: 10px;">Software</p>
-                </td>
+                <td style="width: 70px;"><p id="label-order" style="margin-top: 10px;">Software</p></td>
                 <td style="width: 150px;">
-                    <a href="#" style="font-weight:600;" id="btn-receipt" onclick="On_click(this.id)">Send</a>
+                  <a href="" style="font-weight:600;">Refunded</a>
                 </td>
             </tr>
             <tr>
-                <td style="width: 90px;">1</td>
+                <td  style="width: 90px;">1</td>
                 <td style="display: flex; gap:20px; text-align: start; width: 250px;">
                     <img src="assets/web3.jpg" alt="">
                     <div class="prod-details" style="line-height: 14px;">
@@ -99,40 +93,49 @@
                 <td style="width: 70px;">001</td>
                 <td style="width: 180px;">User Agus</td>
                 <td style="width: 100px;">2</td>
-                <td style="width: 70px;">
-                    <p id="label-order" style="margin-top: 10px;">Software</p>
-                </td>
+                <td style="width: 70px;"><p id="label-order" style="margin-top: 10px;">Software</p></td>
                 <td style="width: 150px;">
-                    <a href="#" style="font-weight:600;" id="btn-receipt" onclick="On_click(this.id)">Send</a>
+                    <a href="" style="font-weight:600;">Refund</a>
                 </td>
             </tr>
         </table>
     </div>
 </div>
-</div>
-<div id="myReceipt" class="modalreceipt">
-    <div class="modalreceipt-content">
+<div id="myForm" class="modalform">
+    <div class="modalform-content">
         <div class="header">
-            <span class="close close-rec">&times;</span>
+            <span class="close close-form">&times;</span>
         </div>
         <div class="reciep-content">
-            <div class="receipt-pict">
-                <p class="cust-rec">Receipt Pict</p>
-                <label id="largeFile" for="file">
-                    <input type="file" id="file" />
-                </label>
+            <div class="form-profile">
+                <img src="assets/ALM00016.JPG" alt="">
+                <p>Username kiagus ahmad farhan azis</p>
             </div>
-            <div class="receipt-number">
-                <p>Receipt Number</p>
-                <input type="text">
+            <div class="form-ratings">
+                <p>Rating</p>
+                <div class="star-widget">
+                    <input type="radio" name="rate" id="rate-5">
+                    <label for="rate-5" class="fas fa-star"></label>
+                    <input type="radio" name="rate" id="rate-4">
+                    <label for="rate-4" class="fas fa-star"></label>
+                    <input type="radio" name="rate" id="rate-3">
+                    <label for="rate-3" class="fas fa-star"></label>
+                    <input type="radio" name="rate" id="rate-2">
+                    <label for="rate-2" class="fas fa-star"></label>
+                    <input type="radio" name="rate" id="rate-1">
+                    <label for="rate-1" class="fas fa-star"></label>
+                </div>
             </div>
-            <div class="btn-receipt">
+            <div class="form-review">
+                <p>Review</p>
+                <textarea name="" id="" cols="83" rows="7"></textarea>
+            </div>
+            <div class="btn-form">
                 <button>submit</button>
             </div>
         </div>
     </div>
 </div>
-</div>
+<script src="{{ asset('assets/js/form-review.js')}}"></script>
 
-<script src="{{ asset('assets/js/receipt.js')}}"></script>
 @endsection
