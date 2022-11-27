@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Traits\ImageUploadingTrait;
+use Carbon\Carbon;
 
 class CartController extends Controller
 {
@@ -18,17 +19,14 @@ class CartController extends Controller
      */
     public function index()
     {
-
         $carts = Cart::All();
-        return view('frontend.cart.index', compact('carts'));
+        return view('cart', compact('carts'));
 
     }
 
     public function inc(Request $request, $id)
     {
-        $check = Cart::where('id', $id)->where('user_ip', auth()->id())->first();
-
-
+        $check = Cart::where('id', $id)->where('users_id', auth()->id())->first();
 
         $check->quantity = $check->quantity + 1 ;
 
@@ -40,7 +38,7 @@ class CartController extends Controller
 
     public function dec(Request $request, $id)
     {
-        $check = Cart::where('id', $id)->where('user_ip', Auth()->id())->first();
+        $check = Cart::where('id', $id)->where('users_id', Auth()->id())->first();
 
         $check->quantity = $check->quantity - 1 ;
 
@@ -52,19 +50,26 @@ class CartController extends Controller
 
 
 
-    public function CartPage(Product $product)
+    public function CartPage(){
+    $carts = Cart::where('users_id', Auth()->id())->latest()->get();
 
+    $prices = [];
 
-    {
-      $carts = Cart::where('user_ip', Auth()->id())->latest()->get();
-        return view('frontend.cart.index', compact('carts', 'product'));
+        foreach($carts as $cart){
+            $price = $cart->product->price;
+
+            $subtotal = $price * $cart->quantity;
+
+            array_push($prices, $subtotal);
+        };
+
+        $total = array_sum($prices);
+
+    return view('cart', compact('carts', 'total'));
     }
 
     public function CartTab(){
         $carts = Cart::where('user_ip', Auth()->id())->latest()->get();
-
-
-
         return view('frontend.cart.index', compact('carts', 'product'));
     }
 
@@ -84,26 +89,35 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request , $product_name)
+    public function store(Request $request, $products_id)
     {
 
-        $check = Cart::where('product_name', $request->name)->where('user_ip', Auth()->id())->first();
+        $check = Cart::where('products_id', $products_id)->where('users_id', Auth()->id())->first();
+
         if ($check){
-            $prod = Cart::where('product_name', $request->name)->where('user_ip', Auth()->id())->first();
-            $prod->quantity += 1;
-            $prod->update();
+            $prod = $check->product;
+
+            if($prod->category->name != 'Software'){
+
+                $check->quantity += 1;
+                $check->update();
+
+                return Redirect()->back()->with([
+                    'message' => 'Added More To Cart !',
+                    'type' => 'warning'
+                ]);
+            }
             return Redirect()->back()->with([
-                'message' => 'Add More Cart Success !',
+                'message' => 'Has Been Added To Cart !',
                 'type' => 'warning'
             ]);
-        }else {
-
+        }else{
             Cart::insert([
-                'product_name' => $request->name,
+                'products_id' => $products_id,
                 'quantity' => 1,
-                'price' => $request->price,
-                'user_ip' => Auth()->id(),
-                'image' => $request->image,
+                'users_id' => Auth()->id(),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
             return Redirect()->back()->with([
                 'message' => 'Add Cart Success !',
@@ -152,24 +166,16 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $cart)
+    public function destroy($id)
     {
-        $cart->delete(); // Easy right?
+        $check = Cart::where('id', $id)->where('users_id', Auth()->id())->first(); // Easy right?
+
+        $check->delete();
 
         return redirect()->back()->with([
             'message' => 'Delete successfully!',
             'type' =>  'danger'
         ]);
-    }
-
-    public function product()
-    {
-        return $this->belongsTo(Product::class,'product_name');
-    }
-
-    public function getGalleryAttribute()
-    {
-        return $this->getMedia('gallery');
     }
 
 

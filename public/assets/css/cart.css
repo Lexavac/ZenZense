@@ -228,7 +228,6 @@ font-size: 18px;
 }
 .card-summary .product{
   line-height: 10px;
-  border-top: #000 solid 0.5px;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.503);
 }
 .card-summary .product button{
@@ -248,7 +247,8 @@ font-size: 18px;
 }
 .card-summary .row1 .price{
   display: flex;
-  gap: 20px;
+  gap: 10px;
+  width: 100px;
 }
 .card-summary .row-2{
   display: flex;
