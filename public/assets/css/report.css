@@ -1,0 +1,96 @@
+.menu-report {
+  background-color: #ECF3FE;
+}
+
+
+.contents{
+  margin-left: 305px;
+}
+
+.sub-content {
+  display: flex;
+  gap: 25px;
+  width: 97%;
+  border-bottom: 1px solid black;
+  margin: 20px 30px;
+  padding: 10px;
+}
+
+.sub-content a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+}
+
+.sub-content a:nth-child(1){
+  color: #5874af;
+}
+
+
+.chart{
+  margin: 30px auto;
+  width: 1100px;
+  height: 250px;
+  background-color: #000000;
+  margin-left: 30px;
+}
+
+.export{
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: end;
+}
+.export button{
+width: 150px;
+margin-top: -15px;
+margin-right: 20px;
+background-color: #233874;
+border-radius: 5px;
+color: white;
+border: none;
+padding: 5px;
+}
+
+.cards{
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 0px;
+}
+
+.product-total, .selled-product, .profit, .income{
+  width: 265px;
+  height: 120px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin: 20px 0px 0px 30px;
+}
+.text{
+  margin-left: 10px;
+  text-align: start;
+  line-height: 0px;
+}
+.text p{
+  font-size: 16px;
+  line-height: 20px;
+}
+.text h5{
+  font-size: 25px;
+}
+table{
+  margin: auto;
+  margin-left: 30px;
+}
+table th {
+  text-align: center;
+  padding: 10px 0px;
+}
+table td {
+  text-align: center;
+  padding-top: 10px;
+  height: 50px;
+  padding: 5px;
+}

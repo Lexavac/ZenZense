@@ -1,7 +1,8 @@
 <?php
 
-
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HControllerr;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PController;
 use App\Http\Controllers\SController;
 use App\Http\Controllers\ShopController;
@@ -23,32 +24,33 @@ use Illuminate\Support\Facades\Route;
 */
 
     Route::get('/', [HControllerr::class, 'index'])->name('HomePage');
-    
-    Route::get('/product/detail/{product:slug?}', [PController::class, 'show'])->name('product.show');
-    
-    // Route::get('/product', function () {
-    //     return view('product');
-    // })->name('product');
 
+
+    Route::get('/product/detail/{product:slug?}', [PController::class, 'show'])->name('product.show');
     Route::get('/product/{slug?}',[SController::class,'index'])->name('product.cate.filter');
     Route::get('/product/tag/{slug?}', [SController::class, 'tag'])->name('product.tag.filter');
 
     Route::get('/search/{slug?}', [SController::class, 'search'])->name('product.search');
-    
+
     Route::get('/detail', function () {
         return view('detail');
     })->name('detail');
-    
-    Route::get('/cart', function () {
-        return view('cart');
-    })->name('cart');
-    
+
+    Route::group(['middleware' => 'auth',  'prefix' => 'cart',  'as' => 'cart.'],function(){
+        Route::get('/', [CartController::class, 'CartPage'])->name('cart');
+        Route::get('/{product:id?}', [CartController::class, 'store'])->name('cart.store');
+        Route::get('/dec/{cart:id?}', [CartController::class, 'dec'])->name('cart.dec');
+        Route::get('/inc/{cart:id?}', [CartController::class, 'inc'])->name('cart.inc');
+        Route::get('/dest/{cart:id?}', [CartController::class, 'destroy'])->name('cart.dest');
+    });
+
+
     Route::get('/fav', function () {
         return view('fav');
     })->name('fav');
 
     route::get('/shop/profile/{slug?}', [ShopProfile::class, 'show'])->name('shop.show.profile');
-    
+
     Route::get('/setting', function () {
         return view('dashboard');
     })->name('profile');
@@ -78,10 +80,14 @@ Route::get('/profileseller', function () {
     return view('seller.profile');
 })->name('profileseller');
 
-Route::get('/profile', function () {
+Route::get('/profileC', function () {
     return view('profilecust');
 })->name('profile.cust');
 
+
+Route::get('/setting', function () {
+    return view('setting');
+})->name('setting');
 
 Route::get('/editprofile', function () {
     return view('profileedit-cust');
@@ -95,17 +101,13 @@ Route::get('/profileedit', function () {
     return view('profile.profile-edit');
 })->name('profile-edit');
 
-Route::get('/checkoutdetail', function () {
-    return view('checkout-detail');
-})->name('checkout-detail');
 
-Route::get('/checkoutpayment', function () {
-    return view('checkout-payment');
-})->name('checkout-payment');
 
-Route::get('/checkoutcomplete', function () {
-    return view('checkout-complete');
-})->name('checkout-complete');
+Route::get('checkoutdetail', [OrderController::class, 'index'])->name('checkout-detail');
+Route::get('checkoutdetail/payment', [OrderController::class, 'payment'])->name('checkout-payment');
+Route::post('place/order', [OrderController::class, 'storeOrder'])->name('place-order');
+Route::get('checkoutdetail/payment/success', [OrderController::class, 'complete'])->name('checkout-complete');
+
 
 Route::get('/productseller', function () {
     return view('seller.product-seller');
@@ -123,3 +125,27 @@ Route::get('/upcomingS', function () {
 Route::get('/processed', function () {
     return view('seller.processed');
 })->name('processed');
+
+Route::get('/completed', function () {
+    return view('seller.complete-order');
+})->name('completed');
+
+Route::get('/canceled', function () {
+    return view('seller.canceled-order');
+})->name('canceled');
+
+Route::get('/report', function () {
+    return view('seller.report');
+})->name('report');
+
+Route::get('/monthlyreport', function () {
+    return view('seller.monthly-report');
+})->name('monthly-report');
+
+Route::get('/addproduct', function () {
+    return view('seller.add-product');
+})->name('add-product');
+
+Route::get('/editproduct', function () {
+    return view('seller.edit-product');
+})->name('edit-product');

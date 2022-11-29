@@ -11,8 +11,8 @@
   <div class="sub-content">
       <a href="{{ route('upcoming') }}">Upcoming Orders</a>
       <a href="{{ route('processed') }}">Processed Orders</a>
-      <a href="{{ route('profile') }}">Completed Orders</a>
-      <a href="{{ route('profile') }}">Canceled Orders</a>
+      <a href="{{ route('completed') }}">Completed Orders</a>
+      <a href="{{ route('canceled') }}">Canceled Orders</a>
   </div>
 
   <div class="content-tabs">

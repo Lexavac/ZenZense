@@ -106,7 +106,7 @@
           <img src="{{ asset('assets/img/tjkt.png')}}" alt="">
         </div>
       </a>
-      <a href="{{ url('/product?TE') }}">
+      <a href="{{ url('/product?TE=on') }}">
         <div class="te">
           <img src="{{ asset('assets/img/te.png')}}" alt="">
         </div>

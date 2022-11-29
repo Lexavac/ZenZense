@@ -32,7 +32,7 @@
                                     <a class="nav-link" href="#"><i class="fa-solid fa-bell"></i></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('cart') }}"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a class="nav-link" href="{{ url('/cart') }}"><i class="fa-solid fa-cart-shopping"></i></a>
                                 </li>
                                 <li class="nav-item"> 
                                     <a class="nav-link" href="{{ route('fav') }}"><i class="fa fa-heart" aria-hidden="true"></i></a>
@@ -41,7 +41,7 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                        <img src="{{ asset('assets/img/user.png') }}" alt="" class="user">
+                                        <img src="{{ Auth::check() ? Auth()->user()->profile->gallery->first()->getUrl() : asset('assets/img/user.png') }}" alt="" class="user">
                                     </a>
                                     <ul class="dropdown-menu">
                                         @if( !Auth::check() )

@@ -107,10 +107,23 @@ iconify-icon {
   font-weight: 600;
 }
 
+.title-photo p{
+  margin: 0;
+}
+
 .input-profile {
-  display: flex;
+  margin-top: 10px;
   gap: 10px;
   align-items: center;
+  margin-left: 25px;
+}
+
+.input-photo {
+  width: 450px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 7px;
+  margin-left: 50px;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -145,15 +158,17 @@ textarea:focus{
 
 .btn-submit {
   width: 100%;
-  text-align: end;
+  margin-top: 20px;
+  text-align: center;
   box-sizing: border-box;
   padding: 7px 88px 0px 0px;
 }
 
 .btn-submit input{
-  width: 100px;
-  height: 30px;
+  width: 200px;
+  height: 40px;
   border-radius: 7px;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 18px;
+  margin-bottom: 50px;
 }

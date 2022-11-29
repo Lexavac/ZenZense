@@ -44,7 +44,12 @@
       <div class="btn-product">
         <a href="checkout-delivery.html"><button class="btn-buy"><i class="fa-solid fa-bag-shopping"></i>Buy
             Now</button></a>
-        <button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i>Add to cart</button>
+        <div>
+          <a class="btn-cart" href="{{ url('cart', $product->id) }}"><i class="fa-solid fa-cart-shopping"></i>Add to cart</a>
+          @if(session()->has('message'))
+          <p>{{ session()->get('message') }}</p>
+          @endif
+        </div>
       </div>
       <div class="profile">
         <div class="profile-img">

@@ -97,7 +97,7 @@
             </div>
             <div class="col">
               <p>Receiver Name</p>
-              <p>Kiagus Ahmad Farhan Aziz Faturohman Nurohman</p>
+              <p> nama yang nerima</p>
             </div>
             <div class="col">
               <p>Address</p>

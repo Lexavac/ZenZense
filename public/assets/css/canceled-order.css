@@ -1,0 +1,302 @@
+.sub-content {
+    display: flex;
+    gap: 25px;
+    width: 97%;
+    border-bottom: 1px solid black;
+    margin: 20px 30px;
+    padding: 10px;
+}
+
+
+
+.contents {
+    margin-left: 305px;
+}
+
+.menu-transaction {
+    background-color: #ECF3FE;
+}
+
+.sub-content a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #000;
+}
+
+.sub-content a:nth-child(4) {
+    color: #5874af;
+}
+
+.content-tabs {
+    margin-left: 35px;
+}
+
+table th {
+    text-align: center;
+    padding: 10px 0px;
+}
+
+table tr {
+    border-bottom: #000 solid 0.5px;
+}
+
+table td {
+    width: 250px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+table td img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+#label-order {
+    background-color: #5874af;
+    width: 75px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    color: white;
+}
+
+.prod-details p:first-child,
+.prod-details p:last-child {
+    font-weight: 600;
+}
+
+.prod-details p:first-child,
+.prod-details p:nth-child(2) {
+    margin-bottom: 12px;
+}
+
+.prod-details p:nth-child(2) {
+    font-weight: 600;
+    opacity: .7;
+    font-size: 15px;
+}
+
+#refund {
+  border: none;
+  background-color: transparent;
+  color: #5874af;
+}
+
+/* modal */
+.modalform,
+.modal {
+  display: none;
+    position: fixed;
+    z-index: 100;
+    padding-top: 2vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal::-webkit-scrollbar-track,
+.modalform::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 0px;
+	background-color: #fff;
+}
+
+.modal::-webkit-scrollbar,
+.modalform::-webkit-scrollbar
+{
+	width: 0px;
+	background-color: rgb(231, 231, 231);
+}
+
+.modal::-webkit-scrollbar-thumb,
+.modalform::-webkit-scrollbar-thumb
+{
+	border-radius: 0px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0, .1);
+	background-color: #1C3879;
+}
+
+.modalform-content,
+.modal-content {
+    background-color: #fefefe;
+    margin: 10px auto 50px;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 700px;
+    border-radius: 7px;
+    z-index: 99999;
+}
+
+.modalform-content .modal-content {
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.warning-alert {
+    width: 97%;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    background: rgba(119, 164, 255, 0.42);
+    border-radius: 5px;
+    margin: 5px 10px;
+}
+
+
+.warning-alert p {
+    margin: 0;
+    font-family: 'nunito';
+    font-weight: 500;
+    color: #233874;
+    font-size: 16px;
+    width: 570px;
+}
+
+.btn-form {
+    width: 98%;
+    text-align: end;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.btn-form button {
+    width: 80px;
+    height: 35px;
+    background-color: #5874af;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Quicksand';
+    border: none;
+    border-radius: 7px;
+}
+
+#btn-form-rev {
+    background-color: transparent;
+    border: none;
+    color: #4989d7;
+}
+
+.form-refund {
+    margin: 10px 25px;
+    font-family: 'Nunito';
+}
+
+.email,
+.name,
+.product-name,
+.product-id,
+.invoice-number,
+.product-pict,
+.massage{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.full-name{
+  display: flex;
+  gap: 20px;
+}
+
+.first-name,
+.last-name {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 700;
+  color: #33333362;
+}
+
+.email p,
+.name p,
+.product-name p,
+.product-id p,
+.invoice-number p,
+.product-pict p,
+.massage p{
+  margin-bottom: 3px;
+}
+
+.email p:first-child,
+.name p:first-child,
+.product-name p:first-child,
+.product-id p:first-child,
+.invoice-number p:first-child,
+.product-pict p:first-child,
+.massage p:first-child{
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.first-name input,
+.last-name input{
+  width: 305px;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 0px 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(156, 156, 156);
+}
+
+.email input,
+.product-name input,
+.product-id input,
+.invoice-number input{
+  width: 100%;
+  height: 40px;
+  font-size: 15px;
+  box-sizing: border-box;
+  padding: 0px 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(156, 156, 156);
+}
+
+.massage textarea {
+  width: 100%;
+  height: 120px;
+  font-family: 15px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.product-pict input{
+  border: none;
+}
+
+.email p:last-child,
+.product-pict p:last-child{
+  color: #33333378;
+  margin: 0px 5px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.checked {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
