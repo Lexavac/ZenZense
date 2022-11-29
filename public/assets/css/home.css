@@ -452,6 +452,7 @@ a {
   line-height: 1;
   margin: 0px 2px;
   height: 32px;
+  width: 150px;
 }
 
 .price p{
@@ -473,18 +474,18 @@ a {
   gap: 7px;
 }
 
-.button-detail button{
+.other-btn button{
   width: fit-content;
   height: fit-content;
   border: none;
   background-color: transparent;
 }
 
-.button-detail button:first-child {
+.other-btn button:first-child {
   color: #0d6ec3;
 }
 
-.button-detail button:last-child {
+.other-btn button:last-child {
   color: rgb(255, 53, 53);
 }
 
