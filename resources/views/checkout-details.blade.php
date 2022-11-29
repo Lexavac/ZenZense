@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
 <div class="main-content">
   <header>
     <div class="left-header">
@@ -49,107 +50,62 @@
         <p>Please Re-check your order before go to next step</p>
       </div>
       <div class="card-order">
+        @foreach($carts as $cart)
         <div class="card-group">
           <div class="profile">
             <div class="img">
-              <img src="assets/ALM00016.JPG" alt="">
+              <img src="{{ $cart->product->users->shop->gallery->first()->getUrl() }}" alt="">
             </div>
             <div class="toko">
-              <p>agus mart(abak)</p>
+              <p>{{ $cart->product->users->shop->name }}</p>
             </div>
           </div>
           <div class="card-product">
             <div class="row1-product">
               <div class="img-order">
-                <img src="assets/web1.jpg" alt="">
+                <img src="{{ $cart->product->gallery->first()->getUrl() }}" alt="">
               </div>
               <div class="desc-order">
                 <div class="ctgr-order">
-                  <p>category product</p>
+                  <p>{{ $cart->product->category->name }}</p>
                 </div>
                 <div class="name-product-order">
-                  <p>nama product nya yang panjang</p>
+                  <p>{{ $cart->product->name }}</p>
                 </div>
                 <div class="price-order">
-                  <p>Rp. 1.200.000</p>
+                  <p>Rp. {{ $cart->product->price }}</p>
                 </div>
-                
+
               </div>
             </div>
             <div class="row2-product">
               <div class="type">
-                <p>Software</p>
+                <p>{{ $cart->product->category->name }}</p>
               </div>
             </div>
             <div class="row3-product">
               <div class="col1">
                 <p>Unit Price</p>
-                <p>Rp. 1.000.000</p>
+                <p>Rp. {{ $cart->product->price }}</p>
               </div>
               <div class="col2">
                 <p>Qty</p>
-                <p>2</p>
+                <p>{{ $cart->quantity }}</p>
               </div>
               <div class="col2">
-                <p>Total</p>
-                <p>Rp. 2.000.000</p>
+                <p>Subtotal</p>
+                <p>Rp. {{ $cart->product->price * $cart->quantity }}</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="card-group">
-          <div class="profile">
-            <div class="img">
-              <img src="assets/ALM00016.JPG" alt="">
-            </div>
-            <div class="toko">
-              <p>agus mart(abak)</p>
-            </div>
-          </div>
-          <div class="card-product">
-            <div class="row1-product">
-              <div class="img-order">
-                <img src="assets/web1.jpg" alt="">
-              </div>
-              <div class="desc-order">
-                <div class="ctgr-order">
-                  <p>category product</p>
-                </div>
-                <div class="name-product-order">
-                  <p>nama product nya yang panjang</p>
-                </div>
-                <div class="price-order">
-                  <p>Rp. 1.200.000</p>
-                </div>
-              </div>
-            </div>
-            <div class="row2-product">
-              <div class="type">
-                <p>Software</p>
-              </div>
-            </div>
-            <div class="row3-product">
-              <div class="col1">
-                <p>Unit Price</p>
-                <p>Rp. 1.000.000</p>
-              </div>
-              <div class="col2">
-                <p>Qty</p>
-                <p>2</p>
-              </div>
-              <div class="col2">
-                <p>Total</p>
-                <p>Rp. 2.000.000</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        @endforeach
         <div class="total-order">
           <div class="title-total">
-            <p>Total</p>
+            <p>{{ $total }}</p>
           </div>
           <div class="total-price-order">
-            <p><span>Total pesanan (3 produk) :</span> Rp. 4.000.000</p>
+            <p><span>Total pesanan ( {{  $qty }} ) :</span> Rp. {{ $total }}</p>
           </div>
         </div>
       </div>
@@ -163,27 +119,27 @@
       </div>
       <div class="order-information">
         <div class="row-info">
-          <p>Order Id</p>
-          <p>912190238901283</p>
+          <p>Firstname</p>
+          <p>{{ auth()->user()->profile->firstname }}</p>
         </div>
         <div class="row-info">
-          <p>Customer Id</p>
+          <p>Lastname</p>
           <p>912190238901283</p>
         </div>
         <div class="row-info">
           <p>Name</p>
-          <p>Kiagus Farhan Aziz Abas Nurohman</p>
+          <p>{{ auth()->user()->name }}</p>
         </div>
         <div class="row-info">
           <p>Phone Number</p>
-          <p>081928192819</p>
+          <p>{{ auth()->user()->profile->phoneNumber }}</p>
         </div>
         <div class="row-info">
           <p>Email</p>
-          <p>agusGansSlebeww1232@gmail.com</p>
+          <p>{{ auth()->user()->email }}</p>
         </div>
         <div class="btn-order">
-          <button>Continue</button>
+          <a href="{{ route('checkout-payment') }}"><button>Next</button></a>
           <button>Cancel</button>
         </div>
       </div>
