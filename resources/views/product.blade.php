@@ -145,9 +145,7 @@
           <li><a href="loginseller.html">Home</a></li>
           <li>explore</li>
         </ul> -->
-        <div class="title-content">
-          <p>Explore</p>
-        </div>
+        <p class="title-content">Explore</p>
         <div class="filter-product">
           <div class="filter-label">
             @foreach($tags as $maj)

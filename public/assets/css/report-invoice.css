@@ -1,0 +1,104 @@
+.contents{
+    margin-left: 350px;
+    margin-top: 20px;
+}
+.export {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: end;
+    margin-top: 30px;
+}
+
+.export button {
+    width: 150px;
+    margin-top: -15px;
+    margin-right: 35px;
+    background-color: #233874;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    padding: 5px;
+}
+
+.invoice-content {
+    width: 950px;
+    height: 730px;
+    background-color: white;
+    box-shadow: -1px 2px 16px -1px rgba(0, 0, 0, 0.094);
+    -webkit-box-shadow: -1px 2px 16px -1px rgba(0, 0, 0, 0.094);
+    -moz-box-shadow: -1px 2px 16px -1px rgba(0, 0, 0, 0.094);
+    margin-left: 25px;
+    padding: 25px 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.invoice-content .first-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.first-row .left {
+    display: flex;
+    flex-direction: column;
+    line-height: 0px;
+}
+
+.left h5 {
+    font-size: 30px;
+}
+
+.first-row .right img {
+    width: 100px;
+}
+
+.invoice-content .scnd-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.scnd-row .left {
+    display: flex;
+    flex-direction: column;
+    line-height: 0px;
+}
+
+.scnd-row .left p {
+    font-size: 14px;
+}
+
+.scnd-row .left p:first-child {
+    font-size: 16px;
+}
+
+table {
+    margin-top: 50px;
+}
+
+table th {
+    padding: 10px 0px;
+}
+
+table tr td {
+    width: 500px;
+    border-top: #000 solid 0.5px;
+    padding: 20px 5px;
+}
+
+.last-row {
+    margin-top: 250px;
+}
+
+.first {
+    display: flex;
+    justify-content: space-between;
+}
+.first-left{
+    line-height: 0px;
+}
+.second{
+    line-height: 3px;
+    color: rgba(0, 0, 0, 0.514);
+}

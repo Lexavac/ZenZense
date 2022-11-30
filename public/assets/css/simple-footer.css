@@ -19,6 +19,6 @@ footer{
   width: 100%;
   color: rgba(255, 255, 255, 0.508);
   z-index: 99;
-  position: relative;
+  position: sticky;
   margin-top: 100px;
 }

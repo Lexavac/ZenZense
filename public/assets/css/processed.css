@@ -39,7 +39,7 @@ table tr{
 table td {
     width: 250px;
     text-align: center;
-    padding-top: 10px;
+    padding: 10px 0px;
 }
 
 table td img {

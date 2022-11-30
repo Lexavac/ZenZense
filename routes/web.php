@@ -155,3 +155,23 @@ Route::get('/addproduct', function () {
 Route::get('/editproduct', function () {
     return view('seller.edit-product');
 })->name('edit-product');
+
+Route::get('/setting', function () {
+    return view('setting-cust');
+})->name('settingCust');
+
+Route::get('/setting-info', function () {
+    return view('seller.setting-info');
+})->name('setting-info');
+
+Route::get('/setting-scedhule', function () {
+    return view('seller.setting-scedhule');
+})->name('setting-scedhule');
+
+Route::get('/report-invoice', function () {
+    return view('seller.report-invoice');
+})->name('report-invoice');
+
+Route::get('/order-review', function () {
+    return view('order-review');
+})->name('order-review');
