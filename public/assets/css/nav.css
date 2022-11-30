@@ -7,7 +7,7 @@ body::-webkit-scrollbar-track
 
 body::-webkit-scrollbar
 {
-	width: 5px;
+	width: 10px;
 	background-color: rgb(231, 231, 231);
 }
 
@@ -156,6 +156,8 @@ nav {
 .user {
   border-radius: 50%;
   width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 
 .user-setting,

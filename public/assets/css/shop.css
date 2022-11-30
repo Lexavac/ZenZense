@@ -1,4 +1,6 @@
-
+body{
+  overflow-x: hidden;
+}
 .content {
   width: 100%;
   margin-top: 120px;
@@ -103,6 +105,7 @@
 .filter-dropdown{
   display: flex;
   margin: 5px;
+
 }
 
 .filter-dropdown label{
@@ -139,13 +142,16 @@
   display: flex;
   justify-content: flex-end;
   margin: 10px 0px;
+  margin-left: -80px;
 }
 
 .product-product {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 30px;
+  margin-top: 20px;
+  margin-left: -20px;
 }
 
 .card-product {
@@ -158,12 +164,17 @@
 }
 
 .card-product img{
-  width: 170px;
-  height: 170px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
+  background-size: contain;
   border-radius: 7px;
+  margin: 10px;
 }
 
+.desc-product{
+  margin: -10px 10px 10px 10px;
+}
 .desc-product p{
   margin: 0;
 }
@@ -176,8 +187,9 @@
   font-weight: 600;
 }
 
-.name-product {
-  height: 32px;
+.name-product{
+  width: 150px;
+  height: 45px;
 }
 
 .name-product p {
@@ -185,14 +197,16 @@
   font-family: 'nunito';
   line-height: 1;
   margin: 0px 2px;
+  height: 32px;
+  width: 150px;
 }
 
 .price p{
   font-size: 16px;
   font-family: 'nunito';
   font-weight: 700;
+  margin-bottom: 5px;
 }
-
 .row-price {
   display: flex;
   align-items: center;

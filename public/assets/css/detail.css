@@ -347,6 +347,7 @@
   margin-right: 40px;
   padding-top: 20px;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .related-text p {
@@ -362,7 +363,7 @@
 }
 
 .card-product {
-  width: 200px;
+  width: 170px;
   height: 260px;
   background-color: #fff;
   box-shadow: 1px 1px 5px rgba(151, 151, 151, 0.477);
@@ -371,12 +372,17 @@
 }
 
 .card-product img{
-  width: 200px;
-  height: 170px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
   background-size: contain;
   border-radius: 7px;
+  margin: 10px;
 }
 
+.desc-product{
+  margin: -10px 10px 10px 10px;
+}
 .desc-product p{
   margin: 0;
 }
@@ -389,18 +395,25 @@
   font-weight: 600;
 }
 
+.name-product{
+  width: 150px;
+  height: 45px;
+}
+
 .name-product p {
-  height: 32px;
   font-size: 16px;
   font-family: 'nunito';
   line-height: 1;
   margin: 0px 2px;
+  height: 32px;
+  width: 150px;
 }
 
 .price p{
   font-size: 16px;
   font-family: 'nunito';
   font-weight: 700;
+  margin-bottom: 5px;
 }
 
 .row-price {

@@ -25,13 +25,13 @@
         </div>
       </div>
 
-      {{-- card cart --}}
+      {{-- ca rd cart --}}
       @foreach($carts as $cart)
       <div class="cart-product">
         <div class="header-cart">
           <div class="profile-shop">
             <a href="">
-              <iconify-icon class="store" icon="clarity:store-solid"></iconify-icon>
+              <iconify-icon `class="store" icon="clarity:store-solid"></iconify-icon>
               <p>{{$cart->product->users->shop->name}}</p>
             </a>
           </div>

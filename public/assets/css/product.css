@@ -105,6 +105,9 @@ body {
   justify-content: space-between;
 }
 
+.header-product-content{
+  margin-top: 20px;
+}
 .header-price p {
   font-size: 18px;
   font-family: 'nunito';
@@ -179,7 +182,7 @@ body {
 
 .product-content {
   width: 1150px;
-  padding: 10px 16px;
+  padding: 10px 0px;
 }
 
 ul.breadcrumb {
@@ -204,16 +207,18 @@ ul.breadcrumb li a:hover {
   text-decoration: none;
 }
 
-.title-content p{
-  margin: 0;
+.title-content {
+  margin-left: -800px;
   font-size: 27px;
   font-weight: 600;
+  margin-top: 20px;
   font-family: 'nunito';
 }
 
 .filter-product{
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .filter-label {
@@ -237,6 +242,7 @@ ul.breadcrumb li a:hover {
 
 .filter-dropdown{
   display: flex;
+  margin-right: 80px;
 }
 
 .filter-dropdown label{
@@ -271,8 +277,8 @@ ul.breadcrumb li a:hover {
 
 .row-top-product{
   display: flex;
-  gap: 20px;
-  width: 1150px;
+  gap: 35px;
+  width: 1050px;
   flex-wrap: wrap;
 }
 
@@ -286,12 +292,18 @@ ul.breadcrumb li a:hover {
 }
 
 .card-product img{
-  width: 170px;
-  height: 170px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
+  background-size: contain;
   border-radius: 7px;
+  margin: 10px;
 }
 
+.desc-product{
+  margin: 10px;
+  margin-top: -5px;
+}
 .desc-product p{
   margin: 0;
 }
@@ -304,22 +316,22 @@ ul.breadcrumb li a:hover {
   font-weight: 600;
 }
 
-.name-product {
-  height: 32px;
-}
-
 .name-product p {
   font-size: 16px;
   font-family: 'nunito';
   line-height: 1;
   margin: 0px 2px;
+  height: 32px;
+  width: 150px;
 }
 
 .price p{
   font-size: 16px;
   font-family: 'nunito';
   font-weight: 700;
+  margin-bottom: 5px;
 }
+
 
 .row-price {
   display: flex;
@@ -331,8 +343,9 @@ ul.breadcrumb li a:hover {
 .btn-detail {
   display: flex;
   gap: 7px;
+  margin-left: -50px;
+  margin-bottom: 5px;
 }
-
 .other-btn button{
   width: fit-content;
   height: fit-content;

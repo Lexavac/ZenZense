@@ -145,9 +145,6 @@
           <li><a href="loginseller.html">Home</a></li>
           <li>explore</li>
         </ul> -->
-        <div class="title-content">
-          <p>Explore</p>
-        </div>
         <div class="filter-product">
           <div class="filter-label">
             @foreach($tags as $maj)
@@ -156,6 +153,7 @@
             </div>
             @endforeach
           </div>
+          <p class="title-content">Explore</p>
           <div class="filter-dropdown">
             <label for="filter"><i class="fa fa-bars" aria-hidden="true"></i></label>
               <select name="sortby" id="filter" class="option-filter">
