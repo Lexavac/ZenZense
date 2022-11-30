@@ -208,17 +208,19 @@ ul.breadcrumb li a:hover {
 }
 
 .title-content {
-
+  display: flex;
   font-size: 27px;
   font-weight: 600;
   margin-top: 20px;
   font-family: 'nunito';
+  
 }
 
 .filter-product{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: -90px;
 }
 
 .filter-label {

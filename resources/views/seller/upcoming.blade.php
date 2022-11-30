@@ -39,8 +39,8 @@
               <td style="width: 110px;">001</td>
               <td style="width: 250px;">User Agus</td>
               <td style="width: 120px;">2</td>
-              <td style="width: 100px;"><p id="label-order"  style="margin-top: 10px;">Software</p></td>
-              <td style="width: 180px;">
+              <td style="width: 80px;"><p id="label-order"  style="margin-top: 10px;">Software</p></td>
+              <td style="width: 140px;">
                   <iconify-icon icon="material-symbols:check-circle-rounded" style="color: #5874af; font-size: 40px;"></iconify-icon>
                   <iconify-icon icon="ri:close-circle-fill" style="color: #d22d2dc7; font-size: 40px;"></iconify-icon>
               </td>
@@ -58,8 +58,8 @@
             <td style="width: 110px;">001</td>
             <td style="width: 250px;">User Agus</td>
             <td style="width: 120px;">2</td>
-            <td style="width: 100px;"><p id="label-order"  style="margin-top: 10px;">Software</p></td>
-            <td style="width: 180px;">
+            <td style="width: 80px;"><p id="label-order"  style="margin-top: 10px;">Software</p></td>
+            <td style="width: 140px;">
                 <iconify-icon icon="material-symbols:check-circle-rounded" style="color: #5874af; font-size: 40px;"></iconify-icon>
                 <iconify-icon icon="ri:close-circle-fill" style="color: #d22d2dc7; font-size: 40px;"></iconify-icon>
             </td>

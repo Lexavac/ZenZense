@@ -1,0 +1,160 @@
+.contents{
+    margin-left: 350px;
+}
+.sub-content {
+    display: flex;
+    gap: 25px;
+    width: 950px;
+    border-bottom: 1px solid black;
+    margin: 20px 30px;
+    padding: 10px;
+}
+
+.sub-content a {
+    text-decoration: none;
+    color: #000;
+}
+
+.storeops-header{
+    display: flex;
+    gap: 10px;
+    height: fit-content;
+    width: 90%;
+    margin-left: 30px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+.title-header{
+    line-height: 10px;
+}
+
+.storeops-content{
+    width: 920px;
+    height: 460px;
+    margin: auto;
+    border: 0.5px solid black;
+    border-radius: 5px;
+}
+.scedhule-head{
+    display: flex;
+    padding: 15px 20px 5px;
+    border-bottom: 0.5px solid black;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.scedhule-head h6{
+    margin-right: 150px;
+}
+.scedhule-head h6:nth-child(2){
+    margin-right: 260px;
+}
+
+.sunday, 
+.monday, 
+.tuesday,
+.wednesday,
+.thursday,
+.friday,
+.saturday{
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+.sunday p{
+    margin-right: 130px;
+}
+.monday p{
+    margin-right: 124px;
+}
+.tuesday p{
+    margin-right: 127px;
+}
+.wednesday p{
+    margin-right: 102.5px;
+}
+.thursday p{
+    margin-right: 120px;
+}
+.friday p{
+    margin-right: 141px;
+}
+.saturday p{
+    margin-right: 121px;
+}
+.scedhule input{
+    width: 250px;
+    margin-right: 50px;
+    padding: 0px 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 23px;
+    width: 23px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked+.slider {
+    background-color: #5874AF;
+  }
+  
+  input:focus+.slider {
+    box-shadow: 0 0 1px #5874AF;
+  }
+  
+  input:checked+.slider:before {
+    -webkit-transform: translateX(23px);
+    -ms-transform: translateX(23px);
+    transform: translateX(23px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .save{
+    width: 80px;
+    padding: 2px;
+    background-color:#5874AF;
+    color: white;
+    border-radius: 5px;
+    border: 0.5px solid black;
+    margin-left: 800px;
+    margin-top: 15px;
+  }
