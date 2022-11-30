@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HControllerr;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PController;
@@ -39,9 +40,14 @@ use Illuminate\Support\Facades\Route;
     Route::group(['middleware' => 'auth',  'prefix' => 'cart',  'as' => 'cart.'],function(){
         Route::get('/', [CartController::class, 'CartPage'])->name('cart');
         Route::get('/{product:id?}', [CartController::class, 'store'])->name('cart.store');
+        Route::get('/modal/{product:id?}', [CartController::class, 'storemodal'])->name('cart.storemodal');
         Route::get('/dec/{cart:id?}', [CartController::class, 'dec'])->name('cart.dec');
         Route::get('/inc/{cart:id?}', [CartController::class, 'inc'])->name('cart.inc');
         Route::get('/dest/{cart:id?}', [CartController::class, 'destroy'])->name('cart.dest');
+    });
+
+    Route::group(['middleware' => 'auth',  'prefix' => 'favorite',  'as' => 'favorite.'],function(){
+        Route::get('/add/{product:id?}', [FavoriteController::class, 'add'])->name('favorite.add');
     });
 
 

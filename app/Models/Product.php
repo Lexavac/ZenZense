@@ -53,6 +53,10 @@ class Product extends Model implements HasMedia
     }
 
     public function carts(){
-        return $this->hasMany(Cart::class, 'users_id');
+        return $this->hasMany(Cart::class, 'products_id');
+    }
+
+    public function favorite(){
+        return $this->hasMany(Favorite::class, 'products_id');
     }
 }

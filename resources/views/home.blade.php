@@ -175,8 +175,8 @@
                       @if(Auth::check())
                       <div class="other-btn">
                         <div class="btn-detail">
-                          <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                          <button><i class="fa fa-heart" aria-hidden="true"></i></button>
+                        <button class="modal__button" id="open-modal" onClick="Open_click('{{ $product->gallery->first()->getUrl() }}', '{{ $product->major }}', '{{ $product->name }}', '{{ $product->price }}', '{{ url('/cart/modal', $product->id) }}')"><i class="fa-solid fa-cart-shopping"></i></button>
+                        <button class="modal__button" id="open-modal" onClick="Open_click('{{ $product->gallery->first()->getUrl() }}', '{{ $product->major }}', '{{ $product->name }}', '{{ $product->price }}', '{{ url('/favorite/add', $product->id) }}')"><i class="fa fa-heart" aria-hidden="true"></i></button>
                         </div>
                       </div>
                       @endif
@@ -210,6 +210,27 @@
       </a>
     </div>
   </div>
+</div>
+
+<div class="modal__container" id="modal-container">
+    <div class="modal__content">
+      <div class="header" id="textmodal"></div>
+      <div class="cart-content">
+        <div class="left-modal">
+          <div class="img-modal">
+            <img src="" alt=""  id="img-cart-modal">
+          </div>
+          <div class="desc-modal">
+            <p id="ctgry-cart-modal"></p>
+            <p id="name-cart-modal"></p>
+            <p id="">Software</p>
+          </div>
+        </div>
+        <div class="right-modal">
+          <p id="price-cart-modal"></p>
+        </div>
+      </div>
+    </div>
 </div>
 
 <footer>
@@ -288,6 +309,8 @@
   </div>
 </footer>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="{{ asset('assets/js/cartmodal.js')}}"></script>
 <script src="{{ asset('assets/js/home.js')}}"></script>
 
 @endsection
