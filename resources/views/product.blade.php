@@ -188,8 +188,8 @@
                   @if(Auth::check())
                   <div class="other-btn">
                     <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
+                      <button class="modal__button" id="open-modal" onClick="Open_click('{{ $product->gallery->first()->getUrl() }}', '{{ $product->major }}', '{{ $product->name }}', '{{ $product->price }}', '{{ url('/cart/modal', $product->id) }}')"><i class="fa-solid fa-cart-shopping"></i></button>
+                      <button class="modal__button" id="open-modal" onClick="Open_click('{{ $product->gallery->first()->getUrl() }}', '{{ $product->major }}', '{{ $product->name }}', '{{ $product->price }}', '{{ url('/favorite/add', $product->id) }}')"><i class="{{ $product->id }}" aria-hidden="true" id="heart"></i></button>
                     </div>
                   </div>
                   @endif
@@ -204,9 +204,10 @@
   </div>
 </div>
 </div>
+
 <div class="modal__container" id="modal-container">
     <div class="modal__content">
-      <div class="header">Add to Cart</div>
+      <div class="header" id="textmodal"></div>
       <div class="cart-content">
         <div class="left-modal">
           <div class="img-modal">
@@ -225,6 +226,7 @@
     </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="{{ asset('assets/js/cartmodal.js')}}"></script>
 
 @endsection
