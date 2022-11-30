@@ -121,7 +121,7 @@ class OrderController extends Controller
 
         // Cart::where('user_ip', auth()->id())->delete();
         // return redirect()->back()->with('cart_update', 'Quantity Update');
-
+        
     }
 
     public function orderSuccess()
