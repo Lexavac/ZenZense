@@ -43,6 +43,7 @@ body{
   width: 85%;
   text-align: center;
   border-bottom: 1px solid rgb(133, 133, 133);
+  height: 195px;
 }
 
 .name-shop p{
@@ -94,7 +95,7 @@ body{
 }
 
 .seller-since {
-  margin-top: 10px;
+  margin-top: 180px;
   text-align: center;
   font-size: 14px;
   font-family: 'quicksand';
@@ -232,4 +233,35 @@ body{
 
 .other-btn button:last-child {
   color: rgb(255, 53, 53);
+}
+
+.sosmed{
+  margin-top: 40px;
+  font-size: 14px;
+}
+.email{
+  display: flex;
+  gap: 5px;
+}
+.sosmed .row-2{
+  display: flex;
+  gap: 10px;
+}
+.instagram{
+  display: flex;
+  gap: 5px;
+}
+.linkedin{
+  display: flex;
+  gap: 5px;
+}
+.portfol{
+  width: 250px;
+  padding: 4px;
+  border-radius: 5px;
+  background-color: #233874;
+  color: white;
+}
+.footer-simple{
+  display: none;
 }
