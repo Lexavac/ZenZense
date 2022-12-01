@@ -8,6 +8,7 @@ use App\Http\Controllers\PController;
 use App\Http\Controllers\SController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopProfile;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Support\Facades\Auth;
@@ -47,13 +48,14 @@ use Illuminate\Support\Facades\Route;
     });
 
     Route::group(['middleware' => 'auth',  'prefix' => 'favorite',  'as' => 'favorite.'],function(){
+        Route::get('/', [FavoriteController::class, 'show'])->name('fav');
         Route::get('/add/{product:id?}', [FavoriteController::class, 'add'])->name('favorite.add');
+        Route::get('/del/{id}', [FavoriteController::class, 'destroy']);
     });
 
+    Route::get('/coba/coba', [TransactionController::class, 'store']);
 
-    Route::get('/fav', function () {
-        return view('fav');
-    })->name('fav');
+
 
     route::get('/shop/profile/{slug?}', [ShopProfile::class, 'show'])->name('shop.show.profile');
 
@@ -64,6 +66,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::resource('profile', UserProfileController::class);
+Route::get('/profileC', function () {
+    return view('profilecust');
+})->name('profile.cust');
 
 // Route::get('/seller', function () {
 //     return view('seller.loginseller');
@@ -86,9 +91,6 @@ Route::get('/profileseller', function () {
     return view('seller.profile');
 })->name('profileseller');
 
-Route::get('/profileC', function () {
-    return view('profilecust');
-})->name('profile.cust');
 
 
 Route::get('/setting', function () {

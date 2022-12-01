@@ -10,7 +10,7 @@
         
     <div class="content">
         <div class="pict">
-            <img src="assets/ALM00016.JPG"alt="">
+            <img src="{{ auth()->user()->profile->gallery->first()->getUrl() }}"alt="">
 
             <a href="{{ Route('editprofile')}}">
                 <button>Edit Profile</button>
@@ -18,31 +18,25 @@
         </div>
 
         <div class="details">
-            <div class="id">
-                <p>Customer Id</p>
-                <p>24134632</p>
-            </div>
             <div class="first-name">
                 <p>First Name</p>
-                <p>Agus</p>
+                <p>{{ auth()->user()->profile->firstname }}</p>
             </div>
             <div class="last-name">
                 <p>Last Name</p>
-                <p>Ki</p>
+                <p>{{ auth()->user()->profile->lastname }}</p>
             </div>
             <div class="email">
                 <p>Email</p>
-                <p>K.g.shadeh@gmail.com</p>
+                <p>{{ auth()->user()->email }}</p>
             </div>
             <div class="phone-number">
                 <p>Phone Number</p>
-                <p>+6287654321</p>
+                <p>{{ auth()->user()->profile->phoneNumber }}</p>
             </div>
             <div class="address">
                 <p>Address</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore adipisci reprehenderit, officia
-
-                </p>
+                <p>{{ auth()->user()->profile->Address }}</p>
             </div>
         </div>
     </div>
@@ -59,7 +53,9 @@
 
     </div>
 
+    @foreach(auth()->user()->orders as $order)
     <div class="orderan-gue">
+
         <div class="row1">
             <div class="store">
                 <iconify-icon id="logo" icon="ic:round-store-mall-directory"></iconify-icon>
@@ -70,12 +66,11 @@
 
         <div class="kontencuy">
             <div class="produknya">
-
                 <img src="assets/web4.jpg" alt="">
             </div>
             <div class="detail-produk">
                 <div class="nama-status">
-                    <p>Obat Patah Hati</p>
+                    <p>{{ auth()->user()->order }}</p>
                     <div class="statusnya">Confirmed</div>
 
                 </div>
@@ -104,4 +99,6 @@
 
    
     </div>
+
+    @endforeach
 @endsection

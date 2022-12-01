@@ -13,7 +13,7 @@
         <div class="account">
             <p class="account-title">Account</p>
             <div class="account-content">
-                <a href="{{ Route('profile')}}">
+                <a href="{{ url('profileC') }}">
                     <div class="profile">
                         <div class="profile-content">
                             <iconify-icon icon="ic:baseline-account-circle" class="profile-icon"></iconify-icon>
@@ -34,7 +34,7 @@
                 </a>
 
                 <a href="{{ Route('fav')}}">
-                     <div class="favorite">
+                <div class="favorite">
                     <div class="favorite-content">
                         <iconify-icon icon="akar-icons:heart" class="favorite-icon"></iconify-icon>
                         <p>Favorite Product</p>
