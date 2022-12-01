@@ -215,9 +215,8 @@
 }
 
 .title-rate .ratings i {
-
   color: #cecece;
-  font-size: 15px;
+  font-size: 30px;
 }
 
 .title-rate .rating-color {
@@ -593,4 +592,199 @@
   border: none;
   font-family: 'Quicksand';
   font-weight: 700;
+}
+
+
+
+
+
+.content {
+  margin: 8% auto 0px;
+  width: fit-content;
+  height: 100%;
+}
+
+.header-review p {
+  font-family: 'Poppins';
+font-weight: 600;
+font-size: 30px;
+color: #000000;
+margin: 2;
+}
+
+.content-review {
+   width: 1350px;
+   background-color: #fff;
+   border: 1px solid rgb(136, 136, 136);
+   box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.262);
+   border-radius: 10px;
+   padding-bottom: 10px;
+}
+
+.card-review {
+  width: 94%;
+  border-bottom: 1px solid rgb(88, 88, 88);
+  margin: 20px auto;
+}
+
+.header-card{
+  margin: 10px 0px 15px 0px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-card i{
+  font-size: 20px;
+}
+
+.header-card p{
+  margin: 0;
+  font-size: 20px;
+  font-style: 'Quicksand';
+  font-weight: 700;
+}
+
+.img-rev img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+}
+
+.row-product-review {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-rev {
+  display: flex;
+  gap: 20px;
+}
+
+.name-rev p{
+  height: 30px;
+  margin: 0;
+  font-size: 20px;
+  font-family: 'quicksand';
+  font-weight: 700;
+}
+
+.title-rev p {
+  font-size: 14px;
+  font-family: 'quicksand';
+  font-weight: 600; 
+  color: #929292;
+  margin: 0;
+}
+
+.star-widget input{
+  display: none; 
+ }
+ .star-widget label{
+   font-size: 20px;
+   color: rgb(237, 229, 229);
+   float: left;
+   padding: 5px 5px 5px 0px;
+   transition: all 0.2s ease;
+   float: right;
+   transform: translateX(-120px);
+ }
+ 
+ .star-widget input:not(:checked)~label:hover,
+ .star-widget input:not(:checked)~label:hover ~label{
+   color: #fd4;
+ }
+ input#rate-5:checked ~label,
+ input#rate-4:checked ~label,
+ input#rate-3:checked ~label,
+ input#rate-2:checked ~label,
+ input#rate-1:checked ~label{
+   color: #fd4 ;
+ }
+
+ .right-rev {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+ }
+
+ .right-rev label {
+  font-size: 15px;
+  font-family: 'quicksand';
+  font-weight: 600; 
+  color: #3f3f3f;
+ }
+
+ #user {
+  border-radius: 5px;
+ }
+
+ #user option{
+  background-color: #fff;
+ }
+
+.row-comment {
+  margin: 20px auto 5px;
+}
+
+.row-comment textarea {
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.btn-submit {
+  width: fit-content;
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+
+.btn-submit input {
+  width: 100px;
+  height: 35px;
+  color: #fff;
+  font-family: 'quicksand';
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #345bb7;
+  border: none;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #e9e9e9;
+}
+
+#progress5::-webkit-progress-value {
+  background-color: #29BB89;
+}
+
+#progress4::-webkit-progress-value {
+  background-color: #7ECA9C;
+}
+
+#progress3::-webkit-progress-value {
+  background-color: #FFCC29;
+}
+
+#progress2::-webkit-progress-value {
+  background-color: #F58634;
+}
+
+#progress1::-webkit-progress-value {
+  background-color: #FF4A4A;
+}
+
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+   appearance: none;
+
+  width: 100%;
+  height: 100px;
 }

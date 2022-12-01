@@ -53,15 +53,11 @@
       </div>
       <div class="profile">
         <div class="profile-img">
-          <a href="{{ route('shop.show.profile', $seller->slug) }}">
-            <img src="{{ $seller->gallery->first()->getUrl() }}" alt="">
-          </a>
+          <img src="{{ $seller->gallery->first()->getUrl() }}" alt="">
         </div>
         <div class="profile-name">
           <div class="name">
-            <a href="{{ route('shop.show.profile', $seller->slug) }}">
-              <p>{{ $seller->name }}</p>
-            </a>
+            <p>{{ $seller->name }}</p>
           </div>
           <div class="other">
             <a href="{{ route('shop.show.profile', $seller->slug) }}">Visit Shop <i class="fa-solid fa-shop"></i></a>
@@ -76,17 +72,13 @@
         <p>Customer Reviews</p>
       </div>
       <div class="title-rate">
-        <p>4.8</p>
+        <p>4.9</p>
         <div id="rate">
           <div class="d-flex align-items-center">
             <div class="ratings">
               <i class="fa fa-star rating-color"></i>
-              <i class=" fa fa-star rating-color"></i>
-              <i class="fa fa-star rating-color"></i>
-              <i class="fa fa-star rating-color"></i>
-              <i class="fa fa-star"></i>
             </div>
-            <h5 class="review-count">(12 Reviews)</h5>
+            <h5 class="review-count">( {{ $ratings->count() }} Reviews )</h5>
           </div>
         </div>
       </div>
@@ -99,8 +91,8 @@
             <p>5</p>
           </div>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 90%; background-color: #29BB89;"
-              aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <progress id="progress5" class="progress-bar"
+              value="{{ $star5 }}" max="{{ $ratings->count() }}"></progress>
           </div>
         </div>
         <div class="four-rate">
@@ -111,8 +103,8 @@
             <p>4</p>
           </div>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 50%; background-color: #7ECA9C;"
-              aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            <progress id="progress4" class="progress-bar"
+              value="{{ $star4 }}" max="{{ $ratings->count() }}"></progress>
           </div>
         </div>
         <div class="three-rate">
@@ -123,8 +115,8 @@
             <p>3</p>
           </div>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 30%; background-color: #FFCC29;"
-              aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            <progress id="progress3" class="progress-bar" role="progressbar" 
+              value="{{ $star3 }}" max="{{ $ratings->count() }}"></progress>
           </div>
         </div>
         <div class="two-rate">
@@ -135,8 +127,8 @@
             <p>2</p>
           </div>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 10%; background-color: #F58634;"
-              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            <progress id="progress2" class="progress-bar" role="progressbar" 
+              value="{{ $star2 }}" max="{{ $ratings->count() }}"></progress>
           </div>
         </div>
         <div class="one-rate">
@@ -147,8 +139,8 @@
             <p>1</p>
           </div>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 5%; background-color: #FF4A4A;"
-              aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            <progress id="progress1" class="progress-bar" role="progressbar" 
+                value="{{ $star1 }}" max="{{ $ratings->count() }}"></progress>
           </div>
         </div>
       </div>
@@ -190,76 +182,7 @@
           </div>
         </div>
       </div>
-      <div class="comment">
-        <div class="comment-user">
-          <div class="profile-comment">
-            <div class="profile-comment-img">
-              <img src="assets/user.png" alt="">
-            </div>
-            <div class="profile-comment-name">
-              <div class="name-comment">
-                <p>Customers Name</p>
-              </div>
-              <div id="rate">
-                <div class="d-flex align-items-center">
-                  <div class="ratings">
-                    <i class="fa fa-star rating-color"></i>
-                    <i class=" fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-comment">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel cum quibusdam eaque laboriosam,
-              voluptate
-              id molestiae consectetur ipsa tempore quas eum, recusandae beatae, delectus minus harum rerum
-              architecto
-              error modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quam quae blanditiis
-              quibusdam cupiditate. Quis eos dignissimos odio ducimus voluptates suscipit, vitae nisi harum voluptas
-              sunt exercitationem eligendi nam omnis? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatum corrupti fugiat officiis ratione error cum, quia, vero dicta praesentium, dignissimos ex a
-              esse deserunt accusantium aliquid? Non, soluta eaque. Voluptas?</p>
-          </div>
-        </div>
-      </div>
-      <div class="comment">
-        <div class="comment-user">
-          <div class="profile-comment">
-            <div class="profile-comment-img">
-              <img src="assets/user.png" alt="">
-            </div>
-            <div class="profile-comment-name">
-              <div class="name-comment">
-                <p>Customers Name</p>
-              </div>
-              <div id="rate">
-                <div class="d-flex align-items-center">
-                  <div class="ratings">
-                    <i class="fa fa-star rating-color"></i>
-                    <i class=" fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-comment">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel cum quibusdam eaque laboriosam,
-              voluptate
-              id molestiae consectetur ipsa tempore quas eum, recusandae beatae, delectus minus harum rerum
-              architecto
-              error modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore unde quo doloribus
-              perferendis neque consectetur iste dolore enim nostrum quam, omnis ab veniam! Praesentium rerum, alias
-              aut ipsam tempora fuga!</p>
-          </div>
-        </div>
-      </div>
+      <!--- y -->
     </div>
   </div>
   <div class="related">
@@ -303,6 +226,67 @@
     </div>
   </div>
 </div>
+
+
+<div class="content">
+
+  <div class="content-review">
+      <div class="card-review">
+          <form action="{{ url('/add-rating')}}">
+            @csrf
+            <input type="hidden" name="product_id" value="{{ $product->id }}">
+              <div class="header-card">
+                  <i class="fas fa-store    "></i>
+                  <p>{{ $seller->name }}</p>
+              </div>
+              <div class="row-product-review">
+                  <div class="left-rev">
+                      <div class="img-rev">
+                          <img src="assets/web1.jpg" alt="">
+                      </div>
+                      <div class="desc-rev">
+                          <div class="name-rev">
+                              <p>{{ $product->name }}</p>
+                          </div>
+                          <div class="title-rev">
+                              <p>What is overall quality of this product?</p>
+                          </div>
+                          <div class="star-widget">
+                              <input type="radio" name="product_rating" id="rate-5" value="5">
+                              <label for="rate-5" class="fas fa-star"></label>
+                              <input type="radio" name="product_rating" id="rate-4" value="4">
+                              <label for="rate-4" class="fas fa-star"></label>
+                              <input type="radio" name="product_rating" id="rate-3" value="3">
+                              <label for="rate-3" class="fas fa-star"></label>
+                              <input type="radio" name="product_rating" id="rate-2" value="2">
+                              <label for="rate-2" class="fas fa-star"></label>
+                              <input type="radio" name="product_rating" id="rate-1" value="1">
+                              <label for="rate-1" class="fas fa-star"></label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="right-rev">
+                      <label for="user">Show this review as..</label>
+                      <select name="name" id="user">
+                        <option value="{{ Auth()->user()->name }}" checked>{{ Auth()->user()->name }}</option>
+                          <option value="anonymous"> Anonymous</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="row-comment">
+                  <div class="comment-rev">
+                      <textarea name="comment" cols="167" rows="4" placeholder="Give us your honey review"></textarea>
+                  </div>
+              </div>
+              <div class="btn-submit">
+                  <button type="submit" name="submit" id="submit">Submit</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+
+
 <!-- end content -->
 
 <!-- modal -->

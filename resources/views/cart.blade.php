@@ -38,7 +38,7 @@
           <!-- <div class="btn-delete">
             <div class="delete">
               <button>Delete</button>
-            </div>
+            </div>  
           </div> -->
         </div>
         <div class="content-product">
@@ -114,7 +114,7 @@
 
       <div class="btn">
         {{-- <button style="background-color: #3333; color: black; cursor: no-drop;" id="btn-con" disabled>Continue</button> --}}
-        <a href="{{ route('checkout-detail') }}"><button> Continue </button></a>
+        <button>Continue</button>
       </div>
     </div>
 

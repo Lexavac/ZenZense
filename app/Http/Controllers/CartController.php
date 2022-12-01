@@ -107,7 +107,6 @@ class CartController extends Controller
                     'type' => 'warning'
                 ]);
             }
-
             return Redirect()->back()->with([
                 'message' => 'Has Been Added To Cart !',
                 'type' => 'warning'
@@ -120,40 +119,10 @@ class CartController extends Controller
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
-
             return Redirect()->back()->with([
                 'message' => 'Add Cart Success !',
                 'type' => 'info'
             ]);
-        }
-    }
-
-    public function storemodal(Request $request, $products_id)
-    {
-
-        $check = Cart::where('products_id', $products_id)->where('users_id', Auth()->id())->first();
-
-        if ($check){
-            $prod = $check->product;
-
-            if($prod->category->name != 'Software'){
-
-                $check->quantity += 1;
-                $check->update();
-
-                return 'Added More To Cart !';
-            }
-            return 'Has Been Added To Cart !';
-        }else{
-            Cart::insert([
-                'products_id' => $products_id,
-                'quantity' => 1,
-                'users_id' => Auth()->id(),
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]);
-
-            return 'Add Cart Success !';
         }
     }
 
