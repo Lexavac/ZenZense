@@ -8,33 +8,8 @@
 <div class="content">
   <div class="header-content">
     <div class="left-row">
-      <div class="best-quality">
-        <div class="box-quality">
-          <div class="row-left">
-            <iconify-icon icon="ic:sharp-verified-user" style="font-size: 60px; color:  #5874AF ;">
-            </iconify-icon>
-            <p>Best <br> Quality</p>
-          </div>
-          <div class="row-right"></div>
-        </div>
-      </div>
-      <div class="secure-payment">
-        <div class="box-payment">
-          <div class="row-left"></div>
-          <div class="row-right">
-            <iconify-icon icon="ci:credit-card" style="font-size: 60px; color:  #5874AF"></iconify-icon>
-            <p>Secure <br> Payment</p>
-          </div>
-        </div>
-      </div>
-      <div class="other-box">
-        <div class="box-other">
-          <div class="row-left">
-            <iconify-icon icon="akar-icons:gear" style="font-size: 60px; color:  #5874AF ;"></iconify-icon>
-            <p>Tried & <br> Tested</p>
-          </div>
-          <div class="row-right"></div>
-        </div>
+      <div class="bg-tio">
+        <img src="{{ asset('assets/img/TIO REVISI TKJ-02.png')}}" alt="">
       </div>
     </div>
     <div class="middle-row">
@@ -47,42 +22,18 @@
       <div class="box-top-right"></div>
       <div class="box-bottom-right"></div>
       <div class="btn-explore">
-        <a href="{{ route('product.cate.filter') }}">
+        <a href="search-page.html">
           <button>Explore Now!</button>
         </a>
       </div>
     </div>
-    <div class="right-row">
-      <div class="secure-payment">
-        <div class="box-payment">
-          <div class="row-left"></div>
-          <div class="row-right">
-            <iconify-icon icon="ci:credit-card" style="font-size: 60px; color:  #5874AF"></iconify-icon>
-            <p>Secure <br> Payment</p>
-          </div>
-        </div>
-      </div>
-      <div class="best-quality">
-        <div class="box-quality">
-          <div class="row-left">
-            <iconify-icon icon="ic:sharp-verified-user" style="font-size: 60px; color:  #5874AF ;">
-            </iconify-icon>
-            <p>Best <br> Quality</p>
-          </div>
-          <div class="row-right"></div>
-        </div>
-      </div>
-      <div class="secure-payment">
-        <div class="box-payment">
-          <div class="row-left"></div>
-          <div class="row-right">
-            <iconify-icon icon="akar-icons:gear" style="font-size: 60px; color:  #5874AF ;"></iconify-icon>
-            <p>Tried & <br> Tested</p>
-          </div>
-        </div>
-      </div>
+  <div class="right-row">
+    <div class="bg-bian">
+      <img src="{{ asset('assets/img/INDIVIDUAL PROP-03.png')}}" alt="">
     </div>
   </div>
+  </div>
+
   <div class="sorted">
     <h3>We Sorted Our Product By</h3>
     <div class="jurusan">
@@ -131,9 +82,8 @@
           <p>{{ $products->last()->desc }}</p>
         </div>
         <div class="btn-featured">
-          <a href="checkout-delivery.html"><button class="btn-buy"><i class="fa-solid fa-bag-shopping">
-
-          </i>Buy Now</button></a>
+          <a href="checkout-delivery.html">
+          <button class="btn-buy"><i class="fa-solid fa-bag-shopping"></i>Buy Now</button></a>
           <button class="btn-cart"><i class="fa-solid fa-cart-shopping"></i>Add to cart</button>
         </div>
       </div>
@@ -141,14 +91,6 @@
   </div>
   <div class="our-product">
     <h1>Our Product</h1>
-    <div class="our-category">
-      <button>Software</button>
-      <button>Electronics</button>
-      <button>Hardware</button>
-      <button>Movies</button>
-      <button>Design</button>
-    </div>
-
       <div id="wrapper">
         <div id="carousel">
           <div id="content">

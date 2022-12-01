@@ -40,7 +40,7 @@
                 <td style="width: 250px;">User Agus</td>
                 <td style="width: 120px;">2</td>
                 <td style="width: 100px;"><p id="label-order"  style="margin-top: 10px;">Software</p></td>
-                <td style="width: 180px;">
+                <td style="width: 100px;">
                     <button  onclick="On_klik(this.id)" id="refund" style="font-weight:600;" >Refund</button>
                 </td>
             </tr>
@@ -58,7 +58,7 @@
                 <td style="width: 180px;">User Agus</td>
                 <td style="width: 100px;">2</td>
                 <td style="width: 70px;"><p id="label-order" style="margin-top: 10px;">Software</p></td>
-                <td style="width: 150px;">
+                <td style="width: 100px;">
                   <button  onclick="On_klik(this.id)" id="refund" style="font-weight:600;">Refund</button>
                 </td>
             </tr>
@@ -76,7 +76,7 @@
                 <td style="width: 180px;">User Agus</td>
                 <td style="width: 100px;">2</td>
                 <td style="width: 70px;"><p id="label-order" style="margin-top: 10px;">Software</p></td>
-                <td style="width: 150px;">
+                <td style="width: 100px;">
                   <button  onclick="On_klik(this.id)" id="refund" style="font-weight:600;">Refund</button>
                 </td>
             </tr>
@@ -94,7 +94,7 @@
                 <td style="width: 180px;">User Agus</td>
                 <td style="width: 100px;">2</td>
                 <td style="width: 70px;"><p id="label-order" style="margin-top: 10px;">Software</p></td>
-                <td style="width: 150px;">
+                <td style="width: 100px;">
                     <button  onclick="On_klik(this.id)" id="refund" style="font-weight:600;">Refund</button>
                 </td>
             </tr>

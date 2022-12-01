@@ -1,9 +1,13 @@
+body{
+  overflow-x: hidden;
+}
 .menu-transaction {
   background-color: #ECF3FE;
 }
 
 .contents {
   margin-left: 300px;
+  overflow-x: none;
 }
 
 .sub-content {
@@ -40,7 +44,7 @@ table tr{
 table td {
   width: 230px;
   text-align: center;
-  padding-top: 10px;
+  padding: 10px 0px;
 }
 
 table td img {
