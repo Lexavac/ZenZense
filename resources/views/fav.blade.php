@@ -10,91 +10,44 @@
   <div class="your-fav">
     <iconify-icon icon="akar-icons:heart" class="heart"></iconify-icon>
     <h3>Your Favorite</h3>
-    <p>(Jumlah)</p>
+    <p>({{ $favorCount }})</p>
   </div>
 
   <div class="content">
     <div class="card-row">
       <!-- left card -->
-      <div class="card">
-        <div class="header-card">
-          <img src="assets/user.png" alt="">
-          <p>Store Name</p>
-        </div>
-        <!-- start content -->
-        <div class="content-card">
-          <div class="left-row">
-              <img src="assets/web3.jpg" alt="">
-          <div class="details">
-            <p class="category">Product Category</p>
-            <p class="product-name">Product Name</p>
-            <p class="type">Software</p>
-          </div>
-          </div>
-        
-          <div class="right-row">
-            <p>RP.200.000</p>
-            <div class="last-row">
-              <button>Buy Now</button>
-              <iconify-icon class="trash" icon="fe:trash"></iconify-icon>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="card">
-        <div class="header-card">
-          <img src="assets/user.png" alt="">
-          <p>Store Name</p>
-        </div>
-        <!-- start content -->
-        <div class="content-card">
-          <div class="left-row">
-              <img src="assets/web3.jpg" alt="">
-          <div class="details">
-            <p class="category">Product Category</p>
-            <p class="product-name">Product Name</p>
-            <p class="type">Software</p>
-          </div>
-          </div>
-        
-          <div class="right-row">
-            <p>RP.200.000</p>
-            <div class="last-row">
-              <button>Buy Now</button>
-              <iconify-icon class="trash" icon="fe:trash"></iconify-icon>
-            </div>
-          </div>
-        </div>
-      </div>
+      @foreach($favor as $favorite)
 
       <div class="card">
         <div class="header-card">
-          <img src="assets/user.png" alt="">
-          <p>Store Name</p>
+          <img src="{{ $favorite->product->users->shop->gallery->first()->getUrl() }}" alt="">
+          <p>{{ $favorite->product->users->shop->name }}</p>
         </div>
         <!-- start content -->
         <div class="content-card">
           <div class="left-row">
-              <img src="assets/web3.jpg" alt="">
+              <img src="{{ $favorite->product->gallery->first()->getUrl() }}" alt="">
           <div class="details">
-            <p class="category">Product Category</p>
-            <p class="product-name">Product Name</p>
-            <p class="type">Software</p>
+            <p class="category">{{ $favorite->product->major }}</p>
+            <p class="product-name">{{ $favorite->product->name }}</p>
+            <p class="type">{{ $favorite->product->category->name }}</p>
           </div>
           </div>
         
           <div class="right-row">
-            <p>RP.200.000</p>
+            <p>RP. {{ $favorite->product->price }}</p>
             <div class="last-row">
               <button>Buy Now</button>
-              <iconify-icon class="trash" icon="fe:trash"></iconify-icon>
+              <a href="{{ url('favorite/del', $favorite->id) }}"><iconify-icon class="trash" icon="fe:trash"></iconify-icon></a>
             </div>
           </div>
         </div>
       </div>
+      @endforeach
+
     </div>
   </div>
+  {{ $favor->links() }}
 
 </div>
 
