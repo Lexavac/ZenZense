@@ -22,7 +22,7 @@
       <div class="box-top-right"></div>
       <div class="box-bottom-right"></div>
       <div class="btn-explore">
-        <a href="search-page.html">
+        <a href="{{ url('product') }}">
           <button>Explore Now!</button>
         </a>
       </div>
