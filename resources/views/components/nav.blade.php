@@ -35,7 +35,7 @@
                                     <a class="nav-link" href="{{ url('/cart') }}"><i class="fa-solid fa-cart-shopping"></i></a>
                                 </li>
                                 <li class="nav-item"> 
-                                    <a class="nav-link" href="{{ route('fav') }}"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                    <a class="nav-link" href="{{ url('/favorite') }}"><i class="fa fa-heart" aria-hidden="true"></i></a>
                                 </li>
 
                                 <li class="nav-item dropdown">

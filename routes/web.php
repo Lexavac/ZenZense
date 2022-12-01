@@ -6,6 +6,7 @@ use App\Http\Controllers\PController;
 use App\Http\Controllers\SController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopProfile;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\RatingController;
 use Illuminate\Contracts\Auth\UserProvider;
@@ -43,11 +44,16 @@ use Illuminate\Support\Facades\Route;
         Route::get('/inc/{cart:id?}', [CartController::class, 'inc'])->name('cart.inc');
         Route::get('/dest/{cart:id?}', [CartController::class, 'destroy'])->name('cart.dest');
     });
-    
 
-    Route::get('/fav', function () {
-        return view('fav');
-    })->name('fav');
+    Route::group(['middleware' => 'auth',  'prefix' => 'favorite',  'as' => 'favorite.'],function(){
+        Route::get('/', [FavoriteController::class, 'show'])->name('fav');
+        Route::get('/add/{product:id?}', [FavoriteController::class, 'add'])->name('favorite.add');
+        Route::get('/del/{id}', [FavoriteController::class, 'destroy']);
+    });
+
+    Route::get('/coba/coba', [TransactionController::class, 'store']);
+
+
 
     route::get('/shop/profile/{slug?}', [ShopProfile::class, 'show'])->name('shop.show.profile');
     
@@ -58,6 +64,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::resource('profile', UserProfileController::class);
+Route::get('/profileC', function () {
+    return view('profilecust');
+})->name('profile.cust');
 
 // Route::get('/seller', function () {
 //     return view('seller.loginseller');
@@ -80,9 +89,6 @@ Route::get('/profileseller', function () {
     return view('seller.profile');
 })->name('profileseller');
 
-Route::get('/profileC', function () {
-    return view('profilecust');
-})->name('profile.cust');
 
 
 Route::get('/setting', function () {
@@ -159,3 +165,23 @@ Route::get('/review', function () {
 })->name('review');
 
 Route::get('add-rating', [RatingController::class, 'add']);
+
+Route::get('/setting', function () {
+    return view('setting-cust');
+})->name('settingCust');
+
+Route::get('/setting-info', function () {
+    return view('seller.setting-info');
+})->name('setting-info');
+
+Route::get('/setting-scedhule', function () {
+    return view('seller.setting-scedhule');
+})->name('setting-scedhule');
+
+Route::get('/report-invoice', function () {
+    return view('seller.report-invoice');
+})->name('report-invoice');
+
+Route::get('/order-review', function () {
+    return view('order-review');
+})->name('order-review');

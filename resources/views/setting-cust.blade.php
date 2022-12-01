@@ -1,7 +1,7 @@
 @extends('layout/app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('assets/css/setting.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/setting-cust.css')}}">
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
         <div class="account">
             <p class="account-title">Account</p>
             <div class="account-content">
-                <a href="{{ url('profileC') }}">
+                <a href="">
                     <div class="profile">
                         <div class="profile-content">
                             <iconify-icon icon="ic:baseline-account-circle" class="profile-icon"></iconify-icon>
@@ -23,7 +23,7 @@
                     </div>
                 </a>
 
-                <a href="{{ Route('editprofile')}}">
+                <a href="">
                     <div class="edit-profile">
                         <div class="edit-profile-content">
                             <iconify-icon icon="bxs:edit" class="edit-profile-icon"></iconify-icon>
@@ -33,8 +33,8 @@
                     </div>
                 </a>
 
-                <a href="{{ Route('fav')}}">
-                <div class="favorite">
+                <a href="">
+                     <div class="favorite">
                     <div class="favorite-content">
                         <iconify-icon icon="akar-icons:heart" class="favorite-icon"></iconify-icon>
                         <p>Favorite Product</p>

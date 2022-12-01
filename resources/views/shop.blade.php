@@ -25,9 +25,26 @@
         <p>Total Product</p>
         <p>{{ $products->count() }}</p>
       </div>
-      <div class="rate-shop">
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <p>Rating 4.9</p>
+     
+      <div class="sosmed">
+        <div class="email">
+          <iconify-icon icon="ic:outline-email" style="font-size: 25px;"></iconify-icon>
+          <p>agusgaming@gmail.com</p>
+        </div>
+        <div class="row-2">
+          <div class="instagram">
+            <iconify-icon icon="mdi:instagram"style="font-size: 25px;"></iconify-icon>
+            <p>@agusgaming</p>
+          </div>
+          <div class="linkedin">
+            <iconify-icon icon="uil:linkedin"style="font-size: 25px;"></iconify-icon>
+            <p>@agusgaming</p>
+          </div>
+        </div>
+        <button class="portfol">
+          <iconify-icon icon="gridicons:pages"></iconify-icon>
+          Download Portofolio / CV PDF
+        </button>
       </div>
     </div>
     <div class="seller-since">

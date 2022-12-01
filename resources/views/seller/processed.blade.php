@@ -42,7 +42,7 @@
                 <td style="width: 100px;">
                     <p id="label-order" style="margin-top: 10px;">Software</p>
                 </td>
-                <td style="width: 180px;">
+                <td style="width: 120px;">
                     <a href="#" style="font-weight:600;" id="btn-receipt" onclick="On_click(this.id)">Send</a>
                 </td>
             </tr>
@@ -62,7 +62,7 @@
                 <td style="width: 70px;">
                     <p id="label-order" style="margin-top: 10px;">Software</p>
                 </td>
-                <td style="width: 150px;">
+                <td style="width: 120px;">
                     <a href="#" style="font-weight:600;" id="btn-receipt" onclick="On_click(this.id)">Send</a>
                 </td>
             </tr>
@@ -82,7 +82,7 @@
                 <td style="width: 70px;">
                     <p id="label-order" style="margin-top: 10px;">Software</p>
                 </td>
-                <td style="width: 150px;">
+                <td style="width: 120px;">
                     <a href="#" style="font-weight:600;" id="btn-receipt" onclick="On_click(this.id)">Send</a>
                 </td>
             </tr>
@@ -102,7 +102,7 @@
                 <td style="width: 70px;">
                     <p id="label-order" style="margin-top: 10px;">Software</p>
                 </td>
-                <td style="width: 150px;">
+                <td style="width: 120px;">
                     <a href="#" style="font-weight:600;" id="btn-receipt" onclick="On_click(this.id)">Send</a>
                 </td>
             </tr>

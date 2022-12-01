@@ -145,9 +145,7 @@
           <li><a href="loginseller.html">Home</a></li>
           <li>explore</li>
         </ul> -->
-        <div class="title-content">
-          <p>Explore</p>
-        </div>
+        <p class="title-content">Explore</p>
         <div class="filter-product">
           <div class="filter-label">
             @foreach($tags as $maj)
@@ -186,8 +184,8 @@
                   @if(Auth::check())
                   <div class="other-btn">
                     <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button><i class="fa fa-heart" aria-hidden="true"></i></button>
+                      <button class="modal__button" id="open-modal" onClick="Open_click('{{ $product->gallery->first()->getUrl() }}', '{{ $product->major }}', '{{ $product->name }}', '{{ $product->price }}', '{{ url('/cart/modal', $product->id) }}')"><i class="fa-solid fa-cart-shopping"></i></button>
+                      <button class="modal__button" id="open-modal" onClick="Open_click('{{ $product->gallery->first()->getUrl() }}', '{{ $product->major }}', '{{ $product->name }}', '{{ $product->price }}', '{{ url('/favorite/add', $product->id) }}')"><i class="fa fa-heart" aria-hidden="true" id="heart"></i></button>
                     </div>
                   </div>
                   @endif

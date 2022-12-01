@@ -38,7 +38,7 @@ class TripayController extends Controller
 
     }
 
-    public function ReqPayment($method, $book)
+    public function ReqPayment($method, $product, $total)
     {
 
 
@@ -52,21 +52,15 @@ class TripayController extends Controller
         $data = [
             'method'         => $method,
             'merchant_ref'   => $merchantRef,
-            'amount'         => $book->price,
+            'amount'         => $total,
             'customer_name'  => $user->name,
             'customer_email' => $user->email,
-            'customer_phone' => '081234567890',
-            'order_items'    => [
-                [
-                    'sku'         => $book->id,
-                    'name'        => $book->name,
-                    'price'       => $book->price,
-                    'quantity'    => 1,
-                ],
+            'customer_phone' => $user->profile->phoneNumber,
 
-            ],
+            'order_items'    => $product,
+
             'expired_time' => (time() + (24 * 60 * 60)), // 24 jam
-            'signature'    => hash_hmac('sha256', $merchantCode.$merchantRef.$book->price, $privateKey)
+            'signature'    => hash_hmac('sha256', $merchantCode.$merchantRef.$product->price, $privateKey)
         ];
 
         $curl = curl_init();
