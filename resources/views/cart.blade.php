@@ -114,7 +114,7 @@
 
       <div class="btn">
         {{-- <button style="background-color: #3333; color: black; cursor: no-drop;" id="btn-con" disabled>Continue</button> --}}
-        <button>Continue</button>
+        <a href="{{ url('checkoutdetail') }}"><button>Continue</button></a>
       </div>
     </div>
 

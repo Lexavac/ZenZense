@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HControllerr;
 use App\Http\Controllers\PController;
 use App\Http\Controllers\SController;
@@ -88,12 +89,6 @@ Route::post('shop-profile/image',[ShopController::class, 'storeImage']);
 Route::get('/profileseller', function () {
     return view('seller.profile');
 })->name('profileseller');
-
-
-
-Route::get('/setting', function () {
-    return view('setting');
-})->name('setting');
 
 Route::get('/editprofile', function () {
     return view('profileedit-cust');

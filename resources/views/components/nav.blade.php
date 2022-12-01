@@ -41,7 +41,7 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                        <img src="{{ asset('assets/img/user.png') }}" alt="" class="user">
+                                        <img src="{{ Auth::check() ? auth()->user()->profile->gallery->first()->getUrl() : asset('assets/img/user.png') }}" alt="" class="user">
                                     </a>
                                     <ul class="dropdown-menu">
                                         @if( !Auth::check() )
@@ -63,7 +63,7 @@
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item setting" href="#">setting <i
+                                        <li><a class="dropdown-item setting" href="{{ url('setting') }}">setting <i
                                                     class="fa-solid fa-gear"></i></a></li>
                                         @endif
                                     </ul>

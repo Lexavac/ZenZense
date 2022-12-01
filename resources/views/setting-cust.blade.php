@@ -13,7 +13,7 @@
         <div class="account">
             <p class="account-title">Account</p>
             <div class="account-content">
-                <a href="">
+                <a href="{{ url('profileC') }}">
                     <div class="profile">
                         <div class="profile-content">
                             <iconify-icon icon="ic:baseline-account-circle" class="profile-icon"></iconify-icon>
@@ -23,7 +23,7 @@
                     </div>
                 </a>
 
-                <a href="">
+                <a href="{{ Route('editprofile') }}">
                     <div class="edit-profile">
                         <div class="edit-profile-content">
                             <iconify-icon icon="bxs:edit" class="edit-profile-icon"></iconify-icon>
@@ -33,8 +33,8 @@
                     </div>
                 </a>
 
-                <a href="">
-                     <div class="favorite">
+                <a href="{{ url('favorite') }}">
+                <div class="favorite">
                     <div class="favorite-content">
                         <iconify-icon icon="akar-icons:heart" class="favorite-icon"></iconify-icon>
                         <p>Favorite Product</p>
@@ -50,7 +50,7 @@
         <div class="order">
             <p class="order-title">Order</p>
             <div class="order-content">
-                <a href="">
+                <a href="{{ url('profileC') }}">
                     <div class="my-order">
                         <div class="my-order-content">
                             <iconify-icon icon="icon-park-outline:transaction-order" class="my-order-icon"></iconify-icon>
