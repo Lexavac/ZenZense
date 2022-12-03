@@ -10,6 +10,7 @@ use App\Http\Controllers\ShopProfile;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -155,10 +156,6 @@ Route::get('/editproduct', function () {
     return view('seller.edit-product');
 })->name('edit-product');
 
-Route::get('/review', function () {
-    return view('review');
-})->name('review');
-
 Route::get('add-rating', [RatingController::class, 'add']);
 
 Route::get('/setting', function () {
@@ -177,6 +174,5 @@ Route::get('/report-invoice', function () {
     return view('seller.report-invoice');
 })->name('report-invoice');
 
-Route::get('/order-review', function () {
-    return view('order-review');
-})->name('order-review');
+Route::get('/product/detail/review/{product:slug?}', [ReviewController::class, 'show'])->name('product.show');
+
