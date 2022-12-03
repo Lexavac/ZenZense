@@ -29,7 +29,7 @@ class UserProfileController extends Controller
      */
     public function create()
     {
-        return view('coba.profile');
+        return view('create-profile');
     }
 
     /**

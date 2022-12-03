@@ -300,7 +300,8 @@ header {
   gap: 15px;
 }
 
-.btn-order button {
+.btn-order a {
+  display: inline-block;
   border-radius: 10px;
   border: none;
   height: 50px;
@@ -308,13 +309,16 @@ header {
   font-weight: 700;
   font-family: 'quicksand';
   letter-spacing: 1.5px;
+  text-align: center;
+  padding-top: 10px;
+  text-decoration: none;
 }
 
-.btn-order button:first-child {
+.btn-order .button-one {
   background: #5874AF;
 }
 
-.btn-order button:nth-child(2) {
+.btn-order .button-2 {
   background: #fff;
   border: 1px solid rgb(80, 80, 80);
   color: #000;
