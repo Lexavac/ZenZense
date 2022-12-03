@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="menu-setting">
-                    <a href="" class="setting">
+                    <a href="{{ route('setting-info') }}" class="setting">
                         <div class="left">
                             <iconify-icon class="icon" icon="ant-design:setting-outlined"></iconify-icon>
                             <p>Setting</p>

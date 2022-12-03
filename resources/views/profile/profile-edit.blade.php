@@ -11,7 +11,7 @@
   
 <div class="contents">
   <div class="sub-content">
-      <a href="{{ route('profile') }}">My Profile</a>
+      <a href="{{ route('profileseller') }}">My Profile</a>
       <a href="{{ route('profile-edit') }}">Edit Profile</a>
   </div>
 
@@ -23,65 +23,84 @@
       <div class="right">
           <p>user 24124341</p>
           <h1>Kiagus Ahmad Farhan Aziz</h1>
-          <textarea name="" id="" cols="90" rows="5">Gapapa jele yang penting sombong</textarea>
+          <textarea name="" id="" cols="117" rows="4">Gapapa jele yang penting sombong</textarea>
           <p></p>
       </div>
   </div>
 
-  <div class="row-2">
-      <table>
-          <tr>
-              <td>First Name</td>
-              <td><input type="text" value="Kiagus Ahmad"></td>
-          </tr>
-          <tr>
-              <td>Last Name</td>
-              <td><input type="text" value="Farhan Aziz"></td>
-          </tr>
-          <tr>
-              <td>Email</td>
-              <td><input type="email" value="kgs.FA@gmail.com"> </td>
-          </tr>
-          <tr>
-              <td>Phone Number</td>
-              <td><input type="number" value="6287887427813"></td>
-          </tr>
-          <tr>
-              <td>Address</td>
-              <td><textarea name="" id="" cols="65" rows="5">2972 Westheimer Rd. Santa Ana, Illinois 85486</textarea>  </td>
-          </tr>
-      </table>
-
-      <div class="form-group">
-            <label for="gallery">Gallery</label>
-            <div class="needsclick dropzone" id="gallery-dropzone"></div>
+  <div class="form-profile">
+    <div class="left-form">
+        <div class="warning-alert">
+            <iconify-icon icon="material-symbols:info-rounded"></iconify-icon>
+            <p>This Action needed confirmation to your email, please after you completed this action check your email to confirm</p>
         </div>
-
-      <div class="btn-submit">
-        <button>Save</button>
-      </div>
+            <div class="email">
+                <h3>Email</h3>
+                <p>agusganteng@gmail.com</p>
+            </div>
+            <div class="pw">
+                <h3>Password</h3>
+                <p>*******</p>
+            </div>
+            <div class="btn-profile">
+                <button id="btn-form-rev" onclick="On_klik(this.id)">Change</button>
+            </div>
+    </div>
+    <div class="right-form">
+        <div class="fullname">
+            <div class="first-name">
+                <label for="first-name">First Name</label>
+                <input type="text" name="firstname" id="first-name" value="First Name">
+            </div>
+            <div class="last-name">
+                <label for="last-name">last Name</label>
+                <input type="text" name="lastname" id="last-name" value="Last Name">
+            </div>
+        </div>
+        <div class="phone">
+            <label for="phone">Phone Number</label>
+            <input type="number" name="phone" id="phone" value="0812912812">
+        </div>
+        <div class="address">
+            <label for="alamat">Address</label>
+            <textarea name="" id="" cols="30" rows="5"></textarea>
+        </div>
+        <div class="btn-save">
+            <button>Save</button>
+        </div>
+    </div>
   </div>
 </div>
 
-<div id="myProfile" class="modalProfile">
-    <div class="modalprofile-content">
+<div id="myForm" class="modalform">
+    <div class="modalform-content">
         <div class="header">
-            <span class="close close-prof">&times;</span>
+            <span class="close close-form">&times;</span>
         </div>
-        <form action="">
-            <div class="profile-content">
-                <div class="form-group">
-                <label for="gallery">Gallery</label>
-                <div class="needsclick dropzone" id="gallery-dropzone"></div>
-                </div>
-                <div class="btn-Profile">
-                    <button>submit</button>
-                </div>
+        <div class="content">
+            <div class="title-header">
+                <p>Change Email And Password</p>
             </div>
-        </form>
+            <div class="warning-alert">
+                <iconify-icon icon="material-symbols:info-rounded"></iconify-icon>
+                <p>This Action needed confirmation to your email, please after you completed this action check your email to confirm</p>
+            </div>
+            <div class="email-modal">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" value="agusganten@gmail.com">
+            </div>
+            <div class="password-modal">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" value="10101010">
+            </div>
+            <div class="btn-confirm">
+                <button id="cancel">Cancel</button>
+                <button id="confirm">Confirm</button>
+            </div>
+        </div>
     </div>
 </div>
-<script src="{{ asset('assets/js/uploadimg.js')}}"></script>
+<script src="{{ asset('assets/js/form-review.js')}}"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

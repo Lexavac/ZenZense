@@ -41,7 +41,7 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                        <img src="{{ asset('assets/img/user.png') }}" alt="" class="user">
+                                        <img src="{{ Auth::check() ? auth()->user()->profile->gallery->first()->getUrl() : asset('assets/img/user.png') }}" alt="" class="user">
                                     </a>
                                     <ul class="dropdown-menu">
                                         @if( !Auth::check() )

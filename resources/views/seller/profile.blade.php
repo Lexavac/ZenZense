@@ -11,7 +11,7 @@
 
 <div class="contents">
   <div class="sub-content">
-    <a href="{{ route('profile') }}">My Profile</a>
+    <a href="{{ route('profileseller') }}">My Profile</a>
     <a href="{{ route('profile-edit') }}">Edit Profile</a>
 </div>
 
