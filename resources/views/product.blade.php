@@ -168,7 +168,9 @@
             @foreach($products as $product)
             <div class="card-product">
               <div class="img-card">
-                <img src="{{ $product->gallery->first()->getUrl() }}" alt="" id="img-prod">
+                <a href="{{ route('product.show', $product->slug) }}">
+                  <img src="{{ $product->gallery->first()->getUrl() }}" alt="" id="img-prod">
+                </a>
               </div>
               <div class="desc-product">
                 <div class="category-product">

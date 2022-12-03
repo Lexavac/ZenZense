@@ -275,7 +275,6 @@ ul.breadcrumb li a:hover {
 
 .product {
   width: 100%;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -283,9 +282,10 @@ ul.breadcrumb li a:hover {
 
 .row-top-product{
   display: flex;
-  gap: 35px;
-  width: 1050px;
+  gap: 30px;
+  width: 1170px;
   flex-wrap: wrap;
+  transform: translateY(50px);
 }
 
 .card-product {
