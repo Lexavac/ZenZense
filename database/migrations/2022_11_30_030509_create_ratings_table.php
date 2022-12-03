@@ -19,7 +19,6 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('stars_rated');
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('restrict');
 
