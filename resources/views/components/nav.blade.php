@@ -63,7 +63,7 @@
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item setting" href="#">setting <i
+                                        <li><a class="dropdown-item setting" href="{{ url('setting') }}">setting <i
                                                     class="fa-solid fa-gear"></i></a></li>
                                         @endif
                                     </ul>

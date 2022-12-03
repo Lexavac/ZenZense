@@ -90,12 +90,6 @@ Route::get('/profileseller', function () {
     return view('seller.profile');
 })->name('profileseller');
 
-
-
-Route::get('/setting', function () {
-    return view('setting');
-})->name('setting');
-
 Route::get('/editprofile', function () {
     return view('profileedit-cust');
 })->name('editprofile');
