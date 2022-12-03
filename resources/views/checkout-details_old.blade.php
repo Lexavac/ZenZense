@@ -124,7 +124,7 @@
         </div>
         <div class="row-info">
           <p>Lastname</p>
-          <p>912190238901283</p>
+          <p>{{ auth()->user()->profile->lastname }}</p>
         </div>
         <div class="row-info">
           <p>Name</p>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HControllerr;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PController;
 use App\Http\Controllers\SController;
 use App\Http\Controllers\ShopController;
@@ -42,6 +43,7 @@ use Illuminate\Support\Facades\Route;
     Route::group(['middleware' => 'auth',  'prefix' => 'cart',  'as' => 'cart.'],function(){
         Route::get('/', [CartController::class, 'CartPage'])->name('cart');
         Route::get('/{product:id?}', [CartController::class, 'store'])->name('cart.store');
+        Route::get('/modal/{product:id?}', [CartController::class, 'storemodal']);
         Route::get('/dec/{cart:id?}', [CartController::class, 'dec'])->name('cart.dec');
         Route::get('/inc/{cart:id?}', [CartController::class, 'inc'])->name('cart.inc');
         Route::get('/dest/{cart:id?}', [CartController::class, 'destroy'])->name('cart.dest');
@@ -61,14 +63,21 @@ use Illuminate\Support\Facades\Route;
     
     Route::get('/setting', function () {
         return view('dashboard');
-    })->name('profile');
+    });
 
 Auth::routes();
 
 Route::resource('profile', UserProfileController::class);
+
 Route::get('/profileC', function () {
     return view('profilecust');
 })->name('profile.cust');
+
+Route::get('checkoutdetail', [OrderController::class, 'index'])->name('checkout-detail');
+Route::get('checkoutdetail/payment', [OrderController::class, 'payment'])->name('checkout-payment');
+Route::post('place/order', [OrderController::class, 'storeOrder'])->name('place-order');
+Route::get('checkoutdetail/payment/success', [OrderController::class, 'complete'])->name('checkout-complete');
+
 
 // Route::get('/seller', function () {
 //     return view('seller.loginseller');
@@ -95,25 +104,10 @@ Route::get('/editprofile', function () {
     return view('profileedit-cust');
 })->name('editprofile');
 
-Route::get('/createprofile', function () {
-    return view('create-profile');
-})->name('create-profile');
-
 Route::get('/profileedit', function () {
     return view('profile.profile-edit');
 })->name('profile-edit');
 
-Route::get('/checkoutdetail', function () {
-    return view('checkout-detail');
-})->name('checkout-detail');
-
-Route::get('/checkoutpayment', function () {
-    return view('checkout-payment');
-})->name('checkout-payment');
-
-Route::get('/checkoutcomplete', function () {
-    return view('checkout-complete');
-})->name('checkout-complete');
 
 Route::get('/productseller', function () {
     return view('seller.product-seller');
