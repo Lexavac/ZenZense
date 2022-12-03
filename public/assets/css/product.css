@@ -283,14 +283,14 @@ ul.breadcrumb li a:hover {
 .row-top-product{
   display: flex;
   gap: 30px;
-  width: 1170px;
+  width: 1100px;
   flex-wrap: wrap;
-  transform: translateY(50px);
+  transform: translate(10px, 30px);
 }
 
 .card-product {
-  width: 170px;
-  height: 260px;
+  width: 185px;
+  min-height: 285px;
   background-color: #fff;
   box-shadow: 1px 1px 5px rgba(151, 151, 151, 0.477);
   box-sizing: border-box;
@@ -298,8 +298,8 @@ ul.breadcrumb li a:hover {
 }
 
 .card-product img{
-  width: 150px;
-  height: 150px;
+  width: 165px;
+  height: 165px;
   object-fit: cover;
   background-size: contain;
   border-radius: 7px;
@@ -315,7 +315,7 @@ ul.breadcrumb li a:hover {
 }
 
 .category-product p {
-  font-size: 12px;
+  font-size: 11px;
   color: rgb(171, 171, 171);
   font-family: 'nunito';
   margin: 2px 0px 0px 2px;
@@ -323,7 +323,7 @@ ul.breadcrumb li a:hover {
 }
 
 .name-product p {
-  font-size: 16px;
+  font-size: 14.5px;
   font-family: 'nunito';
   line-height: 1;
   margin: 0px 2px;
@@ -332,12 +332,29 @@ ul.breadcrumb li a:hover {
 }
 
 .price p{
-  font-size: 16px;
-  font-family: 'nunito';
-  font-weight: 700;
+  font-size: 15.5px;
+  font-family: sans-serif;
+  font-weight: 600;
   margin-bottom: 5px;
 }
 
+.product-rate {
+  margin-top: -10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.product-rate i{
+  font-size: 12px;
+  color: #fbc634 !important;
+}
+
+.product-rate p{
+  font-size: 12px;
+  font-weight: 600;
+  opacity: .6;
+}
 
 .row-price {
   display: flex;
@@ -367,6 +384,9 @@ ul.breadcrumb li a:hover {
   color: rgb(255, 53, 53);
 }
 
+.name-product a{
+  color: #000
+}
 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');

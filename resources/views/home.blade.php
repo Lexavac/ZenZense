@@ -116,7 +116,7 @@
                       <div class="button-detail">
                         <button><i class="fa-solid fa-cart-shopping"></i></button>
                         <button>
-                          <iconify-icon class="heart" icon="akar-icons:heart"></iconify-icon>
+                          <i class="fa-regular fa-heart"></i>
                         </button>
                       </div>
                     </div>

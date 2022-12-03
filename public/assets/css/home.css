@@ -324,9 +324,10 @@ a {
 
 
 #wrapper {
-  width: 91%;
+  width: 99%;
   height: 100%;
-  transform: translateX(65px);
+  transform: translateX(0px);
+  margin: 0px auto;
 }
 
 #carousel {
@@ -395,8 +396,8 @@ a {
   padding-bottom: 10px;
 }
 .card-product {
-  width: 170px;
-  height: 260px;
+  width: 185px;
+  min-height: 240px;
   background-color: #fff;
   box-shadow: 1px 1px 5px rgba(151, 151, 151, 0.477);
   box-sizing: border-box;
@@ -404,8 +405,8 @@ a {
 }
 
 .card-product img{
-  width: 150px;
-  height: 150px;
+  width: 165px;
+  height: 165px;
   object-fit: cover;
   background-size: contain;
   border-radius: 7px;
@@ -423,16 +424,17 @@ a {
   font-size: 12px;
   color: rgb(171, 171, 171);
   font-family: 'nunito';
-  margin: 2px 0px 0px 2px;
+  margin: -15px 0px 0px 2px;
   font-weight: 600;
 }
 
-.name-product p {
+.name-product a {
   font-size: 16px;
   font-family: 'nunito';
   line-height: 1;
   margin: 0px 2px;
-  height: 32px;
+  height: 42px;
+  color: #000;
 }
 
 .price p{
@@ -446,7 +448,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 4px 2px;
+  margin: 4px 0px 0px 2px;
   width: 160px;
 }
 
@@ -455,6 +457,11 @@ a {
   gap: 7px;
   margin-left: -50px;
   margin-bottom: 5px;
+}
+
+.button-detail {
+  display: flex;
+  gap: 5px;
 }
 
 .button-detail button{

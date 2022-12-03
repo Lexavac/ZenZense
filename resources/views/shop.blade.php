@@ -75,12 +75,12 @@
           </div>
           <div class="row-price">
             <div class="price">
-              <p id="prc-prod">Rp. {{ $product->price }}</p>
+              <p id="prc-prod">Rp. {{ number_format($product->price,0,',','.') }}</p>
             </div>
             <div class="other-btn">
               <div class="btn-detail">
                 <button class="modal__button" id="open-modal" onClick="Open_click(this.id)"><i class="fa-solid fa-cart-shopping"></i></button>
-                <button><i class="fa fa-heart" aria-hidden="true"></i></button>
+                <button><i class="fa-regular fa-heart"></i></button>
               </div>
             </div>
           </div>
