@@ -33,11 +33,17 @@ class PController extends Controller
         $star2 = $product->ratings->where('stars_rated', 2)->count();
         $star1 = $product->ratings->where('stars_rated', 1)->count();
 
-        // $avg = (1*$star1+2*$star2+3*$star3+4*$star4+5*$star5)/($star1+$star2+$star3+$star4+$star5);
-        
+        $avg = 0.0;
+        $avgsell = 0;
+
+        if($ratings->count() != 0){
+            $avg = round((1*$star1+2*$star2+3*$star3+4*$star4+5*$star5)/($star1+$star2+$star3+$star4+$star5),1);
+            $avgsell = round((1*$star1+2*$star2+3*$star3+4*$star4+5*$star5)/($star1+$star2+$star3+$star4+$star5),0);
+        }
+
         // dd($avg);
 
 
-        return view('detail', compact('product',  'related_products', 'seller', 'ratings', 'star1', 'star2', 'star3', 'star4', 'star5'));
+        return view('detail', compact('product',  'related_products', 'seller', 'ratings', 'star1', 'star2', 'star3', 'star4', 'star5', 'avg', 'avgsell'));
     }
 }

@@ -114,15 +114,19 @@
                 @endforeach
                 <div class="total-order">
                     <div class="title-total">
-                        <p>{{ $total }}</p>
+                        <p>Total</p>
                     </div>
                     <div class="total-price-order">
                         <p><span>Total pesanan ( {{  $qty }} ) :</span> Rp. {{ $total }}</p>
+                        <hr>
+                        <p><span>Total pesanan ( {{  $qty }} ) :</span> Rp. </p>
                     </div>
                 </div>
             </div>
             <div class="shipping-method">
                 <div class="title-shipping">
+                    <form action="{{ route('place-order') }}" method="POST">
+                        @csrf
                     <p>Available shipping method</p>
                 </div>
                 <div class="method">
@@ -138,7 +142,22 @@
                             </div>
                             <div class="right-shipping">
                                 <p>Rp. 200.000</p>
-                                <input type="radio" name="" id="">
+                                <input type="radio" name="shipping_method" id="" value="FedEx">
+                            </div>
+                        </div>
+                        <div class="card-shipping">
+                            <div class="left-shiping">
+                                <div class="shipping-logo">
+                                    <img src="assets/tes-img.png" alt="">
+                                </div>
+                                <div class="shipping-delivery">
+                                    <p>JNE</p>
+                                    <p>Delivery 2-3 days work</p>
+                                </div>
+                            </div>
+                            <div class="right-shipping">
+                                <p>Rp. 100.000</p>
+                                <input type="radio" name="shipping_method" value="JNE">
                             </div>
                         </div>
                 </div>
@@ -153,8 +172,6 @@
             </div>
             <div class="order-info">
 
-                <form action="{{ route('place-order') }}" method="POST">
-                    @csrf
                     <div class="email">
                         <label for="email">Email Address</label>
                         <input type="email" name="shipping_email" id="email" placeholder="Email" value="{{ Auth()->user()->email }}">
@@ -190,7 +207,21 @@
                             </div>
 
                             <div class="right-payment">
-                                <input type="radio" name="payment_type" value="paypal">
+                                <input type="radio" name="payment_type" value="PAYPAL">
+                            </div>
+                        </div>
+                        <div class="card-payment">
+                            <div class="left-payment">
+                                <div class="payment-logo">
+                                    <img src="assets/tes-img.png" alt="">
+                                </div>
+                                <div class="payment-method">
+                                    <p>OVO</p>
+                                </div>
+                            </div>
+
+                            <div class="right-payment">
+                                <input type="radio" name="payment_type" value="OVO">
                             </div>
                         </div>
                     </div>

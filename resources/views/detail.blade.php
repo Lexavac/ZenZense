@@ -25,14 +25,16 @@
       </div>
       <div id="rate">
         <div class="d-flex align-items-center">
+          @if ($ratings->count() >= 1)
           <div class="ratings">
-            <i class="fa fa-star rating-color"></i>
-            <i class=" fa fa-star rating-color"></i>
-            <i class="fa fa-star rating-color"></i>
-            <i class="fa fa-star rating-color"></i>
-            <i class="fa fa-star"></i>
+            <i class="fa fa-star @if($avgsell >= 1) rating-color @endif"></i>
+            <i class=" fa fa-star @if($avgsell >= 2) rating-color @endif"></i>
+            <i class="fa fa-star @if($avgsell >= 3) rating-color @endif"></i>
+            <i class="fa fa-star @if($avgsell >= 4) rating-color @endif"></i>
+            <i class="fa fa-star @if($avgsell >= 5) rating-color @endif"></i>
           </div>
-          <h5 class="review-count">(12 product)</h5>
+          @endif
+          <h5 class="review-count">({{ $product->quantity }} product)</h5>
         </div>
       </div>
       <div class="main-price">
@@ -72,7 +74,7 @@
         <p>Customer Reviews</p>
       </div>
       <div class="title-rate">
-        <p>4.9</p>
+        <p>{{ $avg }}</p>
         <div id="rate">
           <div class="d-flex align-items-center">
             <div class="ratings">
@@ -150,39 +152,36 @@
         <button id="btn-review" onClick="Open_click(this.id)">See More...</button>
       </div>
       <div class="btn-more"></div>
+      @foreach ($ratings->take(5) as $rating)
       <div class="comment">
         <div class="comment-user">
           <div class="profile-comment">
             <div class="profile-comment-img">
-              <img src="assets/user.png" alt="">
+              <img src="{{ $rating->name != 'anonymous' ? $rating->user->profile->gallery->first()->getUrl() : asset('assets/img/user.png') }}" alt="">
             </div>
             <div class="profile-comment-name">
               <div class="name-comment">
-                <p>Customers Name</p>
+                <p>{{ $rating->name }}</p>
               </div>
               <div id="rate">
                 <div class="d-flex align-items-center">
                   <div class="ratings">
-                    <i class="fa fa-star rating-color"></i>
-                    <i class=" fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star  @if($rating->stars_rated >= 1 ) rating-color @endif"></i>
+                    <i class=" fa fa-star @if($rating->stars_rated >= 2 ) rating-color @endif"></i>
+                    <i class="fa fa-star @if($rating->stars_rated >= 3 ) rating-color @endif"></i>
+                    <i class="fa fa-star @if($rating->stars_rated >= 4 ) rating-color @endif"></i>
+                    <i class="fa fa-star @if($rating->stars_rated >= 5 ) rating-color @endif"></i>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="text-comment">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel cum quibusdam eaque laboriosam,
-              voluptate
-              id molestiae consectetur ipsa tempore quas eum, recusandae beatae, delectus minus harum rerum
-              architecto
-              error modi!</p>
+            <p>{{ $rating->comment }}</p>
           </div>
         </div>
-      </div>
-      <!--- y -->
+      </div>          
+      @endforeach
     </div>
   </div>
   <div class="related">
@@ -225,67 +224,7 @@
       @endforeach
     </div>
   </div>
-</div>
-
-
-<div class="content">
-
-  <div class="content-review">
-      <div class="card-review">
-          <form action="{{ url('/add-rating')}}">
-            @csrf
-            <input type="hidden" name="product_id" value="{{ $product->id }}">
-              <div class="header-card">
-                  <i class="fas fa-store    "></i>
-                  <p>{{ $seller->name }}</p>
-              </div>
-              <div class="row-product-review">
-                  <div class="left-rev">
-                      <div class="img-rev">
-                          <img src="assets/web1.jpg" alt="">
-                      </div>
-                      <div class="desc-rev">
-                          <div class="name-rev">
-                              <p>{{ $product->name }}</p>
-                          </div>
-                          <div class="title-rev">
-                              <p>What is overall quality of this product?</p>
-                          </div>
-                          <div class="star-widget">
-                              <input type="radio" name="product_rating" id="rate-5" value="5">
-                              <label for="rate-5" class="fas fa-star"></label>
-                              <input type="radio" name="product_rating" id="rate-4" value="4">
-                              <label for="rate-4" class="fas fa-star"></label>
-                              <input type="radio" name="product_rating" id="rate-3" value="3">
-                              <label for="rate-3" class="fas fa-star"></label>
-                              <input type="radio" name="product_rating" id="rate-2" value="2">
-                              <label for="rate-2" class="fas fa-star"></label>
-                              <input type="radio" name="product_rating" id="rate-1" value="1">
-                              <label for="rate-1" class="fas fa-star"></label>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="right-rev">
-                      <label for="user">Show this review as..</label>
-                      <select name="name" id="user">
-                        <option value="{{ Auth()->user()->name }}" checked>{{ Auth()->user()->name }}</option>
-                          <option value="anonymous"> Anonymous</option>
-                      </select>
-                  </div>
-              </div>
-              <div class="row-comment">
-                  <div class="comment-rev">
-                      <textarea name="comment" cols="167" rows="4" placeholder="Give us your honey review"></textarea>
-                  </div>
-              </div>
-              <div class="btn-submit">
-                  <button type="submit" name="submit" id="submit">Submit</button>
-              </div>
-          </form>
-      </div>
-  </div>
-</div>
-
+</div>  
 
 <!-- end content -->
 
@@ -325,277 +264,34 @@
     <p class="cust-rev">Customer Review</p>
     <div class="review-modal scrollbar" id="style-3">
       <div class="comment force-overflow">
+        @foreach ($ratings as $rating)
         <div class="comment-modal">
           <div class="profile-comment">
             <div class="profile-comment-img">
-              <img src="assets/user.png" alt="">
+              <img src="{{ $rating->name != 'anonymous' ? $rating->user->profile->gallery->first()->getUrl() : asset('assets/img/user.png') }}" alt="">
             </div>
             <div class="profile-comment-name">
               <div class="name-comment">
-                <p>Customers Name</p>
+                <p>{{ $rating->name }}</p>
               </div>
               <div id="rate">
                 <div class="d-flex align-items-center">
                   <div class="ratings">
-                    <i class="fa fa-star rating-color"></i>
-                    <i class=" fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star  @if($rating->stars_rated >= 1 ) rating-color @endif"></i>
+                    <i class=" fa fa-star @if($rating->stars_rated >= 2 ) rating-color @endif"></i>
+                    <i class="fa fa-star @if($rating->stars_rated >= 3 ) rating-color @endif"></i>
+                    <i class="fa fa-star @if($rating->stars_rated >= 4 ) rating-color @endif"></i>
+                    <i class="fa fa-star @if($rating->stars_rated >= 5 ) rating-color @endif"></i>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="text-comment">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel cum quibusdam eaque laboriosam,
-              voluptate
-              id molestiae consectetur ipsa tempore quas eum, recusandae beatae, delectus minus harum rerum
-              architecto
-              error modi!</p>
+            <p>{{ $rating->comment }}</p>
           </div>
         </div>
-        <div class="comment-modal">
-          <div class="profile-comment">
-            <div class="profile-comment-img">
-              <img src="assets/user.png" alt="">
-            </div>
-            <div class="profile-comment-name">
-              <div class="name-comment">
-                <p>Customers Name</p>
-              </div>
-              <div id="rate">
-                <div class="d-flex align-items-center">
-                  <div class="ratings">
-                    <i class="fa fa-star rating-color"></i>
-                    <i class=" fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-comment">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel cum quibusdam eaque laboriosam,
-              voluptate
-              id molestiae consectetur ipsa tempore quas eum, recusandae beatae, delectus minus harum rerum
-              architecto
-              error modi!</p>
-          </div>
-        </div>
-        <div class="comment-modal">
-          <div class="profile-comment">
-            <div class="profile-comment-img">
-              <img src="assets/user.png" alt="">
-            </div>
-            <div class="profile-comment-name">
-              <div class="name-comment">
-                <p>Customers Name</p>
-              </div>
-              <div id="rate">
-                <div class="d-flex align-items-center">
-                  <div class="ratings">
-                    <i class="fa fa-star rating-color"></i>
-                    <i class=" fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-comment">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel cum quibusdam eaque laboriosam,
-              voluptate
-              id molestiae consectetur ipsa tempore quas eum, recusandae beatae, delectus minus harum rerum
-              architecto
-              error modi!</p>
-          </div>
-        </div>
-        <div class="comment-modal">
-          <div class="profile-comment">
-            <div class="profile-comment-img">
-              <img src="assets/user.png" alt="">
-            </div>
-            <div class="profile-comment-name">
-              <div class="name-comment">
-                <p>Customers Name</p>
-              </div>
-              <div id="rate">
-                <div class="d-flex align-items-center">
-                  <div class="ratings">
-                    <i class="fa fa-star rating-color"></i>
-                    <i class=" fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-comment">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel cum quibusdam eaque laboriosam,
-              voluptate
-              id molestiae consectetur ipsa tempore quas eum, recusandae beatae, delectus minus harum rerum
-              architecto
-              error modi!</p>
-          </div>
-        </div>
-        <div class="comment-modal">
-          <div class="profile-comment">
-            <div class="profile-comment-img">
-              <img src="assets/user.png" alt="">
-            </div>
-            <div class="profile-comment-name">
-              <div class="name-comment">
-                <p>Customers Name</p>
-              </div>
-              <div id="rate">
-                <div class="d-flex align-items-center">
-                  <div class="ratings">
-                    <i class="fa fa-star rating-color"></i>
-                    <i class=" fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-comment">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel cum quibusdam eaque laboriosam,
-              voluptate
-              id molestiae consectetur ipsa tempore quas eum, recusandae beatae, delectus minus harum rerum
-              architecto
-              error modi!</p>
-          </div>
-        </div>
-        <div class="comment-modal">
-          <div class="profile-comment">
-            <div class="profile-comment-img">
-              <img src="assets/user.png" alt="">
-            </div>
-            <div class="profile-comment-name">
-              <div class="name-comment">
-                <p>Customers Name</p>
-              </div>
-              <div id="rate">
-                <div class="d-flex align-items-center">
-                  <div class="ratings">
-                    <i class="fa fa-star rating-color"></i>
-                    <i class=" fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-comment">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel cum quibusdam eaque laboriosam,
-              voluptate
-              id molestiae consectetur ipsa tempore quas eum, recusandae beatae, delectus minus harum rerum
-              architecto
-              error modi!</p>
-          </div>
-        </div>
-        <div class="comment-modal">
-          <div class="profile-comment">
-            <div class="profile-comment-img">
-              <img src="assets/user.png" alt="">
-            </div>
-            <div class="profile-comment-name">
-              <div class="name-comment">
-                <p>Customers Name</p>
-              </div>
-              <div id="rate">
-                <div class="d-flex align-items-center">
-                  <div class="ratings">
-                    <i class="fa fa-star rating-color"></i>
-                    <i class=" fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-comment">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel cum quibusdam eaque laboriosam,
-              voluptate
-              id molestiae consectetur ipsa tempore quas eum, recusandae beatae, delectus minus harum rerum
-              architecto
-              error modi!</p>
-          </div>
-        </div>
-
-        <div class="comment-modal">
-          <div class="profile-comment">
-            <div class="profile-comment-img">
-              <img src="assets/user.png" alt="">
-            </div>
-            <div class="profile-comment-name">
-              <div class="name-comment">
-                <p>Customers Name</p>
-              </div>
-              <div id="rate">
-                <div class="d-flex align-items-center">
-                  <div class="ratings">
-                    <i class="fa fa-star rating-color"></i>
-                    <i class=" fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-comment">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel cum quibusdam eaque laboriosam,
-              voluptate
-              id molestiae consectetur ipsa tempore quas eum, recusandae beatae, delectus minus harum rerum
-              architecto
-              error modi!</p>
-          </div>
-        </div>
-        <div class="comment-modal">
-          <div class="profile-comment">
-            <div class="profile-comment-img">
-              <img src="assets/user.png" alt="">
-            </div>
-            <div class="profile-comment-name">
-              <div class="name-comment">
-                <p>Customers Name</p>
-              </div>
-              <div id="rate">
-                <div class="d-flex align-items-center">
-                  <div class="ratings">
-                    <i class="fa fa-star rating-color"></i>
-                    <i class=" fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star rating-color"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-comment">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel cum quibusdam eaque laboriosam,
-              voluptate
-              id molestiae consectetur ipsa tempore quas eum, recusandae beatae, delectus minus harum rerum
-              architecto
-              error modi!</p>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </div>
