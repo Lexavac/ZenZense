@@ -75,7 +75,7 @@
           </div>
           <div class="row-price">
             <div class="price">
-              <p id="prc-prod">Rp. {{ number_format($product->price,0,',','.') }}</p>
+              <p id="prc-prod">Rp {{ number_format($product->price,0,',','.') }}</p>
             </div>
             <div class="other-btn">
               <div class="btn-detail">

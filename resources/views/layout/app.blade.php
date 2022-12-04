@@ -50,7 +50,7 @@
 
     <!-- swal -->
     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     @yield('css')
 
     <title>ZenIT</title>
@@ -68,6 +68,10 @@
 </section>
 @include('components.simple-footer')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>   
+    AOS.init(); 
+</script>
 </body>
 
 </html>

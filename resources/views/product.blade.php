@@ -32,14 +32,14 @@
                     </div>
                   </label>
                   <div class="checklist-major">
-                    <input type="checkbox" name="BRF" id="check1">
+                    <input type="checkbox" name="BRF" id="check1" >
                   </div>
                 </li>
                 <li>
                   <label for="check2">
                     <div class="list-item">
                       <div class="img-major">
-                        <img src="{{ asset('assets/img/mm.pn')}}g" alt="">
+                        <img src="{{ asset('assets/img/mm.png')}}" alt="">
                       </div>
                       <div class="title-major">
                         <p>Animasi</p>
@@ -105,11 +105,11 @@
             <div class="price-inp">
               <div class="min-price">
                 <label for="min">Min</label>
-                <input type="number" name="min" id="min" placeholder="Rp.">
+                <input type="number" name="min" id="min" placeholder="Rp">
               </div>
               <div class="max-price">
                 <label for="max">Max</label>
-                <input type="number" name="max" id="max" placeholder="Rp.">
+                <input type="number" name="max" id="max" placeholder="Rp">
               </div>
             </div>
           </div>
@@ -141,6 +141,29 @@
   <div class="main-content">
     <div class="product-content">
       <div class="header-product-content">
+        <div class="main-header">
+          <div class="title-header">
+            <p>Explore</p>
+          </div>
+          <div class="filter-dropdown">
+            <label for="filter"><img src="{{ asset('assets/img/setting.png') }}" alt=""></label>
+              <select name="sortby" id="filter" class="option-filter">
+                <option value="HTL">Higher to Lower</option>
+                <option value="LTH">Lower to Higher</option>  
+              </select>
+            </div>
+          </div>
+          <div class="filter-product">
+            <div class="filter-label">
+              @foreach($tags as $maj)
+              <div class="label-menu">
+                <p>{{ $maj }}</p>
+              </div>
+              @endforeach
+            </div>
+          </div>  
+      </div>
+      {{-- <div class="header-product-content">
         <!-- <ul class="breadcrumb">
           <li><a href="loginseller.html">Home</a></li>
           <li>explore</li>
@@ -163,47 +186,47 @@
           </form>
           </div>
         </div>
-        <div class="product">
-          <div class="row-top-product">
-            @foreach($products as $product)
-            <div class="card-product">
-              <div class="img-card">
+      </div> --}}
+      <div class="product">
+        <div class="row-top-product">
+          @foreach($products as $product)
+          <div class="card-product">
+            <div class="img-card">
+              <a href="{{ route('product.show', $product->slug) }}">
+                <img src="{{ $product->gallery->first()->getUrl() }}" alt="" id="img-prod">
+              </a>
+            </div>
+            <div class="desc-product">
+              <div class="category-product">
+                <p id="ctgry">{{ $product->major }}</p>
+              </div>
+              <div class="name-product">
                 <a href="{{ route('product.show', $product->slug) }}">
-                  <img src="{{ $product->gallery->first()->getUrl() }}" alt="" id="img-prod">
+                  <p id="name-prod">{{ $product->name }}</p>
                 </a>
               </div>
-              <div class="desc-product">
-                <div class="category-product">
-                  <p id="ctgry">{{ $product->major }}</p>
+              <div class="row-price">
+                <div class="price">
+                  <p id="prc-prod">Rp {{ number_format($product->price,0,',','.') }}</p>
                 </div>
-                <div class="name-product">
-                  <a href="{{ route('product.show', $product->slug) }}">
-                    <p id="name-prod">{{ $product->name }}</p>
-                  </a>
-                </div>
-                <div class="row-price">
-                  <div class="price">
-                    <p id="prc-prod">Rp {{ number_format($product->price,0,',','.') }}</p>
+                @if(Auth::check())
+                <div class="other-btn">
+                  <div class="btn-detail">
+                    <button class="modal__button" id="open-modal" onClick="Open_click('{{ $product->gallery->first()->getUrl() }}', '{{ $product->major }}', '{{ $product->name }}', '{{ $product->price }}', '{{ url('/cart/modal', $product->id) }}')"><i class="fa-solid fa-cart-shopping"></i></button>
+                    <button class="modal__button" id="open-modal" onClick="Open_click('{{ $product->gallery->first()->getUrl() }}', '{{ $product->major }}', '{{ $product->name }}', '{{ $product->price }}', '{{ url('/favorite/add', $product->id) }}')">
+                      @if(in_array($product->id, $favorites))
+                      <i class="fa-solid fa-heart"></i>
+                      @else
+                      <i class="fa-regular fa-heart"></i>
+                      @endif
+                    </button>
                   </div>
-                  @if(Auth::check())
-                  <div class="other-btn">
-                    <div class="btn-detail">
-                      <button class="modal__button" id="open-modal" onClick="Open_click('{{ $product->gallery->first()->getUrl() }}', '{{ $product->major }}', '{{ $product->name }}', '{{ $product->price }}', '{{ url('/cart/modal', $product->id) }}')"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button class="modal__button" id="open-modal" onClick="Open_click('{{ $product->gallery->first()->getUrl() }}', '{{ $product->major }}', '{{ $product->name }}', '{{ $product->price }}', '{{ url('/favorite/add', $product->id) }}')">
-                        @if(in_array($product->id, $favorites))
-                        <i class="fa-solid fa-heart"></i>
-                        @else
-                        <i class="fa-regular fa-heart"></i>
-                        @endif
-                      </button>
-                    </div>
-                  </div>
-                  @endif
                 </div>
+                @endif
               </div>
             </div>
-            @endforeach
           </div>
+          @endforeach
         </div>
       </div>
     </div>

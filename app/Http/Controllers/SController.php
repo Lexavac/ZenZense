@@ -226,4 +226,5 @@ class SController extends Controller
 
         return view('product', compact('products','slug', 'tags'));
     }
+    
 }
