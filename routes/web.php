@@ -168,5 +168,4 @@ Route::get('/report-invoice', function () {
     return view('seller.report-invoice');
 })->name('report-invoice');
 
-Route::get('/product/detail/review/{product:slug?}', [ReviewController::class, 'show'])->name('product.review ');
-
+Route::get('/product/detail/review/{product:slug?}', [ReviewController::class, 'show'])->name('product.review');
