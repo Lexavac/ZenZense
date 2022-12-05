@@ -12,7 +12,7 @@
                 </div>
             
                 <div class="menu-product">
-                    <a href="{{ route('product-seller') }}" class="product">
+                    <a href="{{ url('productseller') }}" class="product">
                         <div class="left">
                             <iconify-icon class="icon" icon="ph:package-light"></iconify-icon>
                             <p>Product</p>

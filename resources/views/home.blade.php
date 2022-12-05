@@ -96,7 +96,6 @@
           <div id="content">
             <div class="product-carousel">
               <div class="row-product">
-
               @foreach($products as $product)
                 <div class="card-product">
                   <div class="img-card">
