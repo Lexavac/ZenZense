@@ -70,9 +70,7 @@ Auth::routes();
 
 Route::resource('profile', UserProfileController::class);
 
-Route::get('/profileC', function () {
-    return view('profilecust');
-})->name('profile.cust');
+Route::get('/profile/your-profile', [UserProfileController::class, 'show'])->name('profile.cust');
 
 Route::get('checkoutdetail', [OrderController::class, 'index'])->name('checkout-detail');
 Route::get('checkoutdetail/payment', [OrderController::class, 'payment'])->name('checkout-payment');
@@ -96,15 +94,16 @@ Route::group(['middleware' => ['auth','CheckLevel:admin,seller'],  'prefix' => '
 Route::post('profile/image',[UserProfileController::class, 'storeImage']);
 Route::post('shop-profile/image',[ShopController::class, 'storeImage']);
 
-
-Route::get('/profile-seller', function () {
-    return view('seller.profile');
+//old profile seller
+Route::get('/profile-seller-old', function () {
+    return view('seller.profile-old');
 })->name('profileseller');
+Route::get('/profile-edit-old', function () {
+    return view('seller.profile-edit-old');
+})->name('profile-edit1');
 
 
-Route::get('/profile-edit', function () {
-    return view('seller.profile-edit');
-})->name('profile-edit');
+
 Route::get('/editprofile', function () {
     return view('profileedit-cust');
 })->name('editprofile');
@@ -114,10 +113,13 @@ Route::get('/createprofile', function () {
     return view('create-profile');
 })->name('create-profile');
 
-Route::get('/profileedit', function () {
+Route::get('/seller/profile/edit', function () {
     return view('profile.profile-edit');
-})->name('profile-edit');
+})->name('seller.edit.profile');
 
+Route::get('/seller/profile', function(){
+    return view('profile.profile');
+})->name('seller.profile');
 
 // Route::get('/productseller', function () {
 //     return view('seller.product-seller');

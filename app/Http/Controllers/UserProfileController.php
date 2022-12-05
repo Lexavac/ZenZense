@@ -74,7 +74,7 @@ class UserProfileController extends Controller
     {
         $profile = User::find(auth()->id())->profile;
 
-        return dd($profile);
+        return view('profilecust');
     }
 
     /**
