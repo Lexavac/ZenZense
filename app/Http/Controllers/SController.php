@@ -15,10 +15,12 @@ class SController extends Controller
         $products = Product::with('category');
 
         $tags = [];
-        $favorites = [];
+        $favorites = [0];
 
-        foreach(Auth()->user()->favorites as $favorite){
-            array_push($favorites, $favorite->products_id);
+        if(Auth::check()){
+            foreach(Auth()->user()->favorites as $favorite){
+                array_push($favorites, $favorite->products_id);
+            }
         }
 
         if($request->BRF != null){
