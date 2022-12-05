@@ -49,7 +49,7 @@
                 <p>{{ $cart->product->major }}</p>
                 <p id="product-name">{{ $cart->product->name }}</p>
               </div>
-              <p class="price" id="product-price">{{ $cart->product->price }}</p>
+              <p class="price" id="product-price">{{ number_format($cart->product->price,2,',','.')}}</p>
             </div>
 
             <div class="row-2">
@@ -95,7 +95,7 @@
           <div class="price">
             <p id="quantity-summary">{{ $sum->quantity }}</p>
             <p>x</p>
-            <p id="price-summary">Rp. {{ $sum->product->price }}</p>
+            <p id="price-summary">Rp. {{ $sum->product->price  }}</p>
           </div>
         </div>
         <div class="row-2">
@@ -109,12 +109,12 @@
       @endforeach
       <div class="total" id="total">
         <p>Total</p>
-        <p id="total-summary">Rp. {{ $total }}</p>
+        <p id="total-summary">Rp {{ number_format($total,0,',','.')}}</p>
       </div>
 
-      <div class="btn">
+      <div class="button">
         {{-- <button style="background-color: #3333; color: black; cursor: no-drop;" id="btn-con" disabled>Continue</button> --}}
-        <a href="{{ url('checkoutdetail') }}"><button>Continue</button></a>
+        <a href="{{ url('checkoutdetail') }}"><button @if ( $carts->count() === 0) style="background-color: #3333; color: black; cursor: no-drop;" id="btn-con" disabled @endif>Continue</button></a>
       </div>
     </div>
 
