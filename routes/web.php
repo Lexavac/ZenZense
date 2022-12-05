@@ -169,4 +169,3 @@ Route::get('/report-invoice', function () {
 })->name('report-invoice');
 
 Route::get('/product/detail/review/{product:slug?}', [ReviewController::class, 'show'])->name('product.review');
-

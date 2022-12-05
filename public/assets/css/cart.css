@@ -275,12 +275,12 @@ font-size: 18px;
 .total p{
   font-weight: 700;
 }
-.btn button{
+.button button{
   padding: 8px 10px;
   width: 400px;
   background-color: #5874AF;
   color: white;
-  border: 0.5px solid black;
+  border: none;
   border-radius: 5px;
   font-size: 18px;
   font-weight: 500;

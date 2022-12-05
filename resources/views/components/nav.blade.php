@@ -49,14 +49,14 @@
                                                     class="fa-solid fa-right-from-bracket"></i></a></li>
                                         <li>
                                         @else
-                                        <li><a class="dropdown-item user-setting" href="#">{{ Auth()->user()->name }}<i
+                                        <li><a class="dropdown-item user-setting" href="{{ url('profileC') }}">{{ Auth()->user()->name }}<i
                                                     class="fa-solid fa-user"></i></a>
                                         </li>
                                         <li>
                                             <form action="/logout" method="POST">
                                             @csrf
-                                                <button class="dropdown-item logout">Log Out
-                                                <i class="fa-solid fa-right-from-bracket"></i>
+                                                <button class="dropdown-item logout" id="logout">Log Out
+                                                <i class="fa-solid fa-right-from-bracket" id="logout"></i>
                                                 </button>
                                             </form>
                                         </li>

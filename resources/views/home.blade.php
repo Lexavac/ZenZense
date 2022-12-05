@@ -64,7 +64,7 @@
       </a>
     </div>
   </div>
-  <div class="featured-product">
+  <div class="featured-product" data-aos="fade-up">
     <h1>Featured Product</h1>
     <h2>This Week</h2>
     <div class="product">
@@ -76,7 +76,7 @@
           <h3>{{ $products->last()->name }}</h3>
         </div>
         <div class="price-featured">
-          <p>{{ 'Rp.'.$products->last()->price }}</p>
+          <p>Rp {{ number_format($products->last()->price,0,',','.') }}</p>
         </div>
         <div class="description">
           <p>{{ $products->last()->desc }}</p>
@@ -89,7 +89,7 @@
       </div>
     </div>
   </div>
-  <div class="our-product">
+  <div class="our-product" data-aos="fade-up">
     <h1>Our Product</h1>
       <div id="wrapper">
         <div id="carousel">
@@ -107,16 +107,18 @@
                       <p>{{ $product->major }}</p>
                     </div>
                     <div class="name-product">
-                      <a style="width: 150px; display:inline-block;" href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
+                      <a style="width: 150px; display:inline-block;" href="{{ route('product.show', $product->slug) }}">
+                        <p>{{ $product->name }}</p>
+                        </a>
                     </div>
                     <div class="row-price">
                       <div class="price">
-                        <p>Rp.{{ $product->price }}</p>
+                        <p>Rp {{ number_format($product->price,0,',','.') }}</p>
                       </div>
                       <div class="button-detail">
                         <button><i class="fa-solid fa-cart-shopping"></i></button>
                         <button>
-                          <iconify-icon class="heart" icon="akar-icons:heart"></iconify-icon>
+                          <i class="fa-regular fa-heart"></i>
                         </button>
                       </div>
                     </div>

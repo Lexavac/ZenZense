@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="main-price">
-        <p>Rp. {{ $product->price }}</p>
+        <p>Rp {{ number_format($product->price,0,',','.') }}</p>
       </div>
       <div class="info-product">
         <p>{{ $product->desc }}</p>
@@ -54,16 +54,21 @@
         </div>
       </div>
       <div class="profile">
-        <div class="profile-img">
-          <img src="{{ $seller->gallery->first()->getUrl() }}" alt="">
+        <div class="left-profile">
+          <div class="profile-img">
+            <img src="{{ $seller->gallery->first()->getUrl() }}" alt="">
+          </div>
+          <div class="profile-name">
+            <div class="name">
+              <p>{{ $seller->name }}</p>
+            </div>
+            <div class="count-product">
+              <p>{{ $product->quantity }} Product</p>
+            </div>
+          </div>  
         </div>
-        <div class="profile-name">
-          <div class="name">
-            <p>{{ $seller->name }}</p>
-          </div>
-          <div class="other">
-            <a href="{{ route('shop.show.profile', $seller->slug) }}">Visit Shop <i class="fa-solid fa-shop"></i></a>
-          </div>
+        <div class="other">
+          <a href="{{ route('shop.show.profile', $seller->slug) }}">Visit Shop <i class="fa-solid fa-shop"></i></a>
         </div>
       </div>
     </div>
@@ -184,7 +189,7 @@
       @endforeach
     </div>
   </div>
-  <div class="related">
+  <div class="related" data-aos="fade-up">
     <div class="related-title">
       <div class="related-text">
         <p>Related Product</p>

@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Tb_productcate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 
 class SController extends Controller
 {
@@ -14,6 +15,11 @@ class SController extends Controller
         $products = Product::with('category');
 
         $tags = [];
+        $favorites = [];
+
+        foreach(Auth()->user()->favorites as $favorite){
+            array_push($favorites, $favorite->products_id);
+        }
 
         if($request->BRF != null){
             $products->orWhere('major','=', 'BRF');
@@ -81,7 +87,7 @@ class SController extends Controller
 
         $products = $products->paginate();
 
-        return view('product',compact('products', 'tags'));
+        return view('product',compact('products', 'tags', 'favorites'));
 
 
     }
@@ -220,4 +226,5 @@ class SController extends Controller
 
         return view('product', compact('products','slug', 'tags'));
     }
+    
 }
