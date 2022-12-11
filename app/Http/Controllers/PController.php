@@ -8,6 +8,7 @@ use App\Models\ShopProfile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\payment\TripayController;
 
 class PController extends Controller
 {
@@ -46,4 +47,16 @@ class PController extends Controller
 
         return view('detail', compact('product',  'related_products', 'seller', 'ratings', 'star1', 'star2', 'star3', 'star4', 'star5', 'avg', 'avgsell'));
     }
+
+    public function checkout(Product $product, $id)
+    {
+        $products = Product::findOrFail($id);
+
+        $tripay = new TripayController();
+
+        $ps = $tripay->pay();
+
+        return view('ch', compact('products', 'ps'));
+    }
+
 }

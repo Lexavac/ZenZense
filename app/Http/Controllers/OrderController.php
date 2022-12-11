@@ -12,7 +12,7 @@ use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\Shipping;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\payment\TripayController;
 
 class OrderController extends Controller
 {
@@ -22,47 +22,54 @@ class OrderController extends Controller
         $carts = Cart::where('users_id', Auth()->id())->latest()->get();
 
         $prices = [];
-        
+
             foreach($carts as $cart){
                 $price = $cart->product->price;
-        
+
                 $subtotal = $price * $cart->quantity;
-        
+
                 array_push($prices, $subtotal);
             };
-        
-        
+
+
             $total = array_sum($prices);
-        
+
         $qty = Cart::all()->where('users_id',auth()->id())->sum('quantity');
-        
+
 
         return view('checkout-detail', compact('carts','total','qty'));
     }
 
-    public function payment()
+    public function payment(Product $product)
     {
+
+        $products = Product::all();
+
+        $tripay = new TripayController();
+
+        $ps = $tripay->pay();
+
 
         $carts = Cart::where('users_id', Auth()->id())->latest()->get();
 
         $prices = [];
-        
+
             foreach($carts as $cart){
                 $price = $cart->product->price;
-        
+
                 $subtotal = $price * $cart->quantity;
-        
+
                 array_push($prices, $subtotal);
             };
-        
-        
+
+
             $total = array_sum($prices);
-        
+
         $qty = Cart::all()->where('users_id',auth()->id())->sum('quantity');
 
         $products = Cart::where('users_id', auth()->id())->latest()->get();
 
-        return view('checkout-payments', compact('products', 'total', 'qty'));
+        return view('checkout-payments', compact('products', 'total', 'qty', 'ps'));
     }
 
     public function complete()
@@ -121,7 +128,7 @@ class OrderController extends Controller
 
         // Cart::where('user_ip', auth()->id())->delete();
         // return redirect()->back()->with('cart_update', 'Quantity Update');
-        
+
     }
 
     public function orderSuccess()

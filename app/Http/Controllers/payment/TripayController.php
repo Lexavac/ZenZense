@@ -38,7 +38,7 @@ class TripayController extends Controller
 
     }
 
-    public function ReqPayment($method, $product, $total)
+    public function ReqPayment($method, $Product, $total)
     {
 
 
@@ -55,14 +55,14 @@ class TripayController extends Controller
             'amount'         => $total,
             'customer_name'  => $user->name,
             'customer_email' => $user->email,
-            'customer_phone' => $user->profile->phoneNumber,
+            // 'customer_phone' => $user->profile->phoneNumber,
 
-            'order_items'    => $product,
+            'order_items'    => $Product,
 
             'expired_time' => (time() + (24 * 60 * 60)), // 24 jam
-            'signature'    => hash_hmac('sha256', $merchantCode.$merchantRef.$product->price, $privateKey)
+            'signature'    => hash_hmac('sha256', $merchantCode.$merchantRef.$total, $privateKey)
         ];
-
+        // dd($data);
         $curl = curl_init();
 
         curl_setopt_array($curl, [
@@ -81,7 +81,6 @@ class TripayController extends Controller
         $error = curl_error($curl);
 
         curl_close($curl);
-
 
         $response = json_decode($response)->data;
 
@@ -117,7 +116,7 @@ class TripayController extends Controller
         curl_close($curl);
 
         $response = json_decode($response)->data;
-        
+
         return $response ?: $error;
 
 

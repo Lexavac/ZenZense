@@ -36,11 +36,11 @@ use Illuminate\Support\Facades\Route;
     Route::get('/product/tag/{slug?}', [SController::class, 'tag'])->name('product.tag.filter');
 
     Route::get('/search/{slug?}', [SController::class, 'search'])->name('product.search');
-    
+
     Route::get('/detail', function () {
         return view('detail');
     })->name('detail');
-    
+
     Route::group(['middleware' => 'auth',  'prefix' => 'cart',  'as' => 'cart.'],function(){
         Route::get('/', [CartController::class, 'CartPage'])->name('cart');
         Route::get('/{product:id?}', [CartController::class, 'store'])->name('cart.store');
@@ -61,7 +61,7 @@ use Illuminate\Support\Facades\Route;
 
 
     route::get('/shop/profile/{slug?}', [ShopProfile::class, 'show'])->name('shop.show.profile');
-    
+
     Route::get('/setting', function () {
         return view('dashboard');
     });
@@ -182,3 +182,10 @@ Route::get('/report-invoice', function () {
 })->name('report-invoice');
 
 Route::get('/product/detail/review/{product:slug?}', [ReviewController::class, 'show'])->name('product.review');
+
+// API Payment
+Route::get('product/checkout/{id}', [App\Http\Controllers\PController::class, 'checkout'])->name('checkout');
+Route::get('checkout/transaction/{reference}', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction.detail');
+Route::post('checkout/transaction', [App\Http\Controllers\TransactionController::class, 'store'])->name('transaction-store');
+
+Route::post('/callback', [App\Http\Controllers\payment\TripayCallbackController::class, 'handle']);
